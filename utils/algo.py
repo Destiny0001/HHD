@@ -14,10 +14,10 @@ top_k = 1000
 batch_size = 10
 epochs = 100
 lr = 0.001
-weight_decay = 10 ** -5
+weight_decay = 5* 10 ** -4
 lambda1 = 0.01
 hash_bits = 64
-model_name = "vgg11"
+model_name = "resnet34"
 device = torch.device("cuda")
 
 # 数据加载
@@ -54,7 +54,7 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
 
             if accuracy > best_accuracy:
                 best_accuracy = accuracy
-                torch.save(model.state_dict(), f'./model/nr_{noise_rate}_model.pth')
+                torch.save(model.state_dict(), f'./model/nr_{noise_rate}_{model_name}.pth')
                 print(f"Model saved with accuracy: {best_accuracy:.2f}%")
 
         for iter, (inputs, labels) in enumerate(trainloader):
@@ -85,7 +85,7 @@ def main():
     trainloader, testloader = load_dataset()
 
     # 设定不同的噪声率
-    noise_rates = [0.4, 0.5, 0.6, 0.7, 0.8]
+    noise_rates = [0.0, 0.2, 0.4, 0.6, 0.8]
 
     for noise_rate in noise_rates:
         print(f"Training with noise_rate: {noise_rate}")

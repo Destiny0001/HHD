@@ -63,10 +63,39 @@ class HASH_Net(nn.Module):
             )
             self.model_name = 'vgg11'
 
+        if model_name == "resnet34":
+            original_model = models.resnet34(pretrained=True)
+            self.features = nn.Sequential(*list(original_model.children())[:-1])
+            # in_features depends on the output of the last convolution layer
+            in_features = original_model.fc.in_features
+            cl1 = nn.Linear(in_features, 4096)
+            cl2 = nn.Linear(4096, 4096)
+            cl3 = nn.Linear(4096, bit)
+            self.classifier = nn.Sequential(
+                nn.ReLU(inplace=True),
+                nn.Dropout(),
+                cl1,
+                nn.ReLU(inplace=True),
+                nn.Dropout(),
+                cl2,
+                nn.ReLU(inplace=True),
+                nn.Dropout(),
+                cl3,
+                nn.Tanh()
+            )
+            self.model_name = "resnet34"
+
+
+
+
+
     def forward(self, x):
         f = self.features(x)
         if self.model_name == 'alexnet':
             f = f.view(f.size(0), 256 * 6 * 6)
+            f = self.classifier(f)
+        elif self.model_name == 'resnet34':
+            f = torch.flatten(f, 1) 
             f = self.classifier(f)
         else:
             f = f.view(f.size(0), -1)

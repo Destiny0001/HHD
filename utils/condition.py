@@ -1,5 +1,41 @@
 import numpy as np
 
+dataset = 'cifar10'
+noise_path = None
+
+# please change it to your own datapath for CIFAR-N
+if noise_path is None:
+    if dataset == 'cifar10':
+        noise_path = './data/CIFAR-10_human.pt'
+    elif dataset == 'cifar100':
+        noise_path = './data/CIFAR-100_human.pt'
+    else:
+        pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def add_label_noise(labels, noise_rate=0.1, num_classes=10):
