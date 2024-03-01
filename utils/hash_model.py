@@ -37,7 +37,7 @@ class HASH_Net(nn.Module):
             )
             self.model_name = 'alexnet'
 
-        if model_name == "vgg11":
+        elif model_name == "vgg11":
             original_model = models.vgg11(pretrained)
             self.features = original_model.features
             cl1 = nn.Linear(25088, 4096)
@@ -63,7 +63,7 @@ class HASH_Net(nn.Module):
             )
             self.model_name = 'vgg11'
 
-        if model_name == "resnet34":
+        elif model_name == "resnet34":
             original_model = models.resnet34(pretrained=True)
             self.features = nn.Sequential(*list(original_model.children())[:-1])
             # in_features depends on the output of the last convolution layer
