@@ -13,7 +13,7 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 
-# 加载CIFAR-10数据集
+# 加载CIFAR-10N数据集
 def cifar10ntrainloader(noise_type, transforms, batchsize,  dataset='cifar10' ):
     if dataset == 'cifar10':
         noise_path = './data/cifarn/CIFAR-10_human.pt'
