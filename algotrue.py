@@ -1,14 +1,14 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-import hash_model as image_hash_model
+import utils.hash_model as image_hash_model
 import numpy as np
 import time
-from cac import test_accuracy
-from condition import add_label_noise
+from utils.cac import test_accuracy
+from utils.condition import add_label_noise
 import torch.optim as optim
 import torch.nn as nn
-from condition import cifar10ntrainloader
+from utils.condition import cifar10ntrainloader
 # 参数定义
 top_k = 1000
 batch_size = 64
@@ -96,7 +96,7 @@ def main():
     noise_types = ['clean_label','worse_label' ,'aggre_label','random_label1','random_label2','random_label3']
 
  # 加载标签哈希码
-    with open('../labels/64_cifar10_10_class.pkl', 'rb') as f:
+    with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
 

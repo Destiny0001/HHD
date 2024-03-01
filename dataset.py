@@ -6,16 +6,17 @@ from torchvision import datasets, transforms
 from torch.utils.data import Dataset
 
 class CIFAR10Custom(Dataset):
-    def __init__(self, root, train=True, transform=None, noise_type='sym', noise_rate=0.0, cifar10n_path=None):
+    def __init__(self, root, train=True, transform=None, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
         self.transform = transform
         self.dataset = datasets.CIFAR10(root=root, train=train, download=True, transform=transform)
         self.noise_type = noise_type
+        self.noise_rate= noise_rate
 
         if train:
             if noise_type == 'sym' and noise_rate > 0:
                 self.dataset.targets = self.add_label_noise(np.array(self.dataset.targets), noise_rate=noise_rate, num_classes=10)
             elif noise_type == 'asym' and noise_rate > 0:
-                self.dataset.targets = self.add_asymmetric_noise(np.array(self.dataset.targets), noise_rate=noise_rate)
+                self.dataset.targets = self.add_asymmetric_noise(np.array(self.dataset.targets))
             elif cifar10n_path and noise_type != 'clean':
                 self.load_cifarn_labels(cifar10n_path)
 
@@ -31,7 +32,7 @@ class CIFAR10Custom(Dataset):
         transition = {0:0, 2:0, 4:7, 7:7, 1:1, 9:1, 3:5, 5:3, 6:6, 8:8}
         noisy_labels = np.array(labels, copy=True)
         for i, label in enumerate(labels):
-            if np.random.rand() < self.r:  # 使用实例变量r作为噪声率
+            if np.random.rand() < self.noise_rate:  # 使用实例变量r作为噪声率
                 noisy_labels[i] = transition[label]
         return noisy_labels
 

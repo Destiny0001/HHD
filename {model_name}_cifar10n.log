@@ -1,0 +1,6 @@
+2024-03-01 19:44:39,162:INFO:Training Configuration: batch_size=64, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-01 19:44:53,278:INFO:Training Configuration: batch_size=64, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-01 19:45:41,373:INFO:Epoch 0, Test Accuracy: 7.69%
+2024-03-01 19:46:51,137:INFO:Training Configuration: batch_size=64, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-01 19:47:46,195:INFO:Epoch 0, Test Accuracy: 13.34%
+2024-03-01 19:47:46,418:INFO:Model saved with accuracy: 13.34%
