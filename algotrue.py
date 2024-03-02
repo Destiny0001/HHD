@@ -39,7 +39,7 @@ def load_dataset(noise_type, batch_size=256):
     trainloader = cifar10ntrainloader(noise_type,transform,batch_size)
 
     testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=False, transform=transform)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=True)
 
     test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
     test_loader = torch.utils.data.DataLoader(test_dataset.dataset, batch_size=batch_size, shuffle=False,num_workers =30)
@@ -115,7 +115,7 @@ def main():
     
 
     # 设定不同的噪声率
-    noise_types = ['clean_label','worse_label' ,'aggre_label','random_label1','random_label2','random_label3']
+    noise_types = ['worse_label' ,'aggre_label','random_label1','random_label2','random_label3','clean_label']
 
  # 加载标签哈希码
     with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:

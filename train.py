@@ -20,9 +20,7 @@ device = torch.device("cuda")
 
 
 
-
-
-def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
+def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 20):
     # 定义数据转换
     transform = transforms.Compose([
         transforms.Resize(256),
@@ -33,7 +31,7 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
 
     # 使用CIFAR10Custom类加载数据集
     train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=False, num_workers = num_workers)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
 
     test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = num_workers)
@@ -89,7 +87,7 @@ def test_nr(noisetype = 'asym'):
     label_hash_codes.to(device)
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
-    noise_rates = [0.0, 0.2,0.4,0.6,0.8]
+    noise_rates = [0.4,0.2, 0.6,0.8]
     # 加载模型
     model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
     
@@ -109,7 +107,7 @@ def test_cifarn():
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
     
-    noise_types = ['clean_label','worse_label','aggre_label','random_label1', 'random_label2', 'random_label3']
+    noise_types = ['worse_label','aggre_label','random_label1', 'random_label2', 'random_label3','clean_label']
     #noise_rates = [0.2,0.4,0.6,0.8,0.0]
     # 加载模型
     model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
