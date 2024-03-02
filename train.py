@@ -52,6 +52,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
         model.train()
         scheduler.step()
         for iter, (inputs, labels) in enumerate(trainloader):
+         
             labels = torch.from_numpy(np.array(labels))
             inputs= inputs.to(device)
             outputs = model(inputs)
@@ -82,8 +83,8 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
         if device == torch.device("cuda"):
             torch.cuda.empty_cache()
 
-def test_nr(noise_type = 'asym'):
-    logging.basicConfig(filename=f'./logs/{model_name}_{noise_type}_test_nr.log', level=logging.INFO,
+def test_nr(noisetype = 'asym'):
+    logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
     logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
      # 加载标签哈希码
@@ -95,12 +96,12 @@ def test_nr(noise_type = 'asym'):
     noise_rates = [0.4,0.6,0.8,0.0, 0.2]
     # 加载模型
     model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
-    noise_type = noise_type
+    
     for noise_rate in noise_rates:
-        trainloader, testloader = load_dataset(noise_type=noise_type, batch_size=batch_size, noise_rate=noise_rate)
-        logging.info(f'Start Training with noise rate: {noise_type}-{noise_rate}')
+        trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
+        logging.info(f'Start Training with: {noisetype}-{noise_rate}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
-        logging.info(f'Finished Training with noise rate: {noise_type}-{noise_rate}')
+        logging.info(f'Finished Training with: {noisetype}-{noise_rate}')
     
 
 
@@ -126,5 +127,4 @@ def test_cifarn():
         logging.info(f'Finished Training with: {noise_type}-{noise_rate}')
 
 if __name__ == '__main__':
-
-    test_cifarn()
+    test_nr()

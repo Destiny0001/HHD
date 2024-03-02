@@ -9,6 +9,7 @@ from utils.condition import add_label_noise
 import torch.optim as optim
 import torch.nn as nn
 from utils.condition import cifar10ntrainloader
+from dataset import CIFAR10Custom
 # 参数定义
 top_k = 1000
 batch_size = 256
@@ -23,7 +24,7 @@ import logging
 
 # 设置日志记录
 
-logging.basicConfig(filename='{model_name}_cifar10n.log', level=logging.INFO,
+logging.basicConfig(filename=f'{model_name}_cifar10n.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
 # 数据加载
@@ -38,9 +39,30 @@ def load_dataset(noise_type, batch_size=256):
     trainloader = cifar10ntrainloader(noise_type,transform,batch_size)
 
     testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=False, transform=transform)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=30)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False)
 
-    return trainloader, testloader
+    test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
+    test_loader = torch.utils.data.DataLoader(test_dataset.dataset, batch_size=batch_size, shuffle=False,num_workers =30)
+
+
+    return trainloader, test_loader
+
+def load_dataset2(noise_type, noise_rate=0.0, batch_size=batch_size, num_workers = 20):
+    # 使用CIFAR10Custom类加载数据集
+    train_cifar10_transform = transforms.Compose([
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+    
+    train_dataset = CIFAR10Custom(root='./data', train=True, transform=train_cifar10_transform, noise_type=noise_type, noise_rate=noise_rate)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
+
+    test_dataset = CIFAR10Custom(root='./data', train=False, transform=train_cifar10_transform)
+    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = num_workers)
+
+    return train_loader, test_loader
 
 # 模型训练
 def train_model(model, trainloader, testloader, label_hash_codes, noise_type):

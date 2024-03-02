@@ -17,7 +17,7 @@ class CIFAR10Custom(Dataset):
                 self.dataset.targets = self.add_label_noise(np.array(self.dataset.targets), noise_rate=noise_rate, num_classes=10)
             elif noise_type == 'asym':
                 self.dataset.targets = self.add_asymmetric_noise(np.array(self.dataset.targets))
-            elif cifar10n_path and noise_type != 'clean':
+            elif cifar10n_path:
                 self.dataset.targets = self.load_cifarn_labels(cifar10n_path)
 
     def add_label_noise(self, labels, noise_rate, num_classes=10):
@@ -41,6 +41,9 @@ class CIFAR10Custom(Dataset):
         cifarn_labels = torch.load(cifar10n_path)[self.noise_type]
         return cifarn_labels
 
+        cifarn_labels = torch.load(cifar10n_path)[self.noise_type]
+        return cifarn_labels
+    
     def __len__(self):
         return len(self.dataset)
 

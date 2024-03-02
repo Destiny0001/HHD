@@ -5,3 +5,5 @@
 utils/data/
 
 *.pth
+
+*.pyc
