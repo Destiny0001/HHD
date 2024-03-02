@@ -1,0 +1,9 @@
+2024-03-02 22:31:21,220:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-02 22:31:45,536:INFO:Epoch 0, Test Accuracy: 10.73%
+2024-03-02 22:31:49,519:INFO:Model saved with accuracy: 10.73%
+2024-03-02 22:32:59,443:INFO:Epoch 1, Test Accuracy: 86.34%
+2024-03-02 22:33:01,902:INFO:Model saved with accuracy: 86.34%
+2024-03-02 22:34:05,228:INFO:Epoch 2, Test Accuracy: 87.13%
+2024-03-02 22:34:09,516:INFO:Model saved with accuracy: 87.13%
+2024-03-02 22:35:13,143:INFO:Epoch 3, Test Accuracy: 87.22%
+2024-03-02 22:35:16,914:INFO:Model saved with accuracy: 87.22%

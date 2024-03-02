@@ -93,7 +93,7 @@ def main():
     
 
     # 设定不同的噪声率
-    noise_types = ['clean_label','worse_label' ,'aggre_label','random_label1','random_label2','random_label3']
+    noise_types = ['worse_label' ,'aggre_label','random_label1','random_label2','random_label3','clean_label']
 
  # 加载标签哈希码
     with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
