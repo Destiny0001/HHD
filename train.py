@@ -12,34 +12,30 @@ import time
 batch_size = 256
 epochs = 100
 lr = 0.01
-weight_decay = 1e-5
+weight_decay = 10 ** -5
 lambda1 = 0.01
-hash_bits = 128
+hash_bits = 64
 model_name = "resnet34"
 device = torch.device("cuda")
 
 
 
-# 定义数据转换
-transform = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(224),
-    transforms.ToTensor(),
-    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-])
-train_cifar10_transform = transforms.Compose([
-    transforms.RandomCrop(32, padding=4), 
-    transforms.RandomHorizontalFlip(),
-    transforms.ToTensor(),
-    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-])
 
-def load_dataset(noise_type, noise_rate=0.0, batch_size=batch_size, num_workers = 60):
+
+def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
+    # 定义数据转换
+    transform = transforms.Compose([
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+
     # 使用CIFAR10Custom类加载数据集
-    train_dataset = CIFAR10Custom(root='./data', train=True, transform=train_cifar10_transform, noise_type=noise_type, noise_rate=noise_rate)
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
+    train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=False, num_workers = num_workers)
 
-    test_dataset = CIFAR10Custom(root='./data', train=False, transform=train_cifar10_transform)
+    test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = num_workers)
 
     return train_loader, test_loader
@@ -48,11 +44,12 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size=batch_size, num_workers 
 def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
     model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.3, last_epoch=-1)
     best_accuracy = 0.0
   
     for epoch in range(epochs):
         model.train()
-      
+        scheduler.step()
         for iter, (inputs, labels) in enumerate(trainloader):
             labels = torch.from_numpy(np.array(labels))
             inputs= inputs.to(device)
@@ -111,7 +108,7 @@ def test_cifarn():
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
     
-    noise_types = ['worse_label','aggre_label','random_label1', 'random_label2', 'random_label3','clean_label']
+    noise_types = ['clean_label','worse_label','aggre_label','random_label1', 'random_label2', 'random_label3']
     #noise_rates = [0.2,0.4,0.6,0.8,0.0]
     # 加载模型
     model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)

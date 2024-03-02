@@ -13,14 +13,14 @@ class CIFAR10Custom(Dataset):
         self.noise_rate= noise_rate
 
         if train:
-            if noise_type == 'sym' and noise_rate > 0:
+            if noise_type == 'sym':
                 self.dataset.targets = self.add_label_noise(np.array(self.dataset.targets), noise_rate=noise_rate, num_classes=10)
-            elif noise_type == 'asym' and noise_rate > 0:
+            elif noise_type == 'asym':
                 self.dataset.targets = self.add_asymmetric_noise(np.array(self.dataset.targets))
             elif cifar10n_path and noise_type != 'clean':
-                self.load_cifarn_labels(cifar10n_path)
+                self.dataset.targets = self.load_cifarn_labels(cifar10n_path)
 
-    def add_label_noise(self, labels, noise_rate=0.1, num_classes=10):
+    def add_label_noise(self, labels, noise_rate, num_classes=10):
         noisy_labels = np.array(labels, copy=True)
         n_noisy = int(noise_rate * len(labels))
         noisy_indices = np.random.choice(len(labels), n_noisy, replace=False)
@@ -38,12 +38,15 @@ class CIFAR10Custom(Dataset):
 
 
     def load_cifarn_labels(self, cifar10n_path):
-        with open(cifar10n_path, 'rb') as f:
-            cifarn_labels = torch.load(f)[self.noise_type]
-            self.dataset.targets = cifarn_labels
+        cifarn_labels = torch.load(cifar10n_path)[self.noise_type]
+        return cifarn_labels
 
     def __len__(self):
         return len(self.dataset)
 
     def __getitem__(self, idx):
-        return self.dataset[idx]
+            # 获取数据和标签
+        image, label = self.dataset[idx]
+
+        # 返回转换后的图像和标签
+        return image, label
