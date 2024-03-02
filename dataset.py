@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 class CIFAR10Custom(Dataset):
     def __init__(self, root, train=True, transform=None, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
         self.transform = transform
-        self.dataset = datasets.CIFAR10(root=root, train=train, download=True, transform=transform)
+        self.dataset = datasets.CIFAR10(root=root, train=train, download=False, transform=transform)
         self.noise_type = noise_type
         self.noise_rate= noise_rate
 
