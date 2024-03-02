@@ -107,3 +107,48 @@
 2024-03-02 16:42:18,873:INFO:Epoch 36: Test Accuracy: 89.58%
 2024-03-02 16:43:50,044:INFO:Epoch 37: Test Accuracy: 91.0%
 2024-03-02 16:45:24,040:INFO:Epoch 38: Test Accuracy: 90.93%
+2024-03-02 16:47:02,440:INFO:Epoch 39: Test Accuracy: 89.7%
+2024-03-02 16:48:37,553:INFO:Epoch 40: Test Accuracy: 90.29%
+2024-03-02 16:49:35,041:INFO:Epoch 41: Test Accuracy: 90.24%
+2024-03-02 16:50:28,334:INFO:Epoch 42: Test Accuracy: 90.6%
+2024-03-02 16:51:21,149:INFO:Epoch 43: Test Accuracy: 90.83%
+2024-03-02 16:52:14,005:INFO:Epoch 44: Test Accuracy: 90.49%
+2024-03-02 16:53:06,608:INFO:Epoch 45: Test Accuracy: 10.0%
+2024-03-02 16:53:59,048:INFO:Epoch 46: Test Accuracy: 10.0%
+2024-03-02 16:54:51,361:INFO:Epoch 47: Test Accuracy: 10.0%
+2024-03-02 16:55:43,385:INFO:Epoch 48: Test Accuracy: 10.0%
+2024-03-02 16:56:35,722:INFO:Epoch 49: Test Accuracy: 10.0%
+2024-03-02 16:57:28,149:INFO:Epoch 50: Test Accuracy: 10.0%
+2024-03-02 16:58:20,527:INFO:Epoch 51: Test Accuracy: 10.0%
+2024-03-02 16:59:11,888:INFO:Epoch 52: Test Accuracy: 10.0%
+2024-03-02 17:00:03,914:INFO:Epoch 53: Test Accuracy: 10.0%
+2024-03-02 17:05:25,038:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=128, model_name=resnet34, device=cuda
+2024-03-02 17:05:27,036:INFO:Start Training with: worse_label-0.0
+2024-03-02 17:06:18,985:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=128, model_name=resnet34, device=cuda
+2024-03-02 17:06:20,860:INFO:Start Training with: worse_label-0.0
+2024-03-02 17:07:40,412:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=128, model_name=resnet34, device=cuda
+2024-03-02 17:07:42,254:INFO:Start Training with: worse_label-0.0
+2024-03-02 17:08:13,355:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=128, model_name=resnet34, device=cuda
+2024-03-02 17:08:15,214:INFO:Start Training with: worse_label-0.0
+2024-03-02 17:09:52,895:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=128, model_name=resnet34, device=cuda
+2024-03-02 17:09:54,758:INFO:Start Training with: worse_label-0.0
+2024-03-02 17:10:03,704:INFO:Epoch 0: Test Accuracy: 12.74%
+2024-03-02 17:10:07,343:INFO:Model saved with accuracy: 12.74%
+2024-03-02 17:10:15,754:INFO:Epoch 1: Test Accuracy: 24.46%
+2024-03-02 17:10:19,533:INFO:Model saved with accuracy: 24.46%
+2024-03-02 17:10:28,330:INFO:Epoch 2: Test Accuracy: 27.52%
+2024-03-02 17:10:32,151:INFO:Model saved with accuracy: 27.52%
+2024-03-02 17:10:40,985:INFO:Epoch 3: Test Accuracy: 33.76%
+2024-03-02 17:10:44,476:INFO:Model saved with accuracy: 33.76%
+2024-03-02 17:10:52,779:INFO:Epoch 4: Test Accuracy: 43.84%
+2024-03-02 17:10:56,234:INFO:Model saved with accuracy: 43.84%
+2024-03-02 17:11:04,805:INFO:Epoch 5: Test Accuracy: 48.63%
+2024-03-02 17:11:09,276:INFO:Model saved with accuracy: 48.63%
+2024-03-02 17:11:18,085:INFO:Epoch 6: Test Accuracy: 52.82%
+2024-03-02 17:11:22,363:INFO:Model saved with accuracy: 52.82%
+2024-03-02 17:11:31,036:INFO:Epoch 7: Test Accuracy: 57.02%
+2024-03-02 17:11:34,886:INFO:Model saved with accuracy: 57.02%
+2024-03-02 17:11:43,585:INFO:Epoch 8: Test Accuracy: 61.11%
+2024-03-02 17:11:47,675:INFO:Model saved with accuracy: 61.11%
+2024-03-02 17:11:55,977:INFO:Epoch 9: Test Accuracy: 62.53%
+2024-03-02 17:11:59,244:INFO:Model saved with accuracy: 62.53%

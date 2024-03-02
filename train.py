@@ -9,12 +9,12 @@ import utils.hash_model as image_hash_model # 确保您的hash_model模块包含
 from utils.cac import test_accuracy # 确保test_accuracy函数可以从cac模块导入
 import time
 # 参数定义
-batch_size = 128
+batch_size = 256
 epochs = 100
 lr = 0.01
 weight_decay = 1e-5
 lambda1 = 0.01
-hash_bits = 64
+hash_bits = 128
 model_name = "resnet34"
 device = torch.device("cuda")
 
@@ -27,19 +27,25 @@ transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
+train_cifar10_transform = transforms.Compose([
+    transforms.RandomCrop(32, padding=4), 
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+])
 
-def load_dataset(noise_type, noise_rate=0.0, batch_size=64):
+def load_dataset(noise_type, noise_rate=0.0, batch_size=batch_size, num_workers = 20):
     # 使用CIFAR10Custom类加载数据集
-    train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = 80)
+    train_dataset = CIFAR10Custom(root='./data', train=True, transform=train_cifar10_transform, noise_type=noise_type, noise_rate=noise_rate)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
 
-    test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
-    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = 80)
+    test_dataset = CIFAR10Custom(root='./data', train=False, transform=train_cifar10_transform)
+    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = num_workers)
 
     return train_loader, test_loader
 
 # 模型训练函数
-def train_model(model, trainloader, testloader,label_hash_codes, epochs=100):
+def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
     model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
     best_accuracy = 0.0
@@ -76,37 +82,37 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=100):
         if device == torch.device("cuda"):
             torch.cuda.empty_cache()
 
-def test_nr(noise_type = 'asym'):
-    logging.basicConfig(filename=f'./logs/{model_name}_{noise_type}_test_nr.log', level=logging.INFO,
+def test_nr(noisetype = 'asym'):
+    logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
     logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
      # 加载标签哈希码
-    with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
+    with open(f'./labels/{hash_bits}_cifar10_10_class.pkl', 'rb') as f:
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
-    noise_rates = [0.2,0.4,0.6,0.8,0.0]
+    noise_rates = [0.0, 0.2,0.4,0.6,0.8]
     # 加载模型
     model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
-    noise_type = noise_type
+    
     for noise_rate in noise_rates:
-        trainloader, testloader = load_dataset(noise_type=noise_type, batch_size=batch_size, noise_rate=noise_rate)
-        logging.info(f'Start Training with noise rate: {noise_type}-{noise_rate}')
+        trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
+        logging.info(f'Start Training with: {noisetype}-{noise_rate}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
-        logging.info(f'Finished Training with noise rate: {noise_type}-{noise_rate}')
+        logging.info(f'Finished Training with: {noisetype}-{noise_rate}')
+    
 
 
 def test_cifarn():
     logging.basicConfig(filename=f'./logs/{model_name}_test_cifarn.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
     logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
-     # 加载标签哈希码
-    with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
+    with open(f'./labels/{hash_bits}_cifar10_10_class.pkl', 'rb') as f:
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
     
-    noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
+    noise_types = ['worse_label','aggre_label','random_label1', 'random_label2', 'random_label3','clean_label']
     #noise_rates = [0.2,0.4,0.6,0.8,0.0]
     # 加载模型
     model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
@@ -119,5 +125,4 @@ def test_cifarn():
         logging.info(f'Finished Training with: {noise_type}-{noise_rate}')
 
 if __name__ == '__main__':
-
-    test_cifarn()
+    test_nr()

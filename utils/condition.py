@@ -33,7 +33,7 @@ def cifar10ntrainloader(noise_type, transforms, batchsize,  dataset='cifar10' ):
     trainset.targets = noisy_labels
 
     # 创建DataLoader
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batchsize, shuffle=True)
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batchsize, shuffle=True, num_workers= 30)
 
     return trainloader
 
