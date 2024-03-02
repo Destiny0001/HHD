@@ -11,7 +11,7 @@ import torch.nn as nn
 from utils.condition import cifar10ntrainloader
 # 参数定义
 top_k = 1000
-batch_size = 64
+batch_size = 128
 epochs = 100
 lr = 0.01
 weight_decay = 10 ** -5
@@ -27,7 +27,7 @@ logging.basicConfig(filename='{model_name}_cifar10n.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
 # 数据加载
-def load_dataset(noise_type, batch_size=64):
+def load_dataset(noise_type, batch_size=batch_size):
     transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),

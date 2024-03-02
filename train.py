@@ -9,7 +9,7 @@ import utils.hash_model as image_hash_model # 确保您的hash_model模块包含
 from utils.cac import test_accuracy # 确保test_accuracy函数可以从cac模块导入
 import time
 # 参数定义
-batch_size = 64
+batch_size = 256
 epochs = 100
 lr = 0.01
 weight_decay = 1e-5
@@ -28,19 +28,19 @@ transform = transforms.Compose([
     transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
 
-def load_dataset(noise_type, noise_rate, batch_size=64):
+def load_dataset(noise_type, noise_rate, batch_size=batch_size, num_workers = 10):
     # 使用CIFAR10Custom类加载数据集
     train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
 
     test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
-    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers = num_workers)
 
     return train_loader, test_loader
 
 # 模型训练函数
 def train_model(model, trainloader, testloader,label_hash_codes, epochs=100):
-    print('starttrain',time.time())
+  
     model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
     best_accuracy = 0.0
@@ -49,7 +49,6 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=100):
         model.train()
       
         for iter, (inputs, labels) in enumerate(trainloader):
-            print(iter)
          
             labels = torch.from_numpy(np.array(labels))
             inputs= inputs.to(device)
@@ -73,9 +72,12 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=100):
             print(f'Epoch {epoch}/{epochs}, Test Accuracy: {accuracy}%')
         if accuracy > best_accuracy:
             best_accuracy = accuracy
-            torch.save(model.state_dict(), f'./model/nt_{trainloader.noise_type}_{model_name}.pth')
+            torch.save(model.state_dict(), f'./model/nt_{trainloader.dataset.noise_type}_{model_name}.pth')
             print(f"Model saved with accuracy: {best_accuracy:.2f}%")
             logging.info(f"Model saved with accuracy: {best_accuracy:.2f}%")
+
+        if device == torch.device("cuda"):
+            torch.cuda.empty_cache()
 
 def main():
      # 加载标签哈希码
