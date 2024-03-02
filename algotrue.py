@@ -28,7 +28,7 @@ logging.basicConfig(filename=f'{model_name}_cifar10n.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
 # 数据加载
-def load_dataset(noise_type, batch_size=batch_size):
+def load_dataset(noise_type, batch_size=256):
     transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
@@ -39,7 +39,7 @@ def load_dataset(noise_type, batch_size=batch_size):
     trainloader = cifar10ntrainloader(noise_type,transform,batch_size)
 
     testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=False, transform=transform)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers = 30)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False)
 
     test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
     test_loader = torch.utils.data.DataLoader(test_dataset.dataset, batch_size=batch_size, shuffle=False,num_workers =30)
@@ -123,7 +123,7 @@ def main():
     label_hash_codes.to(device)
 
     for noise_type in noise_types:
-        trainloader, testloader = load_dataset2(noise_type=noise_type)
+        trainloader, testloader = load_dataset(batch_size=batch_size, noise_type=noise_type)
         # 初始化模型
         model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
 
