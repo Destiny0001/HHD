@@ -11,7 +11,7 @@ import torch.nn as nn
 from condition import cifar10ntrainloader
 # 参数定义
 top_k = 1000
-batch_size = 64
+batch_size = 128
 epochs = 100
 lr = 0.01
 weight_decay = 10 ** -5
@@ -23,7 +23,7 @@ import logging
 
 # 设置日志记录
 
-logging.basicConfig(filename='{model_name}_cifar10n.log', level=logging.INFO,
+logging.basicConfig(filename=f'{model_name}_cifar10n.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
 # 数据加载
@@ -45,7 +45,7 @@ def load_dataset(noise_type, batch_size=64):
 # 模型训练
 def train_model(model, trainloader, testloader, label_hash_codes, noise_type):
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9)
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.3, last_epoch=-1)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=80, gamma=0.3, last_epoch=-1)
 
     total_loss = []
     accuracy_list = []
