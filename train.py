@@ -23,7 +23,11 @@ device = torch.device("cuda")
 
 
 
+<<<<<<< HEAD
 def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
+=======
+def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 20):
+>>>>>>> refs/remotes/origin/Task2
     # 定义数据转换
     transform = transforms.Compose([
         transforms.Resize(256),
@@ -45,8 +49,12 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
 def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
     model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
+<<<<<<< HEAD
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.8, last_epoch=-1)
     #scheduler = WarmupLR(optimizer,warmup_epochs=20,initial_lr=0.002)
+=======
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.3, last_epoch=-1)
+>>>>>>> refs/remotes/origin/Task2
     best_accuracy = 0.0
   
     for epoch in range(epochs):
@@ -61,7 +69,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
             if(epoch<6):
                 outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, False)
             else:
-                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, True)
+                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, False)
             cat_codes = label_hash_codes[labels.cpu()].to(device) 
             center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
             Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
@@ -83,7 +91,11 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
         if device == torch.device("cuda"):
             torch.cuda.empty_cache()
 
+<<<<<<< HEAD
 def test_nr(noisetype = None):
+=======
+def test_nr(noisetype = 'sym'):
+>>>>>>> refs/remotes/origin/Task2
     device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -115,8 +127,13 @@ def test_cifarn():
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
     
+<<<<<<< HEAD
     noise_types = ['worse_label','aggre_label','random_label1', 'random_label2', 'random_label3','clean_label']
     #noise_rates = [0.8,0.4,0.6,0.2,0.0]
+=======
+    noise_types = ['aggre_label','random_label1','worse_label','random_label2', 'random_label3','clean_label']
+    #noise_rates = [0.2,0.4,0.6,0.8,0.0]
+>>>>>>> refs/remotes/origin/Task2
     
 
     for noise_type in noise_types:
@@ -130,4 +147,8 @@ def test_cifarn():
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     test_nr("sym")
+=======
+    test_cifarn()
+>>>>>>> refs/remotes/origin/Task2

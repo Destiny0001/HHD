@@ -60,7 +60,23 @@ def add_label_noise(labels, noise_rate=0.1, num_classes=10):
     
     return labels
 
+def add_asymmetric_noise(labels, noise_rate):
+    transition = {0:0, 2:0, 4:7, 7:7, 1:1, 9:1, 3:5, 5:3, 6:6, 8:8}
+    noisy_labels = np.array(labels, copy=True)
+    for i, label in enumerate(labels):
+        if np.random.rand() < noise_rate:  # 使用实例变量r作为噪声率
+            noisy_labels[i] = transition[label]
+    return noisy_labels
+
+
+
+
+
+
+
+
 '''
+
 
 noise_file = torch.load(noise_path)
 clean_label = noise_file['clean_label']

@@ -41,7 +41,7 @@ class CIFAR10Custom(Dataset):
         cifarn_labels = torch.load(cifar10n_path)[self.noise_type]
         return cifarn_labels
 
-
+    
     def __len__(self):
         return len(self.dataset)
 
