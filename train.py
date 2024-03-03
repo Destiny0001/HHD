@@ -9,6 +9,8 @@ import utils.hash_model as image_hash_model # 确保您的hash_model模块包含
 from utils.cac import test_accuracy # 确保test_accuracy函数可以从cac模块导入
 import time
 from utils.denoise import label_refurb
+from utils.lr_scheduler import WarmupLR
+
 # 参数定义
 batch_size = 256
 epochs = 100
@@ -21,7 +23,7 @@ device = torch.device("cuda")
 
 
 
-def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 20):
+def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
     # 定义数据转换
     transform = transforms.Compose([
         transforms.Resize(256),
@@ -41,9 +43,9 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 20):
 
 # 模型训练函数
 def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
-    model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.3, last_epoch=-1)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.8, last_epoch=-1)
+    #scheduler = WarmupLR(optimizer,warmup_epochs=20,initial_lr=0.002)
     best_accuracy = 0.0
   
     for epoch in range(epochs):
@@ -65,7 +67,6 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
             loss = center_loss + lambda1*Q_loss
             optimizer.zero_grad()
             loss.backward()
-      
             optimizer.step()
 
         # 计算测试集上的准确率
@@ -78,10 +79,10 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
             torch.save(model.state_dict(), f'./model/nt_{trainloader.dataset.noise_type}_{model_name}.pth')
             print(f"Model saved with accuracy: {best_accuracy:.2f}%")
             logging.info(f"Model saved with accuracy: {best_accuracy:.2f}%")
-        if device == torch.device("cuda"):
-            torch.cuda.empty_cache()
+      
 
-def test_nr(noisetype = 'sym'):
+      
+def test_nr(noisetype = None):
     device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -92,7 +93,7 @@ def test_nr(noisetype = 'sym'):
     label_hash_codes.to(device)
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
-    noise_rates = [0.2,0.4,0.6,0.8,0.0]
+    noise_rates = [0.8,0.4,0.6,0.2,0.0]
     
     for noise_rate in noise_rates:
          # 加载模型
@@ -126,5 +127,27 @@ def test_cifarn():
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
         logging.info(f'Finished Training with: {noise_type}-{noise_rate}')
 
+def test_hashbits():
+    device = torch.device("cuda")
+    logging.basicConfig(filename=f'./logs/{model_name}_test_hashbits.log', level=logging.INFO,
+                    format='%(asctime)s:%(levelname)s:%(message)s')
+    logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
+    with open(f'./labels/{hash_bits}_cifar10_10_class.pkl', 'rb') as f:
+        label_hash_codes = torch.load(f)
+    label_hash_codes.to(device)
+    
+    hashbits = [16,32,64,128]
+    
+
+    for hashbit in hashbits:
+        # 加载模型
+        model = image_hash_model.HASH_Net(model_name, hashbit).to(device)
+        trainloader, testloader = load_dataset(noise_type='sym', noise_rate=0.4,batch_size=batch_size)
+        logging.info(f'Start Training with hash_bits: {hashbit}')
+        train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
+        logging.info(f'Finished Training with hash_bits: {hashbit}')
+
+ 
+
 if __name__ == '__main__':
-    test_cifarn()
+    test_nr("sym")

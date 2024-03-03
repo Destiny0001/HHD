@@ -12,18 +12,18 @@ import logging
 from dataset import CIFAR10Custom 
 # 设置日志记录
 
-logging.basicConfig(filename='./logs/training_log.log', level=logging.INFO,
+logging.basicConfig(filename='./logs/algotest.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 # 参数定义
 top_k = 1000
-batch_size = 64
+batch_size = 256
 epochs = 100
 lr = 0.01
 weight_decay = 10 ** -5
 lambda1 = 0.01
-hash_bits = 64
+hash_bits = 128
 model_name = "resnet34"
 device = torch.device("cuda")
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
@@ -57,6 +57,7 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
     best_accuracy = 0.0
 
     for epoch in range(epochs):
+        #model.train()
         scheduler.step()
         if epoch % 1 == 0:
             accuracy = test_accuracy(model, testloader, label_hash_codes, device)
@@ -70,12 +71,14 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
                 torch.save(model.state_dict(), f'./model/nr_{noise_rate}_{model_name}.pth')
                 print(f"Model saved with accuracy: {best_accuracy:.2f}%")
                 logging.info(f"Model saved with accuracy: {best_accuracy:.2f}%")
+            if device == torch.device("cuda"):
+                torch.cuda.empty_cache()
 
         for iter, (inputs, labels) in enumerate(trainloader):
           #  labels = torch.from_numpy(labels)
             #labels = add_label_noise(labels.numpy(), noise_rate=noise_rate, num_classes=10)
-            labels = add_asymmetric_noise(labels.numpy(), noise_rate=noise_rate)
-            labels = torch.from_numpy(labels)
+            #labels = add_asymmetric_noise(labels.numpy(), noise_rate=noise_rate)
+            #labels = torch.from_numpy(labels)
             inputs= inputs.to(device)
             outputs = model(inputs)
             cat_codes = label_hash_codes[labels].to(device) 
@@ -99,18 +102,17 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
 def main():
 
     # 设定不同的噪声率
-    noise_rates = [0.4, 0.6, 0.8,0.0, 0.2]
+    noise_rates = [0.8, 0.6, 0.4,0.0, 0.2]
 
  # 加载标签哈希码
-    with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
+    with open(f'./labels/{hash_bits}_cifar10_10_class.pkl', 'rb') as f:
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
 
     for noise_rate in noise_rates:
-        trainloader, testloader = load_dataset(noise_type='asym', noise_rate=0.0, batch_size= 256, num_workers = 20)
+        trainloader, testloader = load_dataset(noise_type='sym', noise_rate=noise_rate, batch_size= batch_size, num_workers = 20)
         print(f"Training with noise_rate: {noise_rate}")
-        
-    
+        logging.info(f"Training with noise_rate: {noise_rate}")
         # 初始化模型
         model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
 

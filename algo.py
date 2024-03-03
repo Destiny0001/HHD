@@ -12,18 +12,18 @@ import logging
 
 # 设置日志记录
 
-logging.basicConfig(filename='./logs/training_log.log', level=logging.INFO,
+logging.basicConfig(filename='./logs/algo.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
 
 # 参数定义
 top_k = 1000
-batch_size = 64
+batch_size = 256
 epochs = 100
 lr = 0.01
 weight_decay = 10 ** -5
 lambda1 = 0.01
-hash_bits = 64
+hash_bits = 128
 model_name = "resnet34"
 device = torch.device("cuda")
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
@@ -87,8 +87,6 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
             #total_loss.append(loss.item())
             total_loss.append(loss.data.to(device).numpy)
 
-            if iter % 500 == 0:
-                print(f'Epoch: {epoch}, Iter: {iter}, Loss: {loss}')
 
     return total_loss, accuracy_list
 
@@ -96,10 +94,10 @@ def main():
     trainloader, testloader = load_dataset()
 
     # 设定不同的噪声率
-    noise_rates = [0.8, 0.2,0.4, 0.6,0.0]
+    noise_rates = [0.8, 0.2, 0.4, 0.6, 0.0]
 
  # 加载标签哈希码
-    with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
+    with open(f'./labels/{hash_bits}_cifar10_10_class.pkl', 'rb') as f:
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
 

@@ -32,7 +32,7 @@ class CIFAR10Custom(Dataset):
         transition = {0:0, 2:0, 4:7, 7:7, 1:1, 9:1, 3:5, 5:3, 6:6, 8:8}
         noisy_labels = np.array(labels, copy=True)
         for i, label in enumerate(labels):
-            if np.random.rand() < self.noise_rate:  # 使用实例变量r作为噪声率
+            if np.random.rand() < self.noise_rate: 
                 noisy_labels[i] = transition[label]
         return noisy_labels
 

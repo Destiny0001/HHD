@@ -1,5 +1,8 @@
 import torch
 import numpy as np
+from fvcore.nn import FlopCountAnalysis
+from torchsummary import summary
+
 def test_accuracy(model, test_loader, label_hash_codes, device):
     model.eval()  # 设置模型为评估模式
     correct = 0
@@ -40,3 +43,16 @@ def get_predicted_cate(outputs,label_hash_codes, device = torch.device("cuda")):
 
 
     
+
+
+def calculate_macs(model, input_size=(1, 3, 224, 224)):
+    inputs = torch.randn(input_size)
+    flops = FlopCountAnalysis(model, inputs)
+    total_flops = flops.total()
+    print(f"Total FLOPs: {total_flops}")
+
+def model_size(model, input_size=(1, 3, 224, 224), bits=32):
+    summary(model, input_size=input_size)
+    params = sum(p.numel() for p in model.parameters())
+    model_size = params * bits / 8 / 1024 / 1024  # 转换为MB
+    print(f"模型总参数数: {params}, 大小大约为 {model_size} MB")
