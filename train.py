@@ -12,10 +12,10 @@ from utils.denoise import label_refurb
 # 参数定义
 batch_size = 256
 epochs = 100
-lr = 0.02
+lr = 0.01
 weight_decay = 10 ** -5
 lambda1 = 0.01
-hash_bits = 64
+hash_bits = 128
 model_name = "resnet34"
 device = torch.device("cuda")
 
@@ -43,7 +43,7 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 20):
 def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
     model.to(device)
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.9, last_epoch=-1)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.3, last_epoch=-1)
     best_accuracy = 0.0
   
     for epoch in range(epochs):
@@ -55,10 +55,10 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
             inputs= inputs.to(device)
             outputs = model(inputs)
             criterion = nn.BCELoss().to(device)
-            if(epoch<2):
+            if(epoch<6):
                 outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, False)
             else:
-                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, True)
+                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, False)
             cat_codes = label_hash_codes[labels.cpu()].to(device) 
             center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
             Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
@@ -81,7 +81,8 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
         if device == torch.device("cuda"):
             torch.cuda.empty_cache()
 
-def test_nr(noisetype = 'asym'):
+def test_nr(noisetype = 'sym'):
+    device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
     logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
@@ -91,11 +92,11 @@ def test_nr(noisetype = 'asym'):
     label_hash_codes.to(device)
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
-    noise_rates = [0.4,0.6,0.8,0.0, 0.2]
-    # 加载模型
-    model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
+    noise_rates = [0.2,0.4,0.6,0.8,0.0]
     
     for noise_rate in noise_rates:
+         # 加载模型
+        model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
         logging.info(f'Start Training with: {noisetype}-{noise_rate}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
@@ -112,12 +113,13 @@ def test_cifarn():
         label_hash_codes = torch.load(f)
     label_hash_codes.to(device)
     
-    noise_types = ['worse_label','aggre_label','random_label1', 'random_label2', 'random_label3','clean_label']
+    noise_types = ['aggre_label','random_label1','worse_label','random_label2', 'random_label3','clean_label']
     #noise_rates = [0.2,0.4,0.6,0.8,0.0]
-    # 加载模型
-    model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
+    
 
     for noise_type in noise_types:
+        # 加载模型
+        model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         trainloader, testloader = load_dataset(noise_type=noise_type, batch_size=batch_size)
         noise_rate = trainloader.dataset.noise_rate
         logging.info(f'Start Training with: {noise_type}-{noise_rate}')
@@ -125,4 +127,4 @@ def test_cifarn():
         logging.info(f'Finished Training with: {noise_type}-{noise_rate}')
 
 if __name__ == '__main__':
-    test_nr()
+    test_cifarn()

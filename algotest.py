@@ -5,11 +5,11 @@ import utils.hash_model as image_hash_model
 import numpy as np
 import time
 from utils.cac import test_accuracy
-from utils.condition import add_label_noise
+from utils.condition import add_label_noise,add_asymmetric_noise
 import torch.optim as optim
 import torch.nn as nn
 import logging
-
+from dataset import CIFAR10Custom 
 # 设置日志记录
 
 logging.basicConfig(filename='./logs/training_log.log', level=logging.INFO,
@@ -28,21 +28,24 @@ model_name = "resnet34"
 device = torch.device("cuda")
 logging.info(f'Training Configuration: batch_size={batch_size}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, lambda1={lambda1}, hash_bits={hash_bits}, model_name={model_name}, device={device}')
 
-# 数据加载
-def load_dataset():
+def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 20):
+    # 定义数据转换
     transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
-    trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=False, transform=transform)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers = 20)
 
-    testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=False, transform=transform)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers = 20)
+    # 使用CIFAR10Custom类加载数据集
+    train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
 
-    return trainloader, testloader
+    test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
+    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = num_workers)
+
+    return train_loader, test_loader
+
 
 # 模型训练
 def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
@@ -69,9 +72,10 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
                 logging.info(f"Model saved with accuracy: {best_accuracy:.2f}%")
 
         for iter, (inputs, labels) in enumerate(trainloader):
-            labels = add_label_noise(labels.numpy(), noise_rate=noise_rate, num_classes=10)
+          #  labels = torch.from_numpy(labels)
+            #labels = add_label_noise(labels.numpy(), noise_rate=noise_rate, num_classes=10)
+            labels = add_asymmetric_noise(labels.numpy(), noise_rate=noise_rate)
             labels = torch.from_numpy(labels)
-
             inputs= inputs.to(device)
             outputs = model(inputs)
             cat_codes = label_hash_codes[labels].to(device) 
@@ -93,10 +97,9 @@ def train_model(model, trainloader, testloader, label_hash_codes, noise_rate):
     return total_loss, accuracy_list
 
 def main():
-    trainloader, testloader = load_dataset()
 
     # 设定不同的噪声率
-    noise_rates = [0.8, 0.2,0.4, 0.6,0.0]
+    noise_rates = [0.4, 0.6, 0.8,0.0, 0.2]
 
  # 加载标签哈希码
     with open('./labels/64_cifar10_10_class.pkl', 'rb') as f:
@@ -104,6 +107,7 @@ def main():
     label_hash_codes.to(device)
 
     for noise_rate in noise_rates:
+        trainloader, testloader = load_dataset(noise_type='asym', noise_rate=0.0, batch_size= 256, num_workers = 20)
         print(f"Training with noise_rate: {noise_rate}")
         
     
