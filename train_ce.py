@@ -9,13 +9,6 @@ from dataset import CIFAR10Custom  # 确保这里正确地从您的dataset.py文
 from utils.cac import test_accuracy  # 确保test_accuracy函数可以从cac模块导入
 import os
 
-# 参数定义
-batch_size = 128
-epochs = 100
-lr = 0.001
-weight_decay = 10 ** -5
-model_name = "resnet34base"
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # 数据加载函数
 def load_dataset(noise_type, noise_rate=0.0, batch_size=128, num_workers=10):
@@ -25,6 +18,18 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size=128, num_workers=10):
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
+    transfrom_train = transforms.Compose([
+                                        #transforms.RandomHorizontalFlip(),
+                                        transforms.RandomHorizontalFlip(),
+                                        transforms.RandomCrop(32, padding=4),
+                                        transforms.ToTensor(), 
+                                        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
+
+    transform_test = transforms.Compose([
+                
+                transforms.ToTensor(),
+                transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)),
+            ])
 
     train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
@@ -72,7 +77,7 @@ def train_model(model, trainloader, testloader, epochs=100):
     print('Finished Training')
 
 # 加载预训练的ResNet34模型
-def get_pretrained_resnet(model_name='resnet34', num_classes=10):
+def get_pretrained_resnet(num_classes=10):
     model = models.resnet34(pretrained=True)
     num_ftrs = model.fc.in_features
     model.fc = nn.Linear(num_ftrs, num_classes)
@@ -81,10 +86,17 @@ def get_pretrained_resnet(model_name='resnet34', num_classes=10):
 
 if __name__ == '__main__':
     noisetype = "sym"
-    noise_rates = [0.0,0.2,0.4,0.6,0.8]
+    noise_rates = [0.6,0.4,0.2,0.6,0.8]
+    epochs = 100
+    lr = 0.02
+    weight_decay = 10 ** -5
+    model_name = "resnet34base"
+    batchsize = 256
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     for noiserate in noise_rates:
         logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log',level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         logging.info(f'Started training with: {noisetype}-{noiserate} ')
-        trainloader, testloader = load_dataset(noise_type=noisetype, noise_rate=noiserate)  # 替换'your_noise_type'为实际噪声类型
-        model = get_pretrained_resnet(model_name, 10)  # CIFAR-10有10个类别
+        logging.info(f'Training Configuration: batch_size={batchsize}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, model_name={model_name}, device={device}')
+        trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batchsize, noise_rate=noiserate)  # 替换'your_noise_type'为实际噪声类型
+        model = get_pretrained_resnet(10)  # CIFAR-10有10个类别
         train_model(model, trainloader, testloader, epochs)

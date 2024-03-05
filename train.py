@@ -16,10 +16,10 @@ os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 # 参数定义
 batch_size = 128
 epochs = 100
-lr = 0.001
+lr = 0.02
 weight_decay = 10 ** -5
 lambda1 = 0.02
-hash_bits = 32
+hash_bits = 64
 model_name = "resnet34"
 device = torch.device("cuda")
 
@@ -117,7 +117,7 @@ def test_nr(noisetype = None):
     label_hash_codes.to(device)
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
-    noise_rates = [0.6,0.8,0.4,0.0,0.2]
+    noise_rates = [0.2,0.4,0.6,0.8,0.0]
     
     for noise_rate in noise_rates:
          # 加载模型
@@ -152,7 +152,7 @@ def test_cifarn():
         logging.info(f'Finished Training with: {noise_type}-{noise_rate}')
 
 def test_hashbits():
-    epochs=40
+    epochs=100
     device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_test_hashbits.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -176,4 +176,4 @@ def test_hashbits():
  
 
 if __name__ == '__main__':
-    test_cifarn()
+    test_nr("sym")
