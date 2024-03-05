@@ -8,10 +8,13 @@ from torch.utils.data import Dataset
 class CIFAR10Custom(Dataset):
     def __init__(self, root, train=True, transform=None, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
         self.transform = transform
-        self.dataset = datasets.CIFAR10(root=root, train=train, download=False, transform=transform)
         self.noise_type = noise_type
         self.noise_rate= noise_rate
-
+        if train:
+            self.transform = transfrom_train  # 如果是训练集，使用训练集变换
+        else:
+            self.transform = transform_test   # 如果是测试集，使用测试集变换
+        self.dataset = datasets.CIFAR10(root=root, train=train, download=False, transform=self.transform)
         if train:
             if noise_type == 'sym':
                 self.dataset.targets = self.add_label_noise(np.array(self.dataset.targets), noise_rate=noise_rate, num_classes=10)
@@ -51,3 +54,23 @@ class CIFAR10Custom(Dataset):
 
         # 返回转换后的图像和标签
         return image, label
+
+transfrom_train = transforms.Compose([
+                                        #transforms.RandomHorizontalFlip(),
+                                        transforms.RandomHorizontalFlip(),
+                                        transforms.RandomCrop(32, padding=4),
+                                        transforms.ToTensor(), 
+                                        transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
+
+transform_test = transforms.Compose([
+                
+                transforms.ToTensor(),
+                transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)),
+            ])
+
+transform = transforms.Compose([
+        transforms.Resize(256),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
