@@ -689,7 +689,6 @@
 2024-03-03 00:40:21,478:INFO:Model saved with accuracy: 87.27%
 2024-03-03 00:41:13,556:INFO:Epoch 2: Test Accuracy: 52.36%
 2024-03-03 00:42:05,477:INFO:Epoch 3: Test Accuracy: 9.38%
-<<<<<<< HEAD
 2024-03-03 00:59:10,710:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
 2024-03-03 00:59:12,743:INFO:Start Training with: worse_label-0.0
 2024-03-03 01:00:25,499:INFO:Epoch 0: Test Accuracy: 74.13%
@@ -1363,7 +1362,6 @@
 2024-03-03 12:15:00,931:INFO:Epoch 18: Test Accuracy: 10.0%
 2024-03-03 12:15:55,154:INFO:Epoch 19: Test Accuracy: 10.0%
 2024-03-03 12:16:49,899:INFO:Epoch 20: Test Accuracy: 10.0%
-=======
 2024-03-03 15:09:34,033:INFO:Training Configuration: batch_size=256, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
 2024-03-03 15:09:36,351:INFO:Start Training with: aggre_label-0.0
 2024-03-03 15:10:46,679:INFO:Epoch 0: Test Accuracy: 88.12%
@@ -1692,4 +1690,3 @@
 2024-03-03 22:09:22,269:INFO:Epoch 22: Test Accuracy: 70.68%
 2024-03-03 22:10:10,011:INFO:Epoch 23: Test Accuracy: 66.93%
 2024-03-03 22:10:57,843:INFO:Epoch 24: Test Accuracy: 69.7%
->>>>>>> refs/remotes/origin/Task2

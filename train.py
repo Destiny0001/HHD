@@ -10,14 +10,16 @@ from utils.cac import test_accuracy # 确保test_accuracy函数可以从cac模�
 import time
 from utils.denoise import label_refurb
 from utils.lr_scheduler import WarmupLR
+import os
+
 
 # 参数定义
 batch_size = 256
 epochs = 100
-lr = 0.01
-weight_decay = 10 ** -5
-lambda1 = 0.01
-hash_bits = 128
+lr = 0.001
+weight_decay = 1e-5
+lambda1 = 0.02
+hash_bits = 32
 model_name = "resnet34"
 device = torch.device("cuda")
 
@@ -43,32 +45,16 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
 
 # 模型训练函数
 def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
+    os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+    os.environ['TORCH_USE_CUDA_DSA'] = '1'
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=20, gamma=0.8, last_epoch=-1)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=80, gamma=0.8, last_epoch=-1)
     #scheduler = WarmupLR(optimizer,warmup_epochs=20,initial_lr=0.002)
     best_accuracy = 0.0
   
     for epoch in range(epochs):
         model.train()
         scheduler.step()
-        for iter, (inputs, labels) in enumerate(trainloader):
-         
-            labels = torch.from_numpy(np.array(labels))
-            inputs= inputs.to(device)
-            outputs = model(inputs)
-            criterion = nn.BCELoss().to(device)
-            if(epoch<6):
-                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, False)
-            else:
-                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, False)
-            cat_codes = label_hash_codes[labels.cpu()].to(device) 
-            center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
-            Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
-            loss = center_loss + lambda1*Q_loss
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-
         # 计算测试集上的准确率
         accuracy = test_accuracy(model, testloader, label_hash_codes, device)
         logging.info(f'Epoch {epoch}: Test Accuracy: {accuracy}%')
@@ -80,8 +66,44 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs):
             print(f"Model saved with accuracy: {best_accuracy:.2f}%")
             logging.info(f"Model saved with accuracy: {best_accuracy:.2f}%")
       
+        for iter, (inputs, labels) in enumerate(trainloader):
+         
+            labels = torch.from_numpy(np.array(labels))
+            inputs= inputs.to(device)
+            outputs = model(inputs).to(device)
+            criterion = nn.BCELoss().to(device)
+            cat_codes = label_hash_codes[labels.cpu()].to(device) 
+            if(epoch<5):
+                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, iter, False)
+            else:
+                outputs,labels = label_refurb(labels,outputs,label_hash_codes,hash_bits,device, iter, False)
+            
+            try:
+                # 假设outputs和cat_codes是你想要检查的变量
+                assert outputs.min() >= -1 and outputs.max() <= 1, "outputs值不在[-1, 1]范围内"
+                assert cat_codes.min() >= -1 and cat_codes.max() <= 1, "cat_codes值不在[-1, 1]范围内"
+            except AssertionError as e:
+                logging.info(f"断言错误: {e}")
+                logging.info(f"outputs的最小值: {outputs.min()}, 最大值: {outputs.max()}")
+                logging.info(f"cat_codes的最小值: {cat_codes.min()}, 最大值: {cat_codes.max()}")
+                print(f"断言错误: {e}")
+                print(f"outputs的最小值: {outputs.min()}, 最大值: {outputs.max()}")
+                print(f"cat_codes的最小值: {cat_codes.min()}, 最大值: {cat_codes.max()}")
+                raise e  # 重新抛出异常以确保问题不会被无视
 
-      
+            
+            center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
+            Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
+            loss = center_loss + lambda1*Q_loss
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+        if epoch%1==0:
+            torch.cuda.empty_cache()
+
+
+
+
 def test_nr(noisetype = None):
     device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
@@ -93,12 +115,11 @@ def test_nr(noisetype = None):
     label_hash_codes.to(device)
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
-    noise_rates = [0.8,0.4,0.6,0.2,0.0]
+    noise_rates = [0.6,0.8, 0.4,0.2,0.0]
     
     for noise_rate in noise_rates:
-         # 加载模型
-        model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
+        model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         logging.info(f'Start Training with: {noisetype}-{noise_rate}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
         logging.info(f'Finished Training with: {noisetype}-{noise_rate}')
@@ -141,8 +162,9 @@ def test_hashbits():
 
     for hashbit in hashbits:
         # 加载模型
-        model = image_hash_model.HASH_Net(model_name, hashbit).to(device)
+        
         trainloader, testloader = load_dataset(noise_type='sym', noise_rate=0.4,batch_size=batch_size)
+        model = image_hash_model.HASH_Net(model_name, hashbit).to(device)
         logging.info(f'Start Training with hash_bits: {hashbit}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
         logging.info(f'Finished Training with hash_bits: {hashbit}')
