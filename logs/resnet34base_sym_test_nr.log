@@ -1,0 +1,75 @@
+2024-03-05 16:13:12,197 - INFO - Epoch 1, Loss: 0.5747338491480064
+2024-03-05 16:13:18,874 - INFO - Accuracy of the network on the 10000 test images: 92.66%
+2024-03-05 16:14:29,360 - INFO - Epoch 2, Loss: 0.16995170971621637
+2024-03-05 16:14:37,433 - INFO - Accuracy of the network on the 10000 test images: 93.67%
+2024-03-05 16:15:48,449 - INFO - Epoch 3, Loss: 0.09792263191336256
+2024-03-05 16:15:55,186 - INFO - Accuracy of the network on the 10000 test images: 94.32%
+2024-03-05 16:17:06,711 - INFO - Epoch 4, Loss: 0.057698912570810376
+2024-03-05 16:17:14,196 - INFO - Accuracy of the network on the 10000 test images: 94.87%
+2024-03-05 16:18:24,595 - INFO - Epoch 5, Loss: 0.033831455285096415
+2024-03-05 16:18:31,443 - INFO - Accuracy of the network on the 10000 test images: 94.91%
+2024-03-05 16:19:26,551 - INFO - Epoch 6, Loss: 0.02092908521937897
+2024-03-05 16:19:31,286 - INFO - Accuracy of the network on the 10000 test images: 95.06%
+2024-03-05 16:20:13,633 - INFO - Epoch 7, Loss: 0.013142714291796698
+2024-03-05 16:20:18,414 - INFO - Accuracy of the network on the 10000 test images: 95.03%
+2024-03-05 16:21:22,439 - INFO - Epoch 8, Loss: 0.008947251964231852
+2024-03-05 16:21:29,551 - INFO - Accuracy of the network on the 10000 test images: 94.95%
+2024-03-05 16:22:38,235 - INFO - Epoch 9, Loss: 0.006837312701394034
+2024-03-05 16:22:46,954 - INFO - Accuracy of the network on the 10000 test images: 94.88%
+2024-03-05 16:22:56,398 - INFO - Started training with: sym-0.6 
+2024-03-05 16:24:08,119 - INFO - Epoch 1, Loss: 2.1841843676993915
+2024-03-05 16:24:14,976 - INFO - Accuracy of the network on the 10000 test images: 79.18%
+2024-03-05 16:25:23,618 - INFO - Epoch 2, Loss: 2.0691993358494987
+2024-03-05 16:25:30,435 - INFO - Accuracy of the network on the 10000 test images: 83.58%
+2024-03-05 16:26:38,141 - INFO - Epoch 3, Loss: 2.0043008336630623
+2024-03-05 16:26:44,464 - INFO - Accuracy of the network on the 10000 test images: 82.62%
+2024-03-05 16:27:53,267 - INFO - Epoch 4, Loss: 1.926932901067807
+2024-03-05 16:28:00,205 - INFO - Accuracy of the network on the 10000 test images: 82.02%
+2024-03-05 16:29:08,855 - INFO - Epoch 5, Loss: 1.8294864594174163
+2024-03-05 16:29:15,682 - INFO - Accuracy of the network on the 10000 test images: 78.16%
+2024-03-05 16:30:25,392 - INFO - Epoch 6, Loss: 1.6887121237147495
+2024-03-05 16:30:32,106 - INFO - Accuracy of the network on the 10000 test images: 72.0%
+2024-03-05 16:31:40,764 - INFO - Epoch 7, Loss: 1.4906995811730699
+2024-03-05 16:31:47,686 - INFO - Accuracy of the network on the 10000 test images: 64.11%
+2024-03-05 16:32:57,621 - INFO - Epoch 8, Loss: 1.2264409374702923
+2024-03-05 16:33:03,996 - INFO - Accuracy of the network on the 10000 test images: 58.41%
+2024-03-05 16:34:14,701 - INFO - Epoch 9, Loss: 0.9076810130072982
+2024-03-05 16:34:21,491 - INFO - Accuracy of the network on the 10000 test images: 50.13%
+2024-03-05 16:35:33,073 - INFO - Epoch 10, Loss: 0.5818601035705918
+2024-03-05 16:35:39,802 - INFO - Accuracy of the network on the 10000 test images: 46.12%
+2024-03-05 16:36:51,893 - INFO - Epoch 11, Loss: 0.3096467599920604
+2024-03-05 16:36:59,101 - INFO - Accuracy of the network on the 10000 test images: 45.62%
+2024-03-05 16:38:09,195 - INFO - Epoch 12, Loss: 0.13536932237465363
+2024-03-05 16:38:15,875 - INFO - Accuracy of the network on the 10000 test images: 42.45%
+2024-03-05 16:39:27,684 - INFO - Epoch 13, Loss: 0.05154817832914917
+2024-03-05 16:39:34,617 - INFO - Accuracy of the network on the 10000 test images: 45.44%
+2024-03-05 16:40:45,107 - INFO - Epoch 14, Loss: 0.023290309516708258
+2024-03-05 16:40:51,887 - INFO - Accuracy of the network on the 10000 test images: 45.81%
+2024-03-05 16:42:02,473 - INFO - Epoch 15, Loss: 0.012274064070037793
+2024-03-05 16:42:09,062 - INFO - Accuracy of the network on the 10000 test images: 45.56%
+2024-03-05 16:43:23,371 - INFO - Epoch 16, Loss: 0.008200700855706735
+2024-03-05 16:43:30,244 - INFO - Accuracy of the network on the 10000 test images: 46.12%
+2024-03-05 16:44:43,224 - INFO - Epoch 17, Loss: 0.006638860488977388
+2024-03-05 16:44:50,069 - INFO - Accuracy of the network on the 10000 test images: 46.36%
+2024-03-05 16:46:01,607 - INFO - Epoch 18, Loss: 0.005245296500118264
+2024-03-05 16:46:11,058 - INFO - Accuracy of the network on the 10000 test images: 46.15%
+2024-03-05 16:47:23,420 - INFO - Epoch 19, Loss: 0.004379901169177592
+2024-03-05 16:47:30,385 - INFO - Accuracy of the network on the 10000 test images: 45.54%
+2024-03-05 16:48:42,548 - INFO - Epoch 20, Loss: 0.003868046639751538
+2024-03-05 16:48:49,215 - INFO - Accuracy of the network on the 10000 test images: 46.49%
+2024-03-05 16:49:59,408 - INFO - Epoch 21, Loss: 0.003466935975410406
+2024-03-05 16:50:08,040 - INFO - Accuracy of the network on the 10000 test images: 46.44%
+2024-03-05 16:51:20,851 - INFO - Epoch 22, Loss: 0.0030343326126032358
+2024-03-05 16:51:27,836 - INFO - Accuracy of the network on the 10000 test images: 46.19%
+2024-03-05 16:52:39,854 - INFO - Epoch 23, Loss: 0.0026566524542701404
+2024-03-05 16:52:46,862 - INFO - Accuracy of the network on the 10000 test images: 46.49%
+2024-03-05 16:53:58,297 - INFO - Epoch 24, Loss: 0.002486295326698638
+2024-03-05 16:54:06,410 - INFO - Accuracy of the network on the 10000 test images: 46.02%
+2024-03-05 16:55:18,672 - INFO - Epoch 25, Loss: 0.0024306469369451025
+2024-03-05 16:55:25,582 - INFO - Accuracy of the network on the 10000 test images: 46.08%
+2024-03-05 16:56:38,019 - INFO - Epoch 26, Loss: 0.002202947117278681
+2024-03-05 16:56:44,779 - INFO - Accuracy of the network on the 10000 test images: 45.94%
+2024-03-05 16:57:57,372 - INFO - Epoch 27, Loss: 0.001967792850299774
+2024-03-05 16:58:04,179 - INFO - Accuracy of the network on the 10000 test images: 45.82%
+2024-03-05 16:59:16,482 - INFO - Epoch 28, Loss: 0.0017775221459229316
+2024-03-05 16:59:23,526 - INFO - Accuracy of the network on the 10000 test images: 46.04%
