@@ -4,14 +4,14 @@ import numpy as np
 import torch
 from torchvision import datasets, transforms
 from torch.utils.data import Dataset
-
+from utils.autoaugment import *
 class CIFAR10Custom(Dataset):
     def __init__(self, root, train=True, transform=None, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
         self.transform = transform
         self.noise_type = noise_type
         self.noise_rate= noise_rate
         if train:
-            self.transform = transfrom_train  # 如果是训练集，使用训练集变换
+            self.transform = transform_train  # 如果是训练集，使用训练集变换
         else:
             self.transform = transform_test   # 如果是测试集，使用测试集变换
         self.dataset = datasets.CIFAR10(root=root, train=train, download=False, transform=self.transform)
@@ -55,10 +55,11 @@ class CIFAR10Custom(Dataset):
         # 返回转换后的图像和标签
         return image, label
 
-transfrom_train = transforms.Compose([
+transform_train = transforms.Compose([
                                         #transforms.RandomHorizontalFlip(),
                                         transforms.RandomHorizontalFlip(),
                                         transforms.RandomCrop(32, padding=4),
+                                        #CIFAR10Policy(),
                                         transforms.ToTensor(), 
                                         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
 
