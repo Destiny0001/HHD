@@ -1,0 +1,5 @@
+2024-03-06 13:04:41,791 - INFO - Started training with: asym-0.2 
+2024-03-06 13:04:41,792 - INFO - Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=0.0001, model_name=resnet34base, device=cuda
+2024-03-06 13:04:54,768 - INFO - Epoch 1, Loss: 1.6393465071308368
+2024-03-06 13:04:57,786 - INFO - Model saved with accuracy: 47.54%
+2024-03-06 13:04:57,786 - INFO - Test Accuracy: 47.54%

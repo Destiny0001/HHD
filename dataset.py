@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from torchvision import datasets, transforms
 from torch.utils.data import Dataset
-
+from utils.autoaugment import *
 class CIFAR10Custom(Dataset):
     def __init__(self, root, train=True, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
         self.noise_type = noise_type
@@ -60,6 +60,7 @@ transform_train = transforms.Compose([
                                         #transforms.RandomHorizontalFlip(),
                                         transforms.RandomHorizontalFlip(),
                                         transforms.RandomCrop(32, padding=4),
+                                        #CIFAR10Policy(),
                                         transforms.ToTensor(), 
                                         transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))])
 
