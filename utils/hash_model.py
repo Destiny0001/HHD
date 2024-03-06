@@ -1,6 +1,7 @@
 import torch.nn as nn
 from torchvision import models
 import torch
+from utils.PreResnet import *
 
 LAYER1_NODE = 40960
 
@@ -64,15 +65,19 @@ class HASH_Net(nn.Module):
             self.model_name = 'vgg11'
 
         elif model_name == "resnet34":
-            original_model = models.resnet34(pretrained=True)
+            #original_model = models.resnet34(pretrained)
+            original_model = ResNet34()
             self.features = nn.Sequential(*list(original_model.children())[:-1])
+            #self.features= original_model.features
             # in_features depends on the output of the last convolution layer
-            in_features = original_model.fc.in_features
-            cl1 = nn.Linear(in_features, 4096)
-            cl2 = nn.Linear(4096, 4096)
-            cl3 = nn.Linear(4096, bit)
+            #in_features = original_model.fc.in_features
+            in_features  = 8192
+            size=1024
+            cl1 = nn.Linear(in_features, size)
+            cl2 = nn.Linear(size, size)
+            cl3 = nn.Linear(size, bit)
             self.classifier = nn.Sequential(
-                nn.ReLU(inplace=True),
+                #nn.ReLU(inplace=True),
                 nn.Dropout(),
                 cl1,
                 nn.ReLU(inplace=True),
@@ -96,6 +101,7 @@ class HASH_Net(nn.Module):
             f = self.classifier(f)
         elif self.model_name == 'resnet34':
             f = torch.flatten(f, 1) 
+            #f = f.view(f.size(0), -1)
             f = self.classifier(f)
         else:
             f = f.view(f.size(0), -1)

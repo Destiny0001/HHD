@@ -11,6 +11,7 @@ import time
 from utils.denoise import label_refurb
 from utils.lr_scheduler import WarmupLR
 import os
+from utils.PreResnet import *
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 # 参数定义
@@ -25,20 +26,14 @@ device = torch.device("cuda")
 
 
 
-def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 40):
-    # 定义数据转换
-    transform = transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ])
+def load_dataset(noise_type, noise_rate=0.0, batch_size= 256, num_workers = 30):
+
 
     # 使用CIFAR10Custom类加载数据集
-    train_dataset = CIFAR10Custom(root='./data', train=True, transform=transform, noise_type=noise_type, noise_rate=noise_rate)
+    train_dataset = CIFAR10Custom(root='./data', train=True, noise_type=noise_type, noise_rate=noise_rate)
     train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers = num_workers)
 
-    test_dataset = CIFAR10Custom(root='./data', train=False, transform=transform)
+    test_dataset = CIFAR10Custom(root='./data', train=False)
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False,num_workers = num_workers)
 
     return train_loader, test_loader
@@ -116,10 +111,13 @@ def test_nr(noisetype = None):
     
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
     noise_rates = [0.2,0.4,0.6,0.8,0.0]
-    
+    noise_rates = [0.0,0.4,0.6,0.8,0.2]
+
     for noise_rate in noise_rates:
         trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
-        model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
+        #model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
+        #model = ResNet34Hash(hash_bits).to(device)
+        model = CSQModel(hash_bits).to(device)
         logging.info(f'Start Training with: {noisetype}-{noise_rate}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
         logging.info(f'Finished Training with: {noisetype}-{noise_rate}')
@@ -166,7 +164,7 @@ def test_hashbits():
         # 加载模型
         
         trainloader, testloader = load_dataset(noise_type='sym', noise_rate=0.4,batch_size=batch_size)
-        model = image_hash_model.HASH_Net(model_name, hashbit).to(device)
+        model = image_hash_model.HASH_Net(model_name, hashbit,pretrained=False).to(device)
         logging.info(f'Start Training with hash_bits: {hashbit}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs,hash_bits=hashbit)
         logging.info(f'Finished Training with hash_bits: {hashbit}')

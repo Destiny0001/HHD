@@ -11,7 +11,7 @@ def test_accuracy(model, test_loader, label_hash_codes, device):
     with torch.no_grad():  # 禁用梯度计算
         for data, labels in test_loader:
             data = data.to(device)
-            outputs = torch.sign(model(data)).to(device)  # 模型输出的哈希值 后续可以继续修改
+            outputs = torch.sign(model(data)).to(device) 
             
             # 通过计算输出和每个类别哈希码之间的相似度来简化汉明距离的计算
             # 计算相似度
