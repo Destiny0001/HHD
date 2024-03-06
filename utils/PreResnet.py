@@ -1,11 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-<<<<<<< HEAD
 import torchvision
-=======
 
->>>>>>> origin/0304
 from torch.autograd import Variable
 
 
