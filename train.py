@@ -102,6 +102,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
 
         if epoch%1==0:
                 torch.cuda.empty_cache()
+    
 
       
 

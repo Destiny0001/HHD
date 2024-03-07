@@ -6,14 +6,14 @@ from torchvision import datasets, transforms
 from torch.utils.data import Dataset
 from utils.autoaugment import *
 class CIFAR10Custom(Dataset):
-    def __init__(self, root, train=True, transform=None, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
+    def __init__(self, root, train=True, noise_type='sym', noise_rate=0.0, cifar10n_path='./data/cifarn/CIFAR-10_human.pt'):
         self.transform = transform
         self.noise_type = noise_type
         self.noise_rate= noise_rate
         if train:
-            self.transform = transform_train  # 如果是训练集，使用训练集变换
+            self.transform = transform  # 如果是训练集，使用训练集变换
         else:
-            self.transform = transform_test   # 如果是测试集，使用测试集变换
+            self.transform = transform   # 如果是测试集，使用测试集变换
         self.dataset = datasets.CIFAR10(root=root, train=train, download=False, transform=self.transform)
         if train:
             if noise_type == 'sym':

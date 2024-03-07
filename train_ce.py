@@ -24,7 +24,9 @@ def load_dataset(noise_type, noise_rate=0.0, batch_size=128, num_workers=10):
 
 # 模型训练函数
 def train_model(model, trainloader, testloader, epochs=100):
-    optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
+    #optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9, weight_decay=weight_decay)
+    params_1x = [param for name, param in model.named_parameters() if 'fc' not in str(name)]
+    optimizer = torch.optim.Adam([{'params':params_1x}, {'params': model.fc.parameters(), 'lr': lr*10}], lr=lr, weight_decay=weight_decay)
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
     criterion = nn.CrossEntropyLoss().to(device)
     best_accuracy =0.0
@@ -68,15 +70,16 @@ def get_pretrained_resnet(num_classes=10):
     model = models.resnet34(pretrained=True)
     num_ftrs = model.fc.in_features
     model.fc = nn.Linear(num_ftrs, num_classes)
+    torch.nn.init.xavier_uniform_(model.fc.weight)
     model = model.to(device)
     return model
 
 if __name__ == '__main__':
     noisetype = "asym"
-    noise_rates = [0.2,0.8,0.4,0.6,0.0]
+    noise_rates = [0.0,0.8,0.4,0.6,0.2]
     epochs = 100
-    lr = 0.01
-    weight_decay = 10 ** -4
+    lr = 1e-5
+    weight_decay = 5e-4
     model_name = "resnet34base"
     batchsize = 256
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -85,5 +88,5 @@ if __name__ == '__main__':
         logging.info(f'Started training with: {noisetype}-{noiserate} ')
         logging.info(f'Training Configuration: batch_size={batchsize}, epochs={epochs}, lr={lr}, weight_decay={weight_decay}, model_name={model_name}, device={device}')
         trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batchsize, noise_rate=noiserate)  # 替换'your_noise_type'为实际噪声类型
-        model = ResNet34(10).to(device)  # CIFAR-10有10个类别
+        model = get_pretrained_resnet(10).to(device)  # CIFAR-10有10个类别
         train_model(model, trainloader, testloader, epochs)
