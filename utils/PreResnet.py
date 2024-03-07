@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchvision
 
 from torch.autograd import Variable
 
@@ -219,3 +220,95 @@ def ResNet152(num_classes=10):
 #     net = ResNet18()
 #     y = net(Variable(torch.randn(1, 3, 32, 32)))
 #     print(y.size())
+
+class ResNetWithHashLayer(nn.Module):
+    def __init__(self, block, num_blocks, hash_bits=256):
+        super(ResNetWithHashLayer, self).__init__()
+        # 初始化ResNet34的部分
+        self.in_planes = 64
+        self.conv1 = conv3x3(3, 64)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.layer1 = self._make_layer(block, 64, num_blocks[0], stride=1)
+        self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
+        self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
+        self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
+        
+        #self.fc1 = nn.Linear(512 * block.expansion, 1024)
+        self.fc1 = nn.Linear(25088, 1024)
+        self.fc2 = nn.Linear(1024, 512)
+        self.hash_layer = nn.Linear(512, hash_bits)
+        self.classifier = nn.Sequential(
+                self.fc1,
+                nn.ReLU(inplace=True),
+                nn.Dropout(),
+                self.fc2,
+                nn.ReLU(inplace=True),
+                nn.Dropout(),
+                self.hash_layer,
+                nn.Tanh()
+            )
+
+    def _make_layer(self, block, planes, num_blocks, stride):
+        strides = [stride] + [1] * (num_blocks - 1)
+        layers = []
+        for stride in strides:
+            layers.append(block(self.in_planes, planes, stride))
+            self.in_planes = planes * block.expansion
+        return nn.Sequential(*layers)
+
+    def forward(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        out = self.layer2(out)
+        out = self.layer3(out)
+        out = self.layer4(out)
+        
+        # 应用全局平均池化
+        #out = self.global_avg_pool(out)
+        out = F.avg_pool2d(out,4)
+        out = out.view(out.size(0), -1)
+        hash_output = self.classifier(out)
+        
+        return hash_output
+
+def ResNet34Hash(hash_bits= 32):
+    return ResNetWithHashLayer(BasicBlock, [3, 4, 6, 3], hash_bits=hash_bits)
+
+class CSQModel(nn.Module):
+    def __init__(self, hash_bit):
+        super(CSQModel, self).__init__()
+        self.hash_bit = hash_bit
+        self.base_model = torchvision.models.resnet34(pretrained=True)
+        self.conv1 = self.base_model.conv1
+        self.bn1 = self.base_model.bn1
+        self.relu = self.base_model.relu
+        self.maxpool = self.base_model.maxpool
+        self.layer1 = self.base_model.layer1
+        self.layer2 = self.base_model.layer2
+        self.layer3 = self.base_model.layer3
+        self.layer4 = self.base_model.layer4
+        self.avgpool = self.base_model.avgpool
+        self.feature_layers = nn.Sequential(self.conv1, self.bn1, self.relu, self.maxpool, \
+                                            self.layer1, self.layer2, self.layer3, self.layer4, self.avgpool)
+
+        self.fc1 = nn.Linear(self.base_model.fc.in_features, self.base_model.fc.in_features)
+        self.activation1 = nn.ReLU()
+        self.fc2 = nn.Linear(self.base_model.fc.in_features, self.base_model.fc.in_features)
+        self.activation2 = nn.ReLU()
+        self.fc3 = nn.Linear(self.base_model.fc.in_features, self.hash_bit)
+        self.last_layer = nn.Tanh()
+        self.dropout = nn.Dropout(0.5)
+        self.hash_layer = nn.Sequential(self.fc1, self.activation1, self.dropout, self.fc2, self.activation2, self.fc3,
+                                        self.last_layer)
+
+        self.iter_num = 0
+        self.scale = 1
+
+    def forward(self, x):
+        x = self.feature_layers(x)
+        x = x.view(x.size(0), -1)
+        y = self.hash_layer(x)
+
+        #y = self.last_layer(5*y)
+
+        return y

@@ -9,9 +9,9 @@ def test_accuracy(model, test_loader, label_hash_codes, device):
     total = 0
 
     with torch.no_grad():  # 禁用梯度计算
-        for data, labels in test_loader:
+        for data, labels,_ in test_loader:
             data = data.to(device)
-            outputs = torch.sign(model(data)).to(device)  # 模型输出的哈希值 后续可以继续修改
+            outputs = torch.sign(model(data)).to(device) 
             
             # 通过计算输出和每个类别哈希码之间的相似度来简化汉明距离的计算
             # 计算相似度
@@ -56,3 +56,25 @@ def model_size(model, input_size=(1, 3, 224, 224), bits=32):
     params = sum(p.numel() for p in model.parameters())
     model_size = params * bits / 8 / 1024 / 1024  # 转换为MB
     print(f"模型总参数数: {params}, 大小大约为 {model_size} MB")
+
+def update_stats_matrix(epoch, outputs, labels, label_hash_codes, stats_matrix):
+    labels.cuda()
+    predicted_hash_codes = torch.sign(outputs).cuda()
+    _, predicted_labels = predicted_hash_codes.mm(label_hash_codes.t().cuda()).max(1)
+
+    for i, label in enumerate(labels):
+        if label == predicted_labels[i]:  # 如果预测错误
+            # 找出与正确标签哈希编码不同的位
+            diff = (predicted_hash_codes[i] != label_hash_codes.cuda()[label]).float()
+            # 在统计矩阵中累加差异
+            stats_matrix[epoch, label] += diff
+
+def update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance_matrix, epoch):
+    labels.cuda()
+    predicted_hash_codes = torch.sign(outputs).cuda()
+    for i, label in enumerate(labels):
+        distance = (predicted_hash_codes[i] != label_hash_codes.cuda()[label]).float().sum().item()
+        if is_noise[i].item() == 1:  # 噪声样本
+            distance_matrix[epoch, int(distance), 1] += 1
+        else:  # 干净样本
+            distance_matrix[epoch, int(distance), 0] += 1
