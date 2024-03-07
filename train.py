@@ -6,7 +6,7 @@ import logging
 import numpy as np
 from dataset import CIFAR10Custom # 确保这里正确地从您的dataset.py文件导入CIFAR10Custom类
 import utils.hash_model as image_hash_model # 确保您的hash_model模块包含了HASH_Net定义
-from utils.cac import test_accuracy # 确保test_accuracy函数可以从cac模块导入
+from utils.cac import * # 确保test_accuracy函数可以从cac模块导入
 import time
 from utils.denoise import label_refurb
 from utils.lr_scheduler import WarmupLR
@@ -45,7 +45,10 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=80, gamma=0.8, last_epoch=-1)
     #scheduler = WarmupLR(optimizer,warmup_epochs=20,initial_lr=0.002)
     best_accuracy = 0.0
-  
+    num_classes = label_hash_codes.size(0) 
+    stats_matrix = torch.zeros(epochs, num_classes, hash_bits, device=device)  # 初始化统计矩阵
+    distance_matrix = torch.zeros((epochs, hash_bits, 2), dtype=torch.long)
+
     for epoch in range(epochs):
         model.train()
         scheduler.step()
@@ -60,7 +63,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             print(f"Model saved with accuracy: {best_accuracy:.2f}%")
             logging.info(f"Model saved with accuracy: {best_accuracy:.2f}%")
             
-        for iter, (inputs, labels) in enumerate(trainloader):
+        for iter, (inputs, labels,is_noise) in enumerate(trainloader):
          
             labels = torch.from_numpy(np.array(labels))
             inputs= inputs.to(device)
@@ -69,21 +72,14 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             cat_codes = label_hash_codes[labels.cpu()].to(device) 
             
             try:
-                # 假设outputs和cat_codes是你想要检查的变量
                 assert outputs.min() >= -1 and outputs.max() <= 1, "outputs值不在[-1, 1]范围内"
                 assert cat_codes.min() >= -1 and cat_codes.max() <= 1, "cat_codes值不在[-1, 1]范围内"
             except AssertionError as e:
-                print(f"断言错误: {e}")
-                print("outputs的最小值:", outputs.min())
-                print("outputs的最大值:", outputs.max())
-                print("cat_codes的最小值:", cat_codes.min())
-                print("cat_codes的最大值:", cat_codes.max())
                 logging.info(f"断言错误: {e}")
                 logging.info("outputs的最小值:", outputs.min())
                 logging.info("outputs的最大值:", outputs.max())
-                logging.info("cat_codes的最小值:", cat_codes.min())
-                logging.info("cat_codes的最大值:", cat_codes.max())
-  
+            #update_stats_matrix(epoch, outputs, labels, label_hash_codes, stats_matrix)
+            update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance_matrix, epoch)
             center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
             Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
             loss = center_loss + lambda1*Q_loss
@@ -92,10 +88,11 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             optimizer.step()
         if epoch%1==0:
             torch.cuda.empty_cache()
-
-
-        if epoch%1==0:
-                torch.cuda.empty_cache()
+        # 保存stats_matrix到文件
+    stats_matrix_path = './sta/stats_matrix_true.pt'  # 选择你想要保存的路径和文件名
+    distance_matrix_path = f'./sta/distance_matrix_{trainloader.dataset.noise_type}_{trainloader.dataset.noise_rate}.pt'
+    torch.save(stats_matrix, stats_matrix_path)
+    torch.save(distance_matrix, distance_matrix_path)
 
       
 
@@ -112,19 +109,21 @@ def test_nr(noisetype = None):
     #noise_types = ['aggre_label','worse_label', 'random_label1', 'random_label2', 'random_label3','clean_label']
     noise_rates = [0.2,0.4,0.6,0.8,0.0]
     noise_rates = [0.0,0.4,0.6,0.8,0.2]
-
+    noise_rates =[0.4]
     for noise_rate in noise_rates:
         trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
         #model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         #model = ResNet34Hash(hash_bits).to(device)
         model = CSQModel(hash_bits).to(device)
         logging.info(f'Start Training with: {noisetype}-{noise_rate}')
-        train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
+        train_model(model, trainloader, testloader, label_hash_codes,epochs=30)
         logging.info(f'Finished Training with: {noisetype}-{noise_rate}')
     
 
 
-def test_cifarn():
+def test_cifarn(noise_type = None,epoch = None):
+    if epoch!=None:
+        epochs = epoch
     device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_test_cifarn.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -135,13 +134,14 @@ def test_cifarn():
     
     noise_types = ['aggre_label','random_label1','worse_label','random_label2', 'random_label3','clean_label']
     #noise_rates = [0.2,0.4,0.6,0.8,0.0]
-    
+    if noise_type is not None:
+        noise_types = [noise_type]
 
     for noise_type in noise_types:
         # 加载模型
-        model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         trainloader, testloader = load_dataset(noise_type=noise_type, batch_size=batch_size)
         noise_rate = trainloader.dataset.noise_rate
+        model = CSQModel(hash_bits).to(device)
         logging.info(f'Start Training with: {noise_type}-{noise_rate}')
         train_model(model, trainloader, testloader, label_hash_codes,epochs=epochs)
         logging.info(f'Finished Training with: {noise_type}-{noise_rate}')
@@ -172,4 +172,4 @@ def test_hashbits():
  
 
 if __name__ == '__main__':
-    test_nr("sym")
+    test_cifarn("random_label1",epoch = 50)

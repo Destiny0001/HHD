@@ -1445,3 +1445,43 @@
 2024-03-04 17:34:49,403:INFO:Epoch 13: Test Accuracy: 55.16%
 2024-03-04 17:34:53,088:INFO:Model saved with accuracy: 55.16%
 2024-03-04 17:35:43,680:INFO:Epoch 14: Test Accuracy: 54.71%
+2024-03-07 10:11:40,497:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-07 10:11:42,630:INFO:Start Training with: asym-0.4
+2024-03-07 10:11:45,944:INFO:Epoch 0: Test Accuracy: 11.01%
+2024-03-07 10:11:48,250:INFO:Model saved with accuracy: 11.01%
+2024-03-07 10:12:23,658:INFO:Epoch 1: Test Accuracy: 76.42%
+2024-03-07 10:12:25,349:INFO:Model saved with accuracy: 76.42%
+2024-03-07 10:12:56,980:INFO:Epoch 2: Test Accuracy: 79.37%
+2024-03-07 10:12:59,069:INFO:Model saved with accuracy: 79.37%
+2024-03-07 10:13:29,700:INFO:Epoch 3: Test Accuracy: 90.02%
+2024-03-07 10:13:31,513:INFO:Model saved with accuracy: 90.02%
+2024-03-07 10:14:02,960:INFO:Epoch 4: Test Accuracy: 83.6%
+2024-03-07 10:14:34,209:INFO:Epoch 5: Test Accuracy: 90.43%
+2024-03-07 10:14:36,006:INFO:Model saved with accuracy: 90.43%
+2024-03-07 10:15:09,357:INFO:Epoch 6: Test Accuracy: 88.64%
+2024-03-07 10:15:42,701:INFO:Epoch 7: Test Accuracy: 91.63%
+2024-03-07 10:15:43,871:INFO:Model saved with accuracy: 91.63%
+2024-03-07 10:16:16,652:INFO:Epoch 8: Test Accuracy: 91.6%
+2024-03-07 10:16:49,018:INFO:Epoch 9: Test Accuracy: 91.51%
+2024-03-07 10:17:21,534:INFO:Epoch 10: Test Accuracy: 85.61%
+2024-03-07 10:17:54,856:INFO:Epoch 11: Test Accuracy: 92.25%
+2024-03-07 10:17:57,070:INFO:Model saved with accuracy: 92.25%
+2024-03-07 10:18:30,153:INFO:Epoch 12: Test Accuracy: 90.46%
+2024-03-07 10:19:03,381:INFO:Epoch 13: Test Accuracy: 91.13%
+2024-03-07 10:19:36,859:INFO:Epoch 14: Test Accuracy: 91.21%
+2024-03-07 10:20:10,795:INFO:Epoch 15: Test Accuracy: 91.85%
+2024-03-07 10:20:43,906:INFO:Epoch 16: Test Accuracy: 87.69%
+2024-03-07 10:21:17,203:INFO:Epoch 17: Test Accuracy: 86.34%
+2024-03-07 10:21:50,172:INFO:Epoch 18: Test Accuracy: 84.82%
+2024-03-07 10:22:23,741:INFO:Epoch 19: Test Accuracy: 80.06%
+2024-03-07 10:22:57,092:INFO:Epoch 20: Test Accuracy: 86.45%
+2024-03-07 10:23:30,049:INFO:Epoch 21: Test Accuracy: 85.83%
+2024-03-07 10:24:03,519:INFO:Epoch 22: Test Accuracy: 86.12%
+2024-03-07 10:24:37,102:INFO:Epoch 23: Test Accuracy: 84.15%
+2024-03-07 10:25:10,380:INFO:Epoch 24: Test Accuracy: 86.06%
+2024-03-07 10:25:43,874:INFO:Epoch 25: Test Accuracy: 85.69%
+2024-03-07 10:26:17,286:INFO:Epoch 26: Test Accuracy: 86.47%
+2024-03-07 10:26:50,379:INFO:Epoch 27: Test Accuracy: 85.02%
+2024-03-07 10:27:24,515:INFO:Epoch 28: Test Accuracy: 82.61%
+2024-03-07 10:27:58,149:INFO:Epoch 29: Test Accuracy: 77.47%
+2024-03-07 10:28:28,875:INFO:Finished Training with: asym-0.4
