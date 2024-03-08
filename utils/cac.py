@@ -29,13 +29,8 @@ def test_accuracy(model, test_loader, label_hash_codes, device):
 
 
 def get_predicted_cate(outputs,label_hash_codes, device = torch.device("cuda")):
-    outputs = torch.sign(outputs).to(device)  # 模型输出的哈希值 后续可以继续修改
-    
-    # 通过计算输出和每个类别哈希码之间的相似度来简化汉明距离的计算
-    # 计算相似度
+    outputs = torch.sign(outputs).to(device) 
     similarities = torch.mm(outputs, label_hash_codes.t().to(device))
-    
-    # 相似度最高的类别即为预测类别
     _, predicted = similarities.max(dim=1)
     #predicted =  torch.from_numpy(np.array(predicted))
     #predicted_codes = label_hash_codes[predicted.cpu()].to(device) 
@@ -78,3 +73,17 @@ def update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance
             distance_matrix[epoch, int(distance), 1] += 1
         else:  # 干净样本
             distance_matrix[epoch, int(distance), 0] += 1
+
+def update_noise_matrix(outputs, labels, is_noise, label_hash_codes, noise_matrix, epoch):
+    labels.cuda()
+    simcodes = torch.sign(outputs).cuda()
+    _, predicted_labels = simcodes.mm(label_hash_codes.t().cuda()).max(1)
+    precodes = label_hash_codes.cuda()[predicted_labels.cuda()].cuda()
+    for i, label in enumerate(labels):
+        if is_noise[i].item() == 1:  
+            label_distance = (simcodes[i] != label_hash_codes.cuda()[label]).float().sum().item()
+            pre_distance = (simcodes[i] != precodes[i]).float().sum().item() 
+            noise_matrix[epoch, int(label_distance), 0] += 1
+            noise_matrix[epoch, int(pre_distance), 1] += 1
+
+            noise_matrix[epoch,int(label_distance-pre_distance+64),2]+=1

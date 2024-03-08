@@ -48,6 +48,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
     num_classes = label_hash_codes.size(0) 
     stats_matrix = torch.zeros(epochs, num_classes, hash_bits, device=device)  # 初始化统计矩阵
     distance_matrix = torch.zeros((epochs, hash_bits, 2), dtype=torch.long)
+    noise_matrix = torch.zeros((epochs, hash_bits+64, 3), dtype=torch.long)
 
     for epoch in range(epochs):
         model.train()
@@ -56,7 +57,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
         accuracy = test_accuracy(model, testloader, label_hash_codes, device)
         logging.info(f'Epoch {epoch}: Test Accuracy: {accuracy}%')
         print(f'Epoch {epoch}/{epochs}, Test Accuracy: {accuracy}%')
-
+        
         if accuracy > best_accuracy:
             best_accuracy = accuracy
             torch.save(model.state_dict(), f'./model/nt_{trainloader.dataset.noise_type}_{model_name}.pth')
@@ -65,21 +66,24 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             
         for iter, (inputs, labels,is_noise) in enumerate(trainloader):
          
-            labels = torch.from_numpy(np.array(labels))
+            #labels = torch.from_numpy(np.array(labels))
             inputs= inputs.to(device)
             outputs = model(inputs).to(device)
             criterion = nn.BCELoss().to(device)
-            cat_codes = label_hash_codes[labels.cpu()].to(device) 
-            
+            outputs,labels = label_refurb(epoch, labels,outputs,is_noise,label_hash_codes,hash_bits,device, iter, True)
+               
+            """
             try:
                 assert outputs.min() >= -1 and outputs.max() <= 1, "outputs值不在[-1, 1]范围内"
                 assert cat_codes.min() >= -1 and cat_codes.max() <= 1, "cat_codes值不在[-1, 1]范围内"
             except AssertionError as e:
                 logging.info(f"断言错误: {e}")
                 logging.info("outputs的最小值:", outputs.min())
-                logging.info("outputs的最大值:", outputs.max())
+                logging.info("outputs的最大值:", outputs.max())"""
             #update_stats_matrix(epoch, outputs, labels, label_hash_codes, stats_matrix)
-            update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance_matrix, epoch)
+            #update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance_matrix, epoch)
+            #update_noise_matrix(outputs, labels, is_noise, label_hash_codes, noise_matrix, epoch)
+            cat_codes = label_hash_codes[labels.cpu()].to(device) 
             center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
             Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
             loss = center_loss + lambda1*Q_loss
@@ -89,14 +93,21 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
         if epoch%1==0:
             torch.cuda.empty_cache()
         # 保存stats_matrix到文件
+            
     stats_matrix_path = './sta/stats_matrix_true.pt'  # 选择你想要保存的路径和文件名
     distance_matrix_path = f'./sta/distance_matrix_{trainloader.dataset.noise_type}_{trainloader.dataset.noise_rate}.pt'
+    noise_matrix_path = f'./sta/noise_matrix_{trainloader.dataset.noise_type}_{trainloader.dataset.noise_rate}.pt'
+
     torch.save(stats_matrix, stats_matrix_path)
     torch.save(distance_matrix, distance_matrix_path)
+    torch.save(noise_matrix, noise_matrix_path)
+
 
       
 
-def test_nr(noisetype = None):
+def test_nr(noisetype = None, noise_rate = None, epoch = None):
+    if epoch!=None:
+        epochs = epoch
     device = torch.device("cuda")
     logging.basicConfig(filename=f'./logs/{model_name}_{noisetype}_test_nr.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
@@ -110,13 +121,15 @@ def test_nr(noisetype = None):
     noise_rates = [0.2,0.4,0.6,0.8,0.0]
     noise_rates = [0.0,0.4,0.6,0.8,0.2]
     noise_rates =[0.4]
+    if noise_rate is not None:
+        noise_rates = [noise_rate]
     for noise_rate in noise_rates:
         trainloader, testloader = load_dataset(noise_type=noisetype, batch_size=batch_size, noise_rate=noise_rate)
         #model = image_hash_model.HASH_Net(model_name, hash_bits).to(device)
         #model = ResNet34Hash(hash_bits).to(device)
         model = CSQModel(hash_bits).to(device)
         logging.info(f'Start Training with: {noisetype}-{noise_rate}')
-        train_model(model, trainloader, testloader, label_hash_codes,epochs=30)
+        train_model(model, trainloader, testloader, label_hash_codes,epochs=epoch)
         logging.info(f'Finished Training with: {noisetype}-{noise_rate}')
     
 
@@ -172,4 +185,5 @@ def test_hashbits():
  
 
 if __name__ == '__main__':
-    test_cifarn("random_label1",epoch = 50)
+    #test_cifarn("random_label1",epoch = 50)
+    test_nr("asym",0.4,100)
