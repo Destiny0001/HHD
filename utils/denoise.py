@@ -15,9 +15,8 @@ def label_refurb(epoch, labels, outputs,is_noise,  label_hash_codes, hashbits, d
     precodes = label_hash_codes[predicted_label.cpu()].to(device) 
     simcodes = torch.sign(outputs).to(device)
     labelcodes = label_hash_codes[labels].to(device)
-    device = torch.device("cuda")
-    predis = torch.sum(simcodes!=precodes,dim=1).cuda()
-    labeldis = torch.sum(simcodes!=labelcodes,dim=1).cuda()
+    predis = torch.sum(simcodes!=precodes,dim=1).to(device)
+    labeldis = torch.sum(simcodes!=labelcodes,dim=1).to(device)
     is_noise = is_noise.to(device)
     #assert (is_noise == (labeldis >= predis)).all()
     #assert ((not is_noise) == (labeldis <= predis)).all()
@@ -32,10 +31,10 @@ def label_refurb(epoch, labels, outputs,is_noise,  label_hash_codes, hashbits, d
         noise_samples_mask = (labeldis-predis>0.6*K)& (labeldis>K) 
     
     #noise_samples_mask = is_noise&noise_samples_mask
-    clean_samples_mask = ~noise_samples_mask.cuda()
-    true_noise_samples_mask = (is_noise==1).cuda()
-    true_noise_count = torch.sum(true_noise_samples_mask & noise_samples_mask.cuda()).item()
-    false_noise_count = torch.sum(~true_noise_samples_mask & noise_samples_mask.cuda()).item()
+    clean_samples_mask = ~noise_samples_mask.to(device)
+    true_noise_samples_mask = (is_noise==1).to(device)
+    true_noise_count = torch.sum(true_noise_samples_mask & noise_samples_mask.to(device)).item()
+    false_noise_count = torch.sum(~true_noise_samples_mask & noise_samples_mask.to(device)).item()
     clean_count = clean_samples_mask.sum().item() 
 
 
@@ -52,8 +51,8 @@ def label_refurb(epoch, labels, outputs,is_noise,  label_hash_codes, hashbits, d
     num_labeldis_less_than_K2 = torch.sum(labeldis < K/2)
   
 
-    valid_outputs = outputs.cuda()[clean_samples_mask]
-    valid_labels = labels.cuda()[clean_samples_mask]
+    valid_outputs = outputs.to(device)[clean_samples_mask]
+    valid_labels = labels.to(device)[clean_samples_mask]
     """
     if iter%100==0:
         print('mask:',clean_samples_mask)
