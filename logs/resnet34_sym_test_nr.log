@@ -4622,3 +4622,759 @@
 2024-03-08 15:05:27,930:INFO:Model saved with accuracy: 86.44%
 2024-03-08 15:06:04,026:INFO:Epoch 36: Test Accuracy: 81.63%
 2024-03-08 15:06:40,458:INFO:Epoch 37: Test Accuracy: 83.61%
+2024-03-08 16:47:27,782:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 16:47:29,789:INFO:Start Training with: sym-0.4
+2024-03-08 16:47:33,522:INFO:Epoch 0: Test Accuracy: 10.48%
+2024-03-08 16:47:35,252:INFO:Model saved with accuracy: 10.48%
+2024-03-08 16:48:08,915:INFO:Epoch 1: Test Accuracy: 85.26%
+2024-03-08 16:48:11,252:INFO:Model saved with accuracy: 85.26%
+2024-03-08 16:50:05,933:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 16:50:07,967:INFO:Start Training with: sym-0.6
+2024-03-08 16:50:11,307:INFO:Epoch 0: Test Accuracy: 9.23%
+2024-03-08 16:50:12,958:INFO:Model saved with accuracy: 9.23%
+2024-03-08 16:50:48,810:INFO:Epoch 1: Test Accuracy: 80.76%
+2024-03-08 16:50:50,801:INFO:Model saved with accuracy: 80.76%
+2024-03-08 16:51:27,434:INFO:Epoch 2: Test Accuracy: 85.79%
+2024-03-08 16:51:28,719:INFO:Model saved with accuracy: 85.79%
+2024-03-08 16:52:04,148:INFO:Epoch 3: Test Accuracy: 87.75%
+2024-03-08 16:52:06,053:INFO:Model saved with accuracy: 87.75%
+2024-03-08 16:52:41,348:INFO:Epoch 4: Test Accuracy: 89.64%
+2024-03-08 16:52:43,597:INFO:Model saved with accuracy: 89.64%
+2024-03-08 16:53:21,615:INFO:Epoch 5: Test Accuracy: 88.27%
+2024-03-08 16:53:57,983:INFO:Epoch 6: Test Accuracy: 88.06%
+2024-03-08 16:54:35,609:INFO:Epoch 7: Test Accuracy: 90.46%
+2024-03-08 16:54:37,706:INFO:Model saved with accuracy: 90.46%
+2024-03-08 16:55:15,154:INFO:Epoch 8: Test Accuracy: 89.85%
+2024-03-08 16:55:50,693:INFO:Epoch 9: Test Accuracy: 89.34%
+2024-03-08 16:56:27,072:INFO:Epoch 10: Test Accuracy: 87.51%
+2024-03-08 16:57:02,102:INFO:Epoch 11: Test Accuracy: 89.29%
+2024-03-08 16:57:39,299:INFO:Epoch 12: Test Accuracy: 85.95%
+2024-03-08 16:58:15,652:INFO:Epoch 13: Test Accuracy: 88.38%
+2024-03-08 16:58:53,742:INFO:Epoch 14: Test Accuracy: 87.81%
+2024-03-08 16:59:30,986:INFO:Epoch 15: Test Accuracy: 87.4%
+2024-03-08 17:00:07,434:INFO:Epoch 16: Test Accuracy: 87.99%
+2024-03-08 17:00:43,972:INFO:Epoch 17: Test Accuracy: 84.85%
+2024-03-08 17:01:18,664:INFO:Epoch 18: Test Accuracy: 86.87%
+2024-03-08 17:01:56,344:INFO:Epoch 19: Test Accuracy: 83.79%
+2024-03-08 17:02:30,965:INFO:Epoch 20: Test Accuracy: 84.91%
+2024-03-08 17:03:06,535:INFO:Epoch 21: Test Accuracy: 82.13%
+2024-03-08 17:03:43,039:INFO:Epoch 22: Test Accuracy: 83.5%
+2024-03-08 17:04:18,987:INFO:Epoch 23: Test Accuracy: 83.37%
+2024-03-08 17:04:49,078:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:04:51,133:INFO:Start Training with: sym-0.6
+2024-03-08 17:04:54,441:INFO:Epoch 0: Test Accuracy: 10.92%
+2024-03-08 17:04:56,562:INFO:Model saved with accuracy: 10.92%
+2024-03-08 17:05:32,840:INFO:Epoch 1: Test Accuracy: 79.02%
+2024-03-08 17:05:34,521:INFO:Model saved with accuracy: 79.02%
+2024-03-08 17:06:10,756:INFO:Epoch 2: Test Accuracy: 85.1%
+2024-03-08 17:06:12,811:INFO:Model saved with accuracy: 85.10%
+2024-03-08 17:06:47,716:INFO:Epoch 3: Test Accuracy: 87.24%
+2024-03-08 17:06:49,234:INFO:Model saved with accuracy: 87.24%
+2024-03-08 17:09:39,149:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:09:41,279:INFO:Start Training with: sym-0.6
+2024-03-08 17:09:44,973:INFO:Epoch 0: Test Accuracy: 11.43%
+2024-03-08 17:09:47,297:INFO:Model saved with accuracy: 11.43%
+2024-03-08 17:10:22,187:INFO:Epoch 1: Test Accuracy: 77.29%
+2024-03-08 17:10:23,702:INFO:Model saved with accuracy: 77.29%
+2024-03-08 17:11:00,092:INFO:Epoch 2: Test Accuracy: 22.01%
+2024-03-08 17:11:35,809:INFO:Epoch 3: Test Accuracy: 10.0%
+2024-03-08 17:19:55,252:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:19:57,269:INFO:Start Training with: sym-0.6
+2024-03-08 17:20:00,749:INFO:Epoch 0: Test Accuracy: 8.63%
+2024-03-08 17:20:02,957:INFO:Model saved with accuracy: 8.63%
+2024-03-08 17:20:31,529:INFO:Epoch 1: Test Accuracy: 78.03%
+2024-03-08 17:20:33,260:INFO:Model saved with accuracy: 78.03%
+2024-03-08 17:21:00,587:INFO:Epoch 2: Test Accuracy: 83.68%
+2024-03-08 17:21:02,877:INFO:Model saved with accuracy: 83.68%
+2024-03-08 17:21:31,202:INFO:Epoch 3: Test Accuracy: 83.89%
+2024-03-08 17:21:32,945:INFO:Model saved with accuracy: 83.89%
+2024-03-08 17:22:00,653:INFO:Epoch 4: Test Accuracy: 87.56%
+2024-03-08 17:22:03,139:INFO:Model saved with accuracy: 87.56%
+2024-03-08 17:37:44,723:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:37:46,796:INFO:Start Training with: sym-0.6
+2024-03-08 17:37:49,930:INFO:Epoch 0: Test Accuracy: 10.91%
+2024-03-08 17:37:51,028:INFO:Model saved with accuracy: 10.91%
+2024-03-08 17:38:58,925:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:39:00,910:INFO:Start Training with: sym-0.6
+2024-03-08 17:39:04,986:INFO:Epoch 0: Test Accuracy: 6.21%
+2024-03-08 17:39:06,007:INFO:Model saved with accuracy: 6.21%
+2024-03-08 17:39:59,916:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:40:02,040:INFO:Start Training with: sym-0.6
+2024-03-08 17:40:05,195:INFO:Epoch 0: Test Accuracy: 8.25%
+2024-03-08 17:40:07,212:INFO:Model saved with accuracy: 8.25%
+2024-03-08 17:40:35,147:INFO:Epoch 1: Test Accuracy: 80.77%
+2024-03-08 17:40:36,078:INFO:Model saved with accuracy: 80.77%
+2024-03-08 17:41:03,958:INFO:Epoch 2: Test Accuracy: 85.25%
+2024-03-08 17:41:05,626:INFO:Model saved with accuracy: 85.25%
+2024-03-08 17:41:33,392:INFO:Epoch 3: Test Accuracy: 87.33%
+2024-03-08 17:41:35,413:INFO:Model saved with accuracy: 87.33%
+2024-03-08 17:42:03,086:INFO:Epoch 4: Test Accuracy: 86.49%
+2024-03-08 17:42:47,560:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:42:49,576:INFO:Start Training with: sym-0.6
+2024-03-08 17:42:52,708:INFO:Epoch 0: Test Accuracy: 8.5%
+2024-03-08 17:42:54,567:INFO:Model saved with accuracy: 8.50%
+2024-03-08 17:43:22,524:INFO:Epoch 1: Test Accuracy: 80.73%
+2024-03-08 17:43:24,573:INFO:Model saved with accuracy: 80.73%
+2024-03-08 17:43:52,182:INFO:Epoch 2: Test Accuracy: 86.01%
+2024-03-08 17:43:54,669:INFO:Model saved with accuracy: 86.01%
+2024-03-08 17:44:22,192:INFO:Epoch 3: Test Accuracy: 85.39%
+2024-03-08 17:44:49,616:INFO:Epoch 4: Test Accuracy: 89.48%
+2024-03-08 17:44:52,046:INFO:Model saved with accuracy: 89.48%
+2024-03-08 17:45:19,606:INFO:Epoch 5: Test Accuracy: 87.92%
+2024-03-08 17:45:47,311:INFO:Epoch 6: Test Accuracy: 88.69%
+2024-03-08 17:46:15,007:INFO:Epoch 7: Test Accuracy: 88.72%
+2024-03-08 17:46:42,850:INFO:Epoch 8: Test Accuracy: 88.96%
+2024-03-08 17:47:11,051:INFO:Epoch 9: Test Accuracy: 87.89%
+2024-03-08 17:47:39,299:INFO:Epoch 10: Test Accuracy: 88.35%
+2024-03-08 17:48:08,574:INFO:Epoch 11: Test Accuracy: 89.44%
+2024-03-08 17:48:36,894:INFO:Epoch 12: Test Accuracy: 89.81%
+2024-03-08 17:48:39,303:INFO:Model saved with accuracy: 89.81%
+2024-03-08 17:49:07,196:INFO:Epoch 13: Test Accuracy: 88.05%
+2024-03-08 17:49:35,149:INFO:Epoch 14: Test Accuracy: 88.85%
+2024-03-08 17:50:03,292:INFO:Epoch 15: Test Accuracy: 88.2%
+2024-03-08 17:50:31,380:INFO:Epoch 16: Test Accuracy: 10.0%
+2024-03-08 17:51:26,263:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 17:51:28,273:INFO:Start Training with: sym-0.6
+2024-03-08 17:51:31,180:INFO:Epoch 0: Test Accuracy: 11.32%
+2024-03-08 17:51:33,412:INFO:Model saved with accuracy: 11.32%
+2024-03-08 17:52:02,444:INFO:Epoch 1: Test Accuracy: 74.99%
+2024-03-08 17:52:03,028:INFO:Model saved with accuracy: 74.99%
+2024-03-08 17:52:33,487:INFO:Epoch 2: Test Accuracy: 85.53%
+2024-03-08 17:52:35,701:INFO:Model saved with accuracy: 85.53%
+2024-03-08 17:53:05,357:INFO:Epoch 3: Test Accuracy: 87.73%
+2024-03-08 17:53:07,418:INFO:Model saved with accuracy: 87.73%
+2024-03-08 17:53:36,640:INFO:Epoch 4: Test Accuracy: 86.14%
+2024-03-08 17:54:05,582:INFO:Epoch 5: Test Accuracy: 87.27%
+2024-03-08 17:54:35,039:INFO:Epoch 6: Test Accuracy: 88.4%
+2024-03-08 17:54:36,432:INFO:Model saved with accuracy: 88.40%
+2024-03-08 17:55:08,020:INFO:Epoch 7: Test Accuracy: 88.19%
+2024-03-08 17:55:38,344:INFO:Epoch 8: Test Accuracy: 90.0%
+2024-03-08 17:55:40,421:INFO:Model saved with accuracy: 90.00%
+2024-03-08 17:56:10,215:INFO:Epoch 9: Test Accuracy: 88.42%
+2024-03-08 17:56:49,047:INFO:Epoch 10: Test Accuracy: 88.67%
+2024-03-08 17:57:35,432:INFO:Epoch 11: Test Accuracy: 89.64%
+2024-03-08 17:58:23,321:INFO:Epoch 12: Test Accuracy: 89.23%
+2024-03-08 17:59:14,944:INFO:Epoch 13: Test Accuracy: 89.56%
+2024-03-08 18:00:08,010:INFO:Epoch 14: Test Accuracy: 89.54%
+2024-03-08 18:01:02,438:INFO:Epoch 15: Test Accuracy: 88.77%
+2024-03-08 18:01:54,970:INFO:Epoch 16: Test Accuracy: 10.0%
+2024-03-08 18:12:07,007:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 18:12:10,008:INFO:Start Training with: sym-0.4
+2024-03-08 18:12:15,334:INFO:Epoch 0: Test Accuracy: 7.95%
+2024-03-08 18:12:17,688:INFO:Model saved with accuracy: 7.95%
+2024-03-08 18:13:08,251:INFO:Epoch 1: Test Accuracy: 87.59%
+2024-03-08 18:13:09,697:INFO:Model saved with accuracy: 87.59%
+2024-03-08 18:14:01,046:INFO:Epoch 2: Test Accuracy: 86.65%
+2024-03-08 18:14:54,116:INFO:Epoch 3: Test Accuracy: 89.57%
+2024-03-08 18:14:55,804:INFO:Model saved with accuracy: 89.57%
+2024-03-08 18:15:48,796:INFO:Epoch 4: Test Accuracy: 10.0%
+2024-03-08 18:20:26,913:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 18:20:29,816:INFO:Start Training with: sym-0.4
+2024-03-08 18:20:35,195:INFO:Epoch 0: Test Accuracy: 12.43%
+2024-03-08 18:20:38,065:INFO:Model saved with accuracy: 12.43%
+2024-03-08 18:21:32,199:INFO:Epoch 1: Test Accuracy: 84.52%
+2024-03-08 18:21:33,828:INFO:Model saved with accuracy: 84.52%
+2024-03-08 18:22:23,669:INFO:Epoch 2: Test Accuracy: 88.93%
+2024-03-08 18:22:25,732:INFO:Model saved with accuracy: 88.93%
+2024-03-08 18:23:18,596:INFO:Epoch 3: Test Accuracy: 90.21%
+2024-03-08 18:23:20,271:INFO:Model saved with accuracy: 90.21%
+2024-03-08 18:25:44,106:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 18:25:46,597:INFO:Start Training with: sym-0.4
+2024-03-08 18:25:52,041:INFO:Epoch 0: Test Accuracy: 8.95%
+2024-03-08 18:25:54,353:INFO:Model saved with accuracy: 8.95%
+2024-03-08 18:26:45,124:INFO:Epoch 1: Test Accuracy: 86.39%
+2024-03-08 18:26:47,557:INFO:Model saved with accuracy: 86.39%
+2024-03-08 18:27:39,022:INFO:Epoch 2: Test Accuracy: 87.72%
+2024-03-08 18:27:41,193:INFO:Model saved with accuracy: 87.72%
+2024-03-08 18:28:33,148:INFO:Epoch 3: Test Accuracy: 88.99%
+2024-03-08 18:28:34,922:INFO:Model saved with accuracy: 88.99%
+2024-03-08 18:29:26,504:INFO:Epoch 4: Test Accuracy: 89.57%
+2024-03-08 18:29:28,840:INFO:Model saved with accuracy: 89.57%
+2024-03-08 18:30:21,063:INFO:Epoch 5: Test Accuracy: 90.1%
+2024-03-08 18:30:21,949:INFO:Model saved with accuracy: 90.10%
+2024-03-08 18:31:12,105:INFO:Epoch 6: Test Accuracy: 89.82%
+2024-03-08 18:32:03,782:INFO:Epoch 7: Test Accuracy: 90.75%
+2024-03-08 18:32:05,740:INFO:Model saved with accuracy: 90.75%
+2024-03-08 18:32:56,963:INFO:Epoch 8: Test Accuracy: 91.51%
+2024-03-08 18:32:58,763:INFO:Model saved with accuracy: 91.51%
+2024-03-08 18:33:49,351:INFO:Epoch 9: Test Accuracy: 91.13%
+2024-03-08 18:34:37,369:INFO:Epoch 10: Test Accuracy: 91.78%
+2024-03-08 18:34:39,736:INFO:Model saved with accuracy: 91.78%
+2024-03-08 18:35:27,971:INFO:Epoch 11: Test Accuracy: 91.03%
+2024-03-08 18:36:16,814:INFO:Epoch 12: Test Accuracy: 91.46%
+2024-03-08 18:37:05,977:INFO:Epoch 13: Test Accuracy: 91.44%
+2024-03-08 18:37:58,209:INFO:Epoch 14: Test Accuracy: 89.02%
+2024-03-08 18:38:48,733:INFO:Epoch 15: Test Accuracy: 91.22%
+2024-03-08 18:39:39,011:INFO:Epoch 16: Test Accuracy: 90.03%
+2024-03-08 18:40:29,610:INFO:Epoch 17: Test Accuracy: 90.02%
+2024-03-08 18:41:21,601:INFO:Epoch 18: Test Accuracy: 89.42%
+2024-03-08 18:42:12,774:INFO:Epoch 19: Test Accuracy: 90.2%
+2024-03-08 18:43:04,866:INFO:Epoch 20: Test Accuracy: 89.29%
+2024-03-08 18:43:54,842:INFO:Epoch 21: Test Accuracy: 89.65%
+2024-03-08 18:44:46,616:INFO:Epoch 22: Test Accuracy: 89.5%
+2024-03-08 18:45:38,050:INFO:Epoch 23: Test Accuracy: 85.78%
+2024-03-08 18:46:28,573:INFO:Epoch 24: Test Accuracy: 86.79%
+2024-03-08 18:47:18,508:INFO:Epoch 25: Test Accuracy: 86.48%
+2024-03-08 18:48:07,203:INFO:Epoch 26: Test Accuracy: 87.19%
+2024-03-08 18:48:54,391:INFO:Epoch 27: Test Accuracy: 87.1%
+2024-03-08 18:49:42,207:INFO:Epoch 28: Test Accuracy: 86.48%
+2024-03-08 18:50:32,692:INFO:Epoch 29: Test Accuracy: 85.2%
+2024-03-08 18:53:58,599:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 18:54:00,870:INFO:Start Training with: sym-0.4
+2024-03-08 18:54:05,749:INFO:Epoch 0: Test Accuracy: 6.84%
+2024-03-08 18:54:08,024:INFO:Model saved with accuracy: 6.84%
+2024-03-08 18:54:58,157:INFO:Epoch 1: Test Accuracy: 86.33%
+2024-03-08 18:55:00,161:INFO:Model saved with accuracy: 86.33%
+2024-03-08 18:55:50,232:INFO:Epoch 2: Test Accuracy: 87.17%
+2024-03-08 18:55:52,276:INFO:Model saved with accuracy: 87.17%
+2024-03-08 18:56:46,039:INFO:Epoch 3: Test Accuracy: 90.42%
+2024-03-08 18:56:49,218:INFO:Model saved with accuracy: 90.42%
+2024-03-08 18:57:37,628:INFO:Epoch 4: Test Accuracy: 89.81%
+2024-03-08 18:58:28,687:INFO:Epoch 5: Test Accuracy: 91.18%
+2024-03-08 18:58:30,740:INFO:Model saved with accuracy: 91.18%
+2024-03-08 18:59:20,075:INFO:Epoch 6: Test Accuracy: 91.47%
+2024-03-08 18:59:21,863:INFO:Model saved with accuracy: 91.47%
+2024-03-08 19:00:05,496:INFO:Epoch 7: Test Accuracy: 90.76%
+2024-03-08 19:00:48,825:INFO:Epoch 8: Test Accuracy: 90.9%
+2024-03-08 19:01:27,074:INFO:Epoch 9: Test Accuracy: 92.01%
+2024-03-08 19:01:27,984:INFO:Model saved with accuracy: 92.01%
+2024-03-08 19:02:00,166:INFO:Epoch 10: Test Accuracy: 92.22%
+2024-03-08 19:02:02,327:INFO:Model saved with accuracy: 92.22%
+2024-03-08 19:02:32,521:INFO:Epoch 11: Test Accuracy: 91.34%
+2024-03-08 19:03:04,442:INFO:Epoch 12: Test Accuracy: 90.6%
+2024-03-08 19:04:28,241:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 19:04:30,463:INFO:Start Training with: sym-0.4
+2024-03-08 19:04:34,613:INFO:Epoch 0: Test Accuracy: 12.85%
+2024-03-08 19:04:36,483:INFO:Model saved with accuracy: 12.85%
+2024-03-08 19:05:08,787:INFO:Epoch 1: Test Accuracy: 85.41%
+2024-03-08 19:05:10,350:INFO:Model saved with accuracy: 85.41%
+2024-03-08 19:05:43,898:INFO:Epoch 2: Test Accuracy: 88.58%
+2024-03-08 19:05:45,966:INFO:Model saved with accuracy: 88.58%
+2024-03-08 19:06:16,084:INFO:Epoch 3: Test Accuracy: 89.81%
+2024-03-08 19:06:18,115:INFO:Model saved with accuracy: 89.81%
+2024-03-08 19:06:48,521:INFO:Epoch 4: Test Accuracy: 89.96%
+2024-03-08 19:06:49,848:INFO:Model saved with accuracy: 89.96%
+2024-03-08 19:07:19,312:INFO:Epoch 5: Test Accuracy: 91.39%
+2024-03-08 19:07:21,152:INFO:Model saved with accuracy: 91.39%
+2024-03-08 19:07:50,615:INFO:Epoch 6: Test Accuracy: 90.97%
+2024-03-08 19:08:19,446:INFO:Epoch 7: Test Accuracy: 90.47%
+2024-03-08 19:08:49,462:INFO:Epoch 8: Test Accuracy: 89.59%
+2024-03-08 19:09:18,795:INFO:Epoch 9: Test Accuracy: 91.84%
+2024-03-08 19:09:21,949:INFO:Model saved with accuracy: 91.84%
+2024-03-08 19:09:52,429:INFO:Epoch 10: Test Accuracy: 91.91%
+2024-03-08 19:09:54,041:INFO:Model saved with accuracy: 91.91%
+2024-03-08 19:10:24,670:INFO:Epoch 11: Test Accuracy: 91.81%
+2024-03-08 19:10:54,230:INFO:Epoch 12: Test Accuracy: 90.53%
+2024-03-08 19:11:25,626:INFO:Epoch 13: Test Accuracy: 92.28%
+2024-03-08 19:11:27,528:INFO:Model saved with accuracy: 92.28%
+2024-03-08 19:11:56,938:INFO:Epoch 14: Test Accuracy: 91.28%
+2024-03-08 19:12:26,319:INFO:Epoch 15: Test Accuracy: 91.24%
+2024-03-08 19:14:56,501:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 19:14:58,355:INFO:Start Training with: sym-0.4
+2024-03-08 19:15:01,347:INFO:Epoch 0: Test Accuracy:  
+2024-03-08 19:44:29,461:INFO:Epoch 59: Test Accuracy: 72.56%
+2024-03-08 19:44:58,401:INFO:Epoch 60: Test Accuracy: 70.01%
+2024-03-08 19:45:27,852:INFO:Epoch 61: Test Accuracy: 71.49%
+2024-03-08 19:45:59,189:INFO:Epoch 62: Test Accuracy: 73.12%
+2024-03-08 19:46:29,602:INFO:Epoch 63: Test Accuracy: 70.5%
+2024-03-08 19:46:58,942:INFO:Epoch 64: Test Accuracy: 65.04%
+2024-03-08 19:47:28,314:INFO:Epoch 65: Test Accuracy: 69.08%
+2024-03-08 19:47:58,510:INFO:Epoch 66: Test Accuracy: 71.19%
+2024-03-08 19:48:30,268:INFO:Epoch 67: Test Accuracy: 63.25%
+2024-03-08 19:48:59,753:INFO:Epoch 68: Test Accuracy: 67.19%
+2024-03-08 19:49:28,992:INFO:Epoch 69: Test Accuracy: 71.44%
+2024-03-08 19:50:00,736:INFO:Epoch 70: Test Accuracy: 67.1%
+2024-03-08 19:50:29,672:INFO:Epoch 71: Test Accuracy: 68.98%
+2024-03-08 19:51:02,537:INFO:Epoch 72: Test Accuracy: 68.9%
+2024-03-08 19:51:32,210:INFO:Epoch 73: Test Accuracy: 68.96%
+2024-03-08 19:52:01,515:INFO:Epoch 74: Test Accuracy: 67.84%
+2024-03-08 19:52:31,646:INFO:Epoch 75: Test Accuracy: 67.96%
+2024-03-08 19:53:01,187:INFO:Epoch 76: Test Accuracy: 62.83%
+2024-03-08 19:53:30,282:INFO:Epoch 77: Test Accuracy: 68.86%
+2024-03-08 19:54:00,246:INFO:Epoch 78: Test Accuracy: 68.64%
+2024-03-08 19:54:29,733:INFO:Epoch 79: Test Accuracy: 63.87%
+2024-03-08 19:55:00,297:INFO:Epoch 80: Test Accuracy: 65.14%
+2024-03-08 19:55:30,036:INFO:Epoch 81: Test Accuracy: 65.6%
+2024-03-08 19:55:59,918:INFO:Epoch 82: Test Accuracy: 67.79%
+2024-03-08 19:56:29,663:INFO:Epoch 83: Test Accuracy: 68.41%
+2024-03-08 19:57:00,725:INFO:Epoch 84: Test Accuracy: 69.55%
+2024-03-08 19:57:30,010:INFO:Epoch 85: Test Accuracy: 65.94%
+2024-03-08 19:58:00,907:INFO:Epoch 86: Test Accuracy: 66.1%
+2024-03-08 19:58:30,049:INFO:Epoch 87: Test Accuracy: 64.06%
+2024-03-08 19:59:00,223:INFO:Epoch 88: Test Accuracy: 64.42%
+2024-03-08 19:59:30,785:INFO:Epoch 89: Test Accuracy: 67.81%
+2024-03-08 20:00:01,342:INFO:Epoch 90: Test Accuracy: 63.17%
+2024-03-08 20:00:32,012:INFO:Epoch 91: Test Accuracy: 66.69%
+2024-03-08 20:01:03,346:INFO:Epoch 92: Test Accuracy: 64.09%
+2024-03-08 20:01:34,272:INFO:Epoch 93: Test Accuracy: 69.54%
+2024-03-08 20:02:05,532:INFO:Epoch 94: Test Accuracy: 72.33%
+2024-03-08 20:02:38,469:INFO:Epoch 95: Test Accuracy: 63.84%
+2024-03-08 20:03:07,761:INFO:Epoch 96: Test Accuracy: 68.88%
+2024-03-08 20:03:38,402:INFO:Epoch 97: Test Accuracy: 65.85%
+2024-03-08 20:04:09,865:INFO:Epoch 98: Test Accuracy: 66.46%
+2024-03-08 20:04:40,565:INFO:Epoch 99: Test Accuracy: 64.11%
+2024-03-08 20:05:07,655:INFO:Finished Training with: sym-0.4
+2024-03-08 20:05:55,004:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 20:05:56,888:INFO:Start Training with: sym-0.4
+2024-03-08 20:06:00,132:INFO:Epoch 0: Test Accuracy: 10.09%
+2024-03-08 20:06:02,145:INFO:Model saved with accuracy: 10.09%
+2024-03-08 20:06:30,498:INFO:Epoch 1: Test Accuracy: 86.11%
+2024-03-08 20:06:32,403:INFO:Model saved with accuracy: 86.11%
+2024-03-08 20:07:00,843:INFO:Epoch 2: Test Accuracy: 89.76%
+2024-03-08 20:07:02,591:INFO:Model saved with accuracy: 89.76%
+2024-03-08 20:07:30,984:INFO:Epoch 3: Test Accuracy: 89.92%
+2024-03-08 20:07:32,816:INFO:Model saved with accuracy: 89.92%
+2024-03-08 20:08:03,298:INFO:Epoch 4: Test Accuracy: 90.39%
+2024-03-08 20:08:05,016:INFO:Model saved with accuracy: 90.39%
+2024-03-08 20:08:34,120:INFO:Epoch 5: Test Accuracy: 90.33%
+2024-03-08 20:09:02,927:INFO:Epoch 6: Test Accuracy: 90.49%
+2024-03-08 20:09:04,277:INFO:Model saved with accuracy: 90.49%
+2024-03-08 20:09:33,827:INFO:Epoch 7: Test Accuracy: 90.25%
+2024-03-08 20:10:02,507:INFO:Epoch 8: Test Accuracy: 91.07%
+2024-03-08 20:10:03,922:INFO:Model saved with accuracy: 91.07%
+2024-03-08 20:10:33,221:INFO:Epoch 9: Test Accuracy: 91.88%
+2024-03-08 20:10:34,908:INFO:Model saved with accuracy: 91.88%
+2024-03-08 20:11:03,657:INFO:Epoch 10: Test Accuracy: 90.87%
+2024-03-08 20:11:32,709:INFO:Epoch 11: Test Accuracy: 91.06%
+2024-03-08 20:12:01,629:INFO:Epoch 12: Test Accuracy: 92.31%
+2024-03-08 20:12:03,489:INFO:Model saved with accuracy: 92.31%
+2024-03-08 20:12:32,554:INFO:Epoch 13: Test Accuracy: 91.65%
+2024-03-08 20:13:02,444:INFO:Epoch 14: Test Accuracy: 91.65%
+2024-03-08 20:13:32,157:INFO:Epoch 15: Test Accuracy: 90.27%
+2024-03-08 20:14:04,711:INFO:Epoch 16: Test Accuracy: 91.1%
+2024-03-08 20:14:35,047:INFO:Epoch 17: Test Accuracy: 89.12%
+2024-03-08 20:15:06,259:INFO:Epoch 18: Test Accuracy: 90.18%
+2024-03-08 20:15:36,236:INFO:Epoch 19: Test Accuracy: 88.82%
+2024-03-08 20:16:06,880:INFO:Epoch 20: Test Accuracy: 88.69%
+2024-03-08 20:16:35,467:INFO:Epoch 21: Test Accuracy: 89.0%
+2024-03-08 20:17:05,875:INFO:Epoch 22: Test Accuracy: 89.03%
+2024-03-08 20:17:35,294:INFO:Epoch 23: Test Accuracy: 87.66%
+2024-03-08 20:18:05,434:INFO:Epoch 24: Test Accuracy: 87.48%
+2024-03-08 20:18:35,426:INFO:Epoch 25: Test Accuracy: 87.33%
+2024-03-08 20:19:04,756:INFO:Epoch 26: Test Accuracy: 87.63%
+2024-03-08 20:19:33,852:INFO:Epoch 27: Test Accuracy: 85.87%
+2024-03-08 20:20:02,731:INFO:Epoch 28: Test Accuracy: 85.14%
+2024-03-08 20:20:31,241:INFO:Epoch 29: Test Accuracy: 85.3%
+2024-03-08 20:21:01,492:INFO:Epoch 30: Test Accuracy: 84.15%
+2024-03-08 20:21:32,253:INFO:Epoch 31: Test Accuracy: 85.03%
+2024-03-08 20:22:05,468:INFO:Epoch 32: Test Accuracy: 84.95%
+2024-03-08 20:22:38,864:INFO:Epoch 33: Test Accuracy: 82.8%
+2024-03-08 20:23:09,464:INFO:Epoch 34: Test Accuracy: 82.57%
+2024-03-08 20:23:42,511:INFO:Epoch 35: Test Accuracy: 82.44%
+2024-03-08 20:24:14,586:INFO:Epoch 36: Test Accuracy: 77.26%
+2024-03-08 20:24:46,797:INFO:Epoch 37: Test Accuracy: 79.85%
+2024-03-08 20:25:18,177:INFO:Epoch 38: Test Accuracy: 82.95%
+2024-03-08 20:25:49,693:INFO:Epoch 39: Test Accuracy: 82.78%
+2024-03-08 20:26:21,256:INFO:Epoch 40: Test Accuracy: 81.95%
+2024-03-08 20:26:53,025:INFO:Epoch 41: Test Accuracy: 79.28%
+2024-03-08 20:27:24,198:INFO:Epoch 42: Test Accuracy: 80.88%
+2024-03-08 20:27:56,021:INFO:Epoch 43: Test Accuracy: 79.67%
+2024-03-08 20:28:27,323:INFO:Epoch 44: Test Accuracy: 77.77%
+2024-03-08 20:28:58,996:INFO:Epoch 45: Test Accuracy: 78.04%
+2024-03-08 20:29:31,160:INFO:Epoch 46: Test Accuracy: 76.12%
+2024-03-08 20:30:03,152:INFO:Epoch 47: Test Accuracy: 77.38%
+2024-03-08 20:30:35,060:INFO:Epoch 48: Test Accuracy: 74.69%
+2024-03-08 20:31:07,670:INFO:Epoch 49: Test Accuracy: 76.21%
+2024-03-08 20:31:40,661:INFO:Epoch 50: Test Accuracy: 71.98%
+2024-03-08 20:32:14,689:INFO:Epoch 51: Test Accuracy: 74.87%
+2024-03-08 20:32:47,918:INFO:Epoch 52: Test Accuracy: 75.81%
+2024-03-08 20:33:20,390:INFO:Epoch 53: Test Accuracy: 71.46%
+2024-03-08 20:33:54,225:INFO:Epoch 54: Test Accuracy: 70.24%
+2024-03-08 20:34:27,537:INFO:Epoch 55: Test Accuracy: 70.9%
+2024-03-08 20:35:00,560:INFO:Epoch 56: Test Accuracy: 74.04%
+2024-03-08 20:35:33,359:INFO:Epoch 57: Test Accuracy: 72.19%
+2024-03-08 20:36:06,210:INFO:Epoch 58: Test Accuracy: 71.77%
+2024-03-08 20:36:38,978:INFO:Epoch 59: Test Accuracy: 68.33%
+2024-03-08 20:37:13,432:INFO:Epoch 60: Test Accuracy: 71.44%
+2024-03-08 20:37:48,806:INFO:Epoch 61: Test Accuracy: 66.66%
+2024-03-08 20:38:22,071:INFO:Epoch 62: Test Accuracy: 71.28%
+2024-03-08 20:38:56,236:INFO:Epoch 63: Test Accuracy: 68.17%
+2024-03-08 20:39:14,073:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 20:39:16,057:INFO:Start Training with: sym-0.4
+2024-03-08 20:39:19,680:INFO:Epoch 0: Test Accuracy: 9.9%
+2024-03-08 20:39:21,639:INFO:Model saved with accuracy: 9.90%
+2024-03-08 20:39:53,150:INFO:Epoch 1: Test Accuracy: 85.03%
+2024-03-08 20:39:55,194:INFO:Model saved with accuracy: 85.03%
+2024-03-08 20:40:26,371:INFO:Epoch 2: Test Accuracy: 89.05%
+2024-03-08 20:40:28,735:INFO:Model saved with accuracy: 89.05%
+2024-03-08 20:41:00,278:INFO:Epoch 3: Test Accuracy: 87.79%
+2024-03-08 20:41:32,551:INFO:Epoch 4: Test Accuracy: 90.1%
+2024-03-08 20:41:34,123:INFO:Model saved with accuracy: 90.10%
+2024-03-08 20:42:06,831:INFO:Epoch 5: Test Accuracy: 90.94%
+2024-03-08 20:42:08,594:INFO:Model saved with accuracy: 90.94%
+2024-03-08 20:42:40,846:INFO:Epoch 6: Test Accuracy: 91.43%
+2024-03-08 20:42:42,828:INFO:Model saved with accuracy: 91.43%
+2024-03-08 20:43:27,638:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 20:43:29,560:INFO:Start Training with: sym-0.4
+2024-03-08 20:43:33,397:INFO:Epoch 0: Test Accuracy: 7.57%
+2024-03-08 20:43:35,521:INFO:Model saved with accuracy: 7.57%
+2024-03-08 20:44:08,287:INFO:Epoch 1: Test Accuracy: 86.52%
+2024-03-08 20:44:09,736:INFO:Model saved with accuracy: 86.52%
+2024-03-08 20:44:43,074:INFO:Epoch 2: Test Accuracy: 86.96%
+2024-03-08 20:44:44,735:INFO:Model saved with accuracy: 86.96%
+2024-03-08 20:45:17,299:INFO:Epoch 3: Test Accuracy: 89.21%
+2024-03-08 20:45:19,758:INFO:Model saved with accuracy: 89.21%
+2024-03-08 20:45:53,576:INFO:Epoch 4: Test Accuracy: 90.39%
+2024-03-08 20:45:55,584:INFO:Model saved with accuracy: 90.39%
+2024-03-08 20:46:27,149:INFO:Epoch 5: Test Accuracy: 91.11%
+2024-03-08 20:46:29,447:INFO:Model saved with accuracy: 91.11%
+2024-03-08 20:47:00,587:INFO:Epoch 6: Test Accuracy: 90.79%
+2024-03-08 20:47:32,228:INFO:Epoch 7: Test Accuracy: 92.44%
+2024-03-08 20:47:34,322:INFO:Model saved with accuracy: 92.44%
+2024-03-08 20:48:05,434:INFO:Epoch 8: Test Accuracy: 91.45%
+2024-03-08 20:48:37,180:INFO:Epoch 9: Test Accuracy: 91.09%
+2024-03-08 20:49:08,618:INFO:Epoch 10: Test Accuracy: 91.82%
+2024-03-08 20:49:40,228:INFO:Epoch 11: Test Accuracy: 10.0%
+2024-03-08 20:50:11,546:INFO:Epoch 12: Test Accuracy: 10.0%
+2024-03-08 20:50:42,410:INFO:Epoch 13: Test Accuracy: 10.0%
+2024-03-08 20:51:13,625:INFO:Epoch 14: Test Accuracy: 10.0%
+2024-03-08 20:51:45,003:INFO:Epoch 15: Test Accuracy: 10.0%
+2024-03-08 20:52:16,385:INFO:Epoch 16: Test Accuracy: 10.0%
+2024-03-08 20:52:50,537:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 20:52:52,574:INFO:Start Training with: sym-0.4
+2024-03-08 20:52:55,880:INFO:Epoch 0: Test Accuracy: 11.52%
+2024-03-08 20:52:58,456:INFO:Model saved with accuracy: 11.52%
+2024-03-08 20:53:30,093:INFO:Epoch 1: Test Accuracy: 11.5%
+2024-03-08 20:54:01,850:INFO:Epoch 2: Test Accuracy: 11.59%
+2024-03-08 20:54:04,076:INFO:Model saved with accuracy: 11.59%
+2024-03-08 20:54:10,451:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 20:54:12,492:INFO:Start Training with: sym-0.4
+2024-03-08 20:54:16,003:INFO:Epoch 0: Test Accuracy: 9.58%
+2024-03-08 20:54:18,271:INFO:Model saved with accuracy: 9.58%
+2024-03-08 20:54:50,045:INFO:Epoch 1: Test Accuracy: 9.62%
+2024-03-08 20:54:50,713:INFO:Model saved with accuracy: 9.62%
+2024-03-08 20:55:22,736:INFO:Epoch 2: Test Accuracy: 9.56%
+2024-03-08 20:55:56,019:INFO:Epoch 3: Test Accuracy: 9.49%
+2024-03-08 20:56:03,634:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 20:56:05,683:INFO:Start Training with: sym-0.4
+2024-03-08 20:56:09,947:INFO:Epoch 0: Test Accuracy: 9.24%
+2024-03-08 20:56:12,294:INFO:Model saved with accuracy: 9.24%
+2024-03-08 20:56:53,510:INFO:Epoch 1: Test Accuracy: 86.07%
+2024-03-08 20:56:55,093:INFO:Model saved with accuracy: 86.07%
+2024-03-08 20:57:38,727:INFO:Epoch 2: Test Accuracy: 87.05%
+2024-03-08 20:57:39,915:INFO:Model saved with accuracy: 87.05%
+2024-03-08 20:58:22,703:INFO:Epoch 3: Test Accuracy: 89.07%
+2024-03-08 20:58:24,688:INFO:Model saved with accuracy: 89.07%
+2024-03-08 20:59:07,410:INFO:Epoch 4: Test Accuracy: 65.04%
+2024-03-08 20:59:49,298:INFO:Epoch 5: Test Accuracy: 65.06%
+2024-03-08 21:00:30,545:INFO:Epoch 6: Test Accuracy: 65.14%
+2024-03-08 21:01:12,477:INFO:Epoch 7: Test Accuracy: 65.11%
+2024-03-08 21:01:54,966:INFO:Epoch 8: Test Accuracy: 65.07%
+2024-03-08 21:02:37,789:INFO:Epoch 9: Test Accuracy: 65.13%
+2024-03-08 21:03:19,690:INFO:Epoch 10: Test Accuracy: 65.21%
+2024-03-08 21:04:00,824:INFO:Epoch 11: Test Accuracy: 65.25%
+2024-03-08 21:04:41,589:INFO:Epoch 12: Test Accuracy: 65.28%
+2024-03-08 21:05:22,763:INFO:Epoch 13: Test Accuracy: 65.31%
+2024-03-08 21:06:04,460:INFO:Epoch 14: Test Accuracy: 65.35%
+2024-03-08 21:06:47,170:INFO:Epoch 15: Test Accuracy: 65.34%
+2024-03-08 21:07:26,632:INFO:Epoch 16: Test Accuracy: 65.37%
+2024-03-08 21:08:04,123:INFO:Epoch 17: Test Accuracy: 65.38%
+2024-03-08 21:08:42,640:INFO:Epoch 18: Test Accuracy: 65.44%
+2024-03-08 21:09:21,169:INFO:Epoch 19: Test Accuracy: 65.45%
+2024-03-08 21:12:05,210:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 21:12:07,296:INFO:Start Training with: sym-0.4
+2024-03-08 21:12:11,557:INFO:Epoch 0: Test Accuracy: 12.54%
+2024-03-08 21:12:13,490:INFO:Model saved with accuracy: 12.54%
+2024-03-08 21:12:51,337:INFO:Epoch 1: Test Accuracy: 85.0%
+2024-03-08 21:12:53,664:INFO:Model saved with accuracy: 85.00%
+2024-03-08 21:13:32,834:INFO:Epoch 2: Test Accuracy: 89.43%
+2024-03-08 21:13:34,076:INFO:Model saved with accuracy: 89.43%
+2024-03-08 21:14:14,397:INFO:Epoch 3: Test Accuracy: 87.02%
+2024-03-08 21:14:55,650:INFO:Epoch 4: Test Accuracy: 86.18%
+2024-03-08 21:15:32,194:INFO:Epoch 5: Test Accuracy: 87.16%
+2024-03-08 21:16:04,593:INFO:Epoch 6: Test Accuracy: 88.41%
+2024-03-08 21:16:36,676:INFO:Epoch 7: Test Accuracy: 86.84%
+2024-03-08 21:17:08,725:INFO:Epoch 8: Test Accuracy: 87.47%
+2024-03-08 21:17:40,686:INFO:Epoch 9: Test Accuracy: 88.83%
+2024-03-08 21:18:13,293:INFO:Epoch 10: Test Accuracy: 89.58%
+2024-03-08 21:18:14,985:INFO:Model saved with accuracy: 89.58%
+2024-03-08 21:18:46,544:INFO:Epoch 11: Test Accuracy: 90.13%
+2024-03-08 21:18:48,609:INFO:Model saved with accuracy: 90.13%
+2024-03-08 21:19:20,991:INFO:Epoch 12: Test Accuracy: 89.68%
+2024-03-08 21:19:53,414:INFO:Epoch 13: Test Accuracy: 90.75%
+2024-03-08 21:19:55,397:INFO:Model saved with accuracy: 90.75%
+2024-03-08 21:20:28,835:INFO:Epoch 14: Test Accuracy: 90.08%
+2024-03-08 21:21:01,580:INFO:Epoch 15: Test Accuracy: 91.8%
+2024-03-08 21:21:03,183:INFO:Model saved with accuracy: 91.80%
+2024-03-08 21:21:34,935:INFO:Epoch 16: Test Accuracy: 89.82%
+2024-03-08 21:22:06,964:INFO:Epoch 17: Test Accuracy: 90.21%
+2024-03-08 21:22:39,495:INFO:Epoch 18: Test Accuracy: 92.12%
+2024-03-08 21:22:41,447:INFO:Model saved with accuracy: 92.12%
+2024-03-08 21:23:13,462:INFO:Epoch 19: Test Accuracy: 91.81%
+2024-03-08 21:23:45,449:INFO:Epoch 20: Test Accuracy: 92.34%
+2024-03-08 21:23:47,866:INFO:Model saved with accuracy: 92.34%
+2024-03-08 21:24:19,791:INFO:Epoch 21: Test Accuracy: 91.65%
+2024-03-08 21:24:51,554:INFO:Epoch 22: Test Accuracy: 91.08%
+2024-03-08 21:25:23,598:INFO:Epoch 23: Test Accuracy: 90.43%
+2024-03-08 21:25:55,188:INFO:Epoch 24: Test Accuracy: 91.22%
+2024-03-08 21:26:27,463:INFO:Epoch 25: Test Accuracy: 91.76%
+2024-03-08 21:26:59,496:INFO:Epoch 26: Test Accuracy: 92.14%
+2024-03-08 21:27:30,955:INFO:Epoch 27: Test Accuracy: 91.55%
+2024-03-08 21:28:02,947:INFO:Epoch 28: Test Accuracy: 92.8%
+2024-03-08 21:28:04,469:INFO:Model saved with accuracy: 92.80%
+2024-03-08 21:28:36,414:INFO:Epoch 29: Test Accuracy: 90.3%
+2024-03-08 21:29:07,578:INFO:Epoch 30: Test Accuracy: 91.18%
+2024-03-08 21:53:52,301:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-08 21:53:54,236:INFO:Start Training with: sym-0.4
+2024-03-08 21:53:57,780:INFO:Epoch 0: Test Accuracy: 9.76%
+2024-03-08 21:53:58,938:INFO:Model saved with accuracy: 9.76%
+2024-03-08 21:54:30,384:INFO:Epoch 1: Test Accuracy: 85.03%
+2024-03-08 21:54:32,507:INFO:Model saved with accuracy: 85.03%
+2024-03-08 21:55:03,992:INFO:Epoch 2: Test Accuracy: 89.73%
+2024-03-08 21:55:06,106:INFO:Model saved with accuracy: 89.73%
+2024-03-08 21:55:37,732:INFO:Epoch 3: Test Accuracy: 88.74%
+2024-03-08 21:56:09,520:INFO:Epoch 4: Test Accuracy: 90.58%
+2024-03-08 21:56:10,260:INFO:Model saved with accuracy: 90.58%
+2024-03-08 21:56:41,483:INFO:Epoch 5: Test Accuracy: 90.83%
+2024-03-08 21:56:42,933:INFO:Model saved with accuracy: 90.83%
+2024-03-08 21:57:14,054:INFO:Epoch 6: Test Accuracy: 90.48%
+2024-03-08 21:57:46,178:INFO:Epoch 7: Test Accuracy: 92.01%
+2024-03-08 21:57:48,151:INFO:Model saved with accuracy: 92.01%
+2024-03-08 21:58:20,459:INFO:Epoch 8: Test Accuracy: 88.91%
+2024-03-08 21:58:51,868:INFO:Epoch 9: Test Accuracy: 92.25%
+2024-03-08 21:58:53,352:INFO:Model saved with accuracy: 92.25%
+2024-03-08 21:59:24,868:INFO:Epoch 10: Test Accuracy: 91.85%
+2024-03-08 21:59:56,279:INFO:Epoch 11: Test Accuracy: 91.51%
+2024-03-08 22:00:27,964:INFO:Epoch 12: Test Accuracy: 91.2%
+2024-03-08 22:00:59,692:INFO:Epoch 13: Test Accuracy: 91.83%
+2024-03-08 22:01:31,385:INFO:Epoch 14: Test Accuracy: 91.16%
+2024-03-08 22:02:02,633:INFO:Epoch 15: Test Accuracy: 90.63%
+2024-03-08 22:02:34,179:INFO:Epoch 16: Test Accuracy: 91.25%
+2024-03-08 22:03:05,463:INFO:Epoch 17: Test Accuracy: 90.69%
+2024-03-08 22:03:37,361:INFO:Epoch 18: Test Accuracy: 91.3%
+2024-03-08 22:04:09,706:INFO:Epoch 19: Test Accuracy: 91.13%
+2024-03-08 22:04:41,721:INFO:Epoch 20: Test Accuracy: 89.55%
+2024-03-08 22:05:14,899:INFO:Epoch 21: Test Accuracy: 89.35%
+2024-03-08 22:05:46,833:INFO:Epoch 22: Test Accuracy: 89.28%
+2024-03-08 22:06:19,027:INFO:Epoch 23: Test Accuracy: 87.82%
+2024-03-08 22:06:52,292:INFO:Epoch 24: Test Accuracy: 88.97%
+2024-03-08 22:07:24,203:INFO:Epoch 25: Test Accuracy: 88.76%
+2024-03-08 22:18:19,763:INFO:Epoch 26: Test Accuracy: 87.73%
+2024-03-08 22:18:51,757:INFO:Epoch 27: Test Accuracy: 88.19%
+2024-03-08 22:19:24,386:INFO:Epoch 28: Test Accuracy: 88.3%
+2024-03-08 22:19:57,622:INFO:Epoch 29: Test Accuracy: 87.19%
+2024-03-08 22:20:30,201:INFO:Epoch 30: Test Accuracy: 87.21%
+2024-03-08 22:21:03,065:INFO:Epoch 31: Test Accuracy: 10.0%
+2024-03-08 22:21:35,673:INFO:Epoch 32: Test Accuracy: 10.0%
+2024-03-09 00:26:47,566:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 00:26:49,780:INFO:Start Training with: sym-0.4
+2024-03-09 00:26:52,797:INFO:Epoch 0: Test Accuracy: 10.06%
+2024-03-09 00:26:54,323:INFO:Model saved with accuracy: 10.06%
+2024-03-09 00:27:23,440:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 00:27:25,468:INFO:Start Training with: sym-0.4
+2024-03-09 00:27:28,926:INFO:Epoch 0: Test Accuracy: 9.85%
+2024-03-09 00:27:30,574:INFO:Model saved with accuracy: 9.85%
+2024-03-09 00:30:17,727:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 00:30:19,658:INFO:Start Training with: sym-0.4
+2024-03-09 00:30:23,192:INFO:Epoch 0: Test Accuracy: 10.24%
+2024-03-09 00:30:24,518:INFO:Model saved with accuracy: 10.24%
+2024-03-09 00:31:18,922:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 00:31:20,866:INFO:Start Training with: sym-0.4
+2024-03-09 00:31:24,429:INFO:Epoch 0: Test Accuracy: 9.08%
+2024-03-09 00:31:25,981:INFO:Model saved with accuracy: 9.08%
+2024-03-09 00:31:56,788:INFO:Epoch 1: Test Accuracy: 10.0%
+2024-03-09 00:31:58,490:INFO:Model saved with accuracy: 10.00%
+2024-03-09 00:32:28,375:INFO:Epoch 2: Test Accuracy: 10.0%
+2024-03-09 00:32:59,333:INFO:Epoch 3: Test Accuracy: 10.0%
+2024-03-09 08:38:31,627:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 08:38:33,564:INFO:Start Training with: sym-0.4
+2024-03-09 08:38:37,509:INFO:Epoch 0: Test Accuracy: 8.49%
+2024-03-09 08:38:39,261:INFO:Model saved with accuracy: 8.49%
+2024-03-09 08:39:16,196:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 08:39:18,070:INFO:Start Training with: sym-0.4
+2024-03-09 08:39:21,734:INFO:Epoch 0: Test Accuracy: 10.59%
+2024-03-09 08:39:23,405:INFO:Model saved with accuracy: 10.59%
+2024-03-09 08:39:51,312:INFO:Epoch 1: Test Accuracy: 84.02%
+2024-03-09 08:39:53,297:INFO:Model saved with accuracy: 84.02%
+2024-03-09 08:40:21,041:INFO:Epoch 2: Test Accuracy: 87.82%
+2024-03-09 08:40:22,981:INFO:Model saved with accuracy: 87.82%
+2024-03-09 08:40:50,848:INFO:Epoch 3: Test Accuracy: 89.18%
+2024-03-09 08:40:53,140:INFO:Model saved with accuracy: 89.18%
+2024-03-09 08:43:30,460:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 08:43:32,376:INFO:Start Training with: sym-0.4
+2024-03-09 08:43:35,779:INFO:Epoch 0: Test Accuracy: 9.99%
+2024-03-09 08:43:37,923:INFO:Model saved with accuracy: 9.99%
+2024-03-09 08:44:06,799:INFO:Epoch 1: Test Accuracy: 86.6%
+2024-03-09 08:44:09,148:INFO:Model saved with accuracy: 86.60%
+2024-03-09 08:44:36,907:INFO:Epoch 2: Test Accuracy: 89.32%
+2024-03-09 08:44:38,524:INFO:Model saved with accuracy: 89.32%
+2024-03-09 08:45:06,339:INFO:Epoch 3: Test Accuracy: 90.33%
+2024-03-09 08:45:08,730:INFO:Model saved with accuracy: 90.33%
+2024-03-09 08:45:36,815:INFO:Epoch 4: Test Accuracy: 21.34%
+2024-03-09 08:46:05,015:INFO:Epoch 5: Test Accuracy: 10.0%
+2024-03-09 08:48:40,958:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 08:48:42,840:INFO:Start Training with: sym-0.4
+2024-03-09 08:48:45,737:INFO:Epoch 0: Test Accuracy: 9.85%
+2024-03-09 08:48:47,506:INFO:Model saved with accuracy: 9.85%
+2024-03-09 08:49:15,526:INFO:Epoch 1: Test Accuracy: 73.07%
+2024-03-09 08:49:17,690:INFO:Model saved with accuracy: 73.07%
+2024-03-09 08:49:45,003:INFO:Epoch 2: Test Accuracy: 66.33%
+2024-03-09 08:50:12,707:INFO:Epoch 3: Test Accuracy: 80.87%
+2024-03-09 08:50:14,903:INFO:Model saved with accuracy: 80.87%
+2024-03-09 08:50:42,230:INFO:Epoch 4: Test Accuracy: 15.46%
+2024-03-09 08:51:09,646:INFO:Epoch 5: Test Accuracy: 26.71%
+2024-03-09 08:51:36,779:INFO:Epoch 6: Test Accuracy: 14.09%
+2024-03-09 08:53:09,762:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 08:53:11,651:INFO:Start Training with: sym-0.4
+2024-03-09 08:53:14,533:INFO:Epoch 0: Test Accuracy: 10.45%
+2024-03-09 08:53:16,474:INFO:Model saved with accuracy: 10.45%
+2024-03-09 08:53:44,429:INFO:Epoch 1: Test Accuracy: 82.93%
+2024-03-09 08:53:45,655:INFO:Model saved with accuracy: 82.93%
+2024-03-09 08:54:13,708:INFO:Epoch 2: Test Accuracy: 83.77%
+2024-03-09 08:54:15,671:INFO:Model saved with accuracy: 83.77%
+2024-03-09 08:54:47,734:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 08:54:49,631:INFO:Start Training with: sym-0.4
+2024-03-09 08:54:52,915:INFO:Epoch 0: Test Accuracy: 7.84%
+2024-03-09 08:54:55,269:INFO:Model saved with accuracy: 7.84%
+2024-03-09 08:55:23,294:INFO:Epoch 1: Test Accuracy: 83.38%
+2024-03-09 08:55:25,058:INFO:Model saved with accuracy: 83.38%
+2024-03-09 08:55:52,193:INFO:Epoch 2: Test Accuracy: 87.92%
+2024-03-09 08:55:54,035:INFO:Model saved with accuracy: 87.92%
+2024-03-09 08:56:20,820:INFO:Epoch 3: Test Accuracy: 89.08%
+2024-03-09 08:56:22,730:INFO:Model saved with accuracy: 89.08%
+2024-03-09 08:56:50,849:INFO:Epoch 4: Test Accuracy: 27.0%
+2024-03-09 08:57:18,648:INFO:Epoch 5: Test Accuracy: 41.96%
+2024-03-09 08:57:46,622:INFO:Epoch 6: Test Accuracy: 44.09%
+2024-03-09 08:58:14,484:INFO:Epoch 7: Test Accuracy: 19.34%
+2024-03-09 08:58:41,926:INFO:Epoch 8: Test Accuracy: 15.78%
+2024-03-09 08:59:09,687:INFO:Epoch 9: Test Accuracy: 50.44%
+2024-03-09 08:59:36,910:INFO:Epoch 10: Test Accuracy: 35.47%
+2024-03-09 09:00:05,110:INFO:Epoch 11: Test Accuracy: 34.01%
+2024-03-09 09:00:32,538:INFO:Epoch 12: Test Accuracy: 43.03%
+2024-03-09 09:01:00,637:INFO:Epoch 13: Test Accuracy: 42.85%
+2024-03-09 09:01:27,870:INFO:Epoch 14: Test Accuracy: 12.65%
+2024-03-09 09:01:44,284:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 09:01:46,230:INFO:Start Training with: sym-0.4
+2024-03-09 09:01:49,776:INFO:Epoch 0: Test Accuracy: 14.47%
+2024-03-09 09:01:51,840:INFO:Model saved with accuracy: 14.47%
+2024-03-09 09:02:19,726:INFO:Epoch 1: Test Accuracy: 65.76%
+2024-03-09 09:02:21,532:INFO:Model saved with accuracy: 65.76%
+2024-03-09 09:02:48,664:INFO:Epoch 2: Test Accuracy: 76.3%
+2024-03-09 09:02:50,519:INFO:Model saved with accuracy: 76.30%
+2024-03-09 09:03:17,994:INFO:Epoch 3: Test Accuracy: 80.48%
+2024-03-09 09:03:19,953:INFO:Model saved with accuracy: 80.48%
+2024-03-09 09:03:47,756:INFO:Epoch 4: Test Accuracy: 10.0%
+2024-03-09 09:04:15,037:INFO:Epoch 5: Test Accuracy: 10.0%
+2024-03-09 09:05:03,982:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 09:05:05,870:INFO:Start Training with: sym-0.4
+2024-03-09 09:05:09,118:INFO:Epoch 0: Test Accuracy: 11.79%
+2024-03-09 09:05:11,041:INFO:Model saved with accuracy: 11.79%
+2024-03-09 09:05:39,029:INFO:Epoch 1: Test Accuracy: 69.15%
+2024-03-09 09:05:40,563:INFO:Model saved with accuracy: 69.15%
+2024-03-09 09:06:09,031:INFO:Epoch 2: Test Accuracy: 76.17%
+2024-03-09 09:06:10,850:INFO:Model saved with accuracy: 76.17%
+2024-03-09 09:06:38,140:INFO:Epoch 3: Test Accuracy: 82.18%
+2024-03-09 09:06:40,132:INFO:Model saved with accuracy: 82.18%
+2024-03-09 09:08:04,976:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 09:08:06,910:INFO:Start Training with: sym-0.4
+2024-03-09 09:08:10,590:INFO:Epoch 0: Test Accuracy: 7.46%
+2024-03-09 09:08:13,147:INFO:Model saved with accuracy: 7.46%
+2024-03-09 09:08:41,599:INFO:Epoch 1: Test Accuracy: 84.93%
+2024-03-09 09:08:43,694:INFO:Model saved with accuracy: 84.93%
+2024-03-09 09:09:11,376:INFO:Epoch 2: Test Accuracy: 84.46%
+2024-03-09 09:09:39,114:INFO:Epoch 3: Test Accuracy: 87.87%
+2024-03-09 09:09:40,951:INFO:Model saved with accuracy: 87.87%
+2024-03-09 09:10:08,192:INFO:Epoch 4: Test Accuracy: 10.0%
+2024-03-09 09:25:38,766:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 09:25:40,716:INFO:Start Training with: sym-0.4
+2024-03-09 09:25:44,161:INFO:Epoch 0: Test Accuracy: 10.64%
+2024-03-09 09:25:46,193:INFO:Model saved with accuracy: 10.64%
+2024-03-09 09:26:14,711:INFO:Epoch 1: Test Accuracy: 84.75%
+2024-03-09 09:26:17,261:INFO:Model saved with accuracy: 84.75%
+2024-03-09 09:26:44,091:INFO:Epoch 2: Test Accuracy: 88.44%
+2024-03-09 09:26:45,945:INFO:Model saved with accuracy: 88.44%
+2024-03-09 09:27:13,370:INFO:Epoch 3: Test Accuracy: 88.42%
+2024-03-09 09:27:40,933:INFO:Epoch 4: Test Accuracy: 89.94%
+2024-03-09 09:27:42,478:INFO:Model saved with accuracy: 89.94%
+2024-03-09 09:28:10,110:INFO:Epoch 5: Test Accuracy: 90.19%
+2024-03-09 09:28:12,222:INFO:Model saved with accuracy: 90.19%
+2024-03-09 09:28:39,246:INFO:Epoch 6: Test Accuracy: 89.65%
+2024-03-09 09:29:06,742:INFO:Epoch 7: Test Accuracy: 91.14%
+2024-03-09 09:29:08,651:INFO:Model saved with accuracy: 91.14%
+2024-03-09 09:29:37,099:INFO:Epoch 8: Test Accuracy: 91.41%
+2024-03-09 09:29:38,834:INFO:Model saved with accuracy: 91.41%
+2024-03-09 09:30:07,628:INFO:Epoch 9: Test Accuracy: 91.19%
+2024-03-09 09:30:36,581:INFO:Epoch 10: Test Accuracy: 91.91%
+2024-03-09 09:30:38,139:INFO:Model saved with accuracy: 91.91%
+2024-03-09 09:31:07,170:INFO:Epoch 11: Test Accuracy: 91.7%
+2024-03-09 09:31:36,730:INFO:Epoch 12: Test Accuracy: 91.22%
+2024-03-09 09:32:06,144:INFO:Epoch 13: Test Accuracy: 91.05%
+2024-03-09 09:32:36,045:INFO:Epoch 14: Test Accuracy: 90.51%
+2024-03-09 09:33:06,257:INFO:Epoch 15: Test Accuracy: 91.1%
+2024-03-09 09:33:35,626:INFO:Epoch 16: Test Accuracy: 90.98%
+2024-03-09 09:34:08,695:INFO:Epoch 17: Test Accuracy: 91.37%
+2024-03-09 09:34:47,545:INFO:Epoch 18: Test Accuracy: 90.68%
+2024-03-09 09:35:32,967:INFO:Epoch 19: Test Accuracy: 90.59%
+2024-03-09 09:36:19,842:INFO:Epoch 20: Test Accuracy: 89.07%
+2024-03-09 09:37:07,347:INFO:Epoch 21: Test Accuracy: 87.68%
+2024-03-09 09:37:54,959:INFO:Epoch 22: Test Accuracy: 88.81%
+2024-03-09 09:38:42,511:INFO:Epoch 23: Test Accuracy: 88.69%
+2024-03-09 09:39:29,916:INFO:Epoch 24: Test Accuracy: 88.66%
+2024-03-09 09:40:17,543:INFO:Epoch 25: Test Accuracy: 87.42%
+2024-03-09 09:41:05,186:INFO:Epoch 26: Test Accuracy: 86.21%
+2024-03-09 09:41:51,358:INFO:Epoch 27: Test Accuracy: 88.77%
+2024-03-09 09:42:39,010:INFO:Epoch 28: Test Accuracy: 87.61%
+2024-03-09 09:43:25,618:INFO:Epoch 29: Test Accuracy: 87.43%
+2024-03-09 09:44:10,393:INFO:Epoch 30: Test Accuracy: 88.61%
+2024-03-09 09:44:55,264:INFO:Epoch 31: Test Accuracy: 87.22%
+2024-03-09 09:45:40,396:INFO:Epoch 32: Test Accuracy: 81.68%
+2024-03-09 09:46:25,901:INFO:Epoch 33: Test Accuracy: 85.32%
+2024-03-09 09:47:11,888:INFO:Epoch 34: Test Accuracy: 86.21%
+2024-03-09 09:47:57,133:INFO:Epoch 35: Test Accuracy: 85.57%
+2024-03-09 09:48:42,976:INFO:Epoch 36: Test Accuracy: 84.2%
+2024-03-09 09:49:27,971:INFO:Epoch 37: Test Accuracy: 80.78%
+2024-03-09 09:50:13,209:INFO:Epoch 38: Test Accuracy: 83.52%
+2024-03-09 09:50:58,192:INFO:Epoch 39: Test Accuracy: 81.7%
+2024-03-09 09:51:42,656:INFO:Epoch 40: Test Accuracy: 81.34%
+2024-03-09 09:52:27,055:INFO:Epoch 41: Test Accuracy: 81.3%
+2024-03-09 09:53:09,624:INFO:Epoch 42: Test Accuracy: 81.02%
+2024-03-09 09:56:21,815:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 09:56:24,182:INFO:Start Training with: sym-0.4
+2024-03-09 09:56:28,922:INFO:Epoch 0: Test Accuracy: 9.84%
+2024-03-09 09:56:30,676:INFO:Model saved with accuracy: 9.84%
+2024-03-09 09:57:12,912:INFO:Epoch 1: Test Accuracy: 86.12%
+2024-03-09 09:57:14,429:INFO:Model saved with accuracy: 86.12%
+2024-03-09 09:57:55,813:INFO:Epoch 2: Test Accuracy: 88.38%
+2024-03-09 09:57:57,806:INFO:Model saved with accuracy: 88.38%
+2024-03-09 09:58:38,086:INFO:Epoch 3: Test Accuracy: 90.07%
+2024-03-09 09:58:40,464:INFO:Model saved with accuracy: 90.07%
+2024-03-09 09:59:21,655:INFO:Epoch 4: Test Accuracy: 90.54%
+2024-03-09 09:59:23,443:INFO:Model saved with accuracy: 90.54%
+2024-03-09 10:00:04,507:INFO:Epoch 5: Test Accuracy: 91.11%
+2024-03-09 10:00:06,869:INFO:Model saved with accuracy: 91.11%
+2024-03-09 10:00:47,817:INFO:Epoch 6: Test Accuracy: 90.52%
+2024-03-09 10:01:29,475:INFO:Epoch 7: Test Accuracy: 10.0%
+2024-03-09 10:04:30,436:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 10:04:32,778:INFO:Start Training with: sym-0.4
+2024-03-09 10:04:37,292:INFO:Epoch 0: Test Accuracy: 8.98%
+2024-03-09 10:04:38,739:INFO:Model saved with accuracy: 8.98%
+2024-03-09 10:05:20,150:INFO:Epoch 1: Test Accuracy: 87.52%
+2024-03-09 10:05:20,729:INFO:Model saved with accuracy: 87.52%
+2024-03-09 10:06:02,096:INFO:Epoch 2: Test Accuracy: 88.25%
+2024-03-09 10:06:04,621:INFO:Model saved with accuracy: 88.25%
+2024-03-09 10:06:45,882:INFO:Epoch 3: Test Accuracy: 88.77%
+2024-03-09 10:06:48,229:INFO:Model saved with accuracy: 88.77%
+2024-03-09 10:07:28,468:INFO:Epoch 4: Test Accuracy: 90.62%
+2024-03-09 10:07:29,960:INFO:Model saved with accuracy: 90.62%
+2024-03-09 10:08:11,641:INFO:Epoch 5: Test Accuracy: 91.4%
+2024-03-09 10:08:12,427:INFO:Model saved with accuracy: 91.40%
+2024-03-09 10:08:53,251:INFO:Epoch 6: Test Accuracy: 89.65%
+2024-03-09 10:31:31,018:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-09 10:31:33,180:INFO:Start Training with: sym-0.4
+2024-03-09 10:31:37,253:INFO:Epoch 0: Test Accuracy: 12.57%
+2024-03-09 10:31:39,109:INFO:Model saved with accuracy: 12.57%
+2024-03-09 10:32:14,157:INFO:Epoch 1: Test Accuracy: 84.98%
+2024-03-09 10:32:15,922:INFO:Model saved with accuracy: 84.98%
+2024-03-09 10:32:48,934:INFO:Epoch 2: Test Accuracy: 87.92%
+2024-03-09 10:32:51,214:INFO:Model saved with accuracy: 87.92%
+2024-03-09 10:33:24,274:INFO:Epoch 3: Test Accuracy: 88.38%
+2024-03-09 10:33:26,053:INFO:Model saved with accuracy: 88.38%
+2024-03-09 10:33:58,538:INFO:Epoch 4: Test Accuracy: 90.57%
+2024-03-09 10:34:00,641:INFO:Model saved with accuracy: 90.57%
+2024-03-09 10:34:36,386:INFO:Epoch 5: Test Accuracy: 91.07%
+2024-03-09 10:34:38,984:INFO:Model saved with accuracy: 91.07%
+2024-03-09 10:35:14,051:INFO:Epoch 6: Test Accuracy: 91.38%
+2024-03-09 10:35:15,916:INFO:Model saved with accuracy: 91.38%
+2024-03-09 10:35:50,780:INFO:Epoch 7: Test Accuracy: 10.0%
+2024-03-09 10:36:25,568:INFO:Epoch 8: Test Accuracy: 13.55%
+2024-03-09 10:36:59,414:INFO:Epoch 9: Test Accuracy: 20.03%

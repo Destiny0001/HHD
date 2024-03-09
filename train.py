@@ -71,6 +71,8 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             outputs = model(inputs).to(device)
             criterion = nn.BCELoss().to(device)
             outputs,labels = label_refurb(epoch, labels,outputs,is_noise,label_hash_codes,hash_bits,device, iter, True)
+            outputs = outputs.to(device)
+            labels = labels.to(device)
                
             """
             try:
@@ -83,10 +85,25 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             #update_stats_matrix(epoch, outputs, labels, label_hash_codes, stats_matrix)
             #update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance_matrix, epoch)
             #update_noise_matrix(outputs, labels, is_noise, label_hash_codes, noise_matrix, epoch)
+                    # regularization
+            label_hash_codes=label_hash_codes.to(device)
+            logits =(outputs.unsqueeze(1) * label_hash_codes.unsqueeze(0)).sum(dim=2)
+            logits =logits/(0.0625*hash_bits)
+            prior = torch.ones(10)/10
+            prior = prior.cuda()        
+            pred_mean = torch.softmax(logits, dim=1).mean(0)
+            penalty = torch.sum(prior*torch.log(prior/pred_mean))
+            
             cat_codes = label_hash_codes[labels.cpu()].to(device) 
             center_loss = criterion(0.5*(outputs+1), 0.5*(cat_codes+1))
             Q_loss = torch.mean((torch.abs(outputs)-1.0)**2)
-            loss = center_loss + lambda1*Q_loss
+            loss = center_loss + lambda1*Q_loss+0.1*penalty
+            if(iter%100==0):
+                print("logits:",logits)
+                print("center_loss:",center_loss)
+                print("Q_loss:",lambda1*Q_loss)
+                print("pred_mean:",pred_mean)
+                print("penalty",penalty)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
@@ -186,4 +203,4 @@ def test_hashbits():
 
 if __name__ == '__main__':
     #test_cifarn("random_label1",epoch = 50)
-    test_nr("asym",0.4,100)
+    test_nr("sym",0.4,100)
