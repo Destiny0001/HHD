@@ -1,5 +1,5 @@
 2024-03-10 19:03:43,915:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
-2024-03-10 19:03:46,007:INFO:Start Training with: resnet34hash
+2024-03-10 19:03:46,007:INFO:Started Training with: resnet34hash
 2024-03-10 19:03:48,466:INFO:Epoch 0: Test Accuracy: 10.89%
 2024-03-10 19:03:50,332:INFO:Model saved with accuracy: 10.89%
 2024-03-10 19:04:26,234:INFO:Epoch 1: Test Accuracy: 87.87%
@@ -109,7 +109,7 @@
 2024-03-10 19:53:31,253:INFO:Epoch 98: Test Accuracy: 79.04%
 2024-03-10 19:54:00,037:INFO:Epoch 99: Test Accuracy: 75.14%
 2024-03-10 19:54:26,236:INFO:Finished Training with: sym-0.4
-2024-03-06 11:45:39,522 - INFO - Started training with: resnet34base
+2024-03-06 11:45:39,522 - INFO - Started Training with: resnet34base
 2024-03-06 11:45:39,522 - INFO - Training Configuration: batch_size=256, epochs=100, lr=0.01, weight_decay=0.0001, model_name=resnet34base, device=cuda
 2024-03-06 11:45:51,486 - INFO - Epoch 1, Loss: 2.2043452749446946
 2024-03-06 11:45:54,654 - INFO - Model saved with accuracy: 34.90%

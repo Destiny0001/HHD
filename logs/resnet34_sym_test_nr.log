@@ -6364,3 +6364,26 @@
 2024-03-10 19:53:31,253:INFO:Epoch 98: Test Accuracy: 79.04%
 2024-03-10 19:54:00,037:INFO:Epoch 99: Test Accuracy: 75.14%
 2024-03-10 19:54:26,236:INFO:Finished Training with: sym-0.4
+2024-03-10 20:16:08,490:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.01, weight_decay=1e-05, lambda1=0.01, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-10 20:16:10,483:INFO:Start Training with: sym-0.4
+2024-03-10 20:16:12,796:INFO:Epoch 0: Test Accuracy: 9.86%
+2024-03-10 20:16:14,692:INFO:Model saved with accuracy: 9.86%
+2024-03-10 20:16:46,718:INFO:Epoch 1: Test Accuracy: 88.05%
+2024-03-10 20:16:50,881:INFO:Model saved with accuracy: 88.05%
+2024-03-10 20:17:23,677:INFO:Epoch 2: Test Accuracy: 89.37%
+2024-03-10 20:17:25,791:INFO:Model saved with accuracy: 89.37%
+2024-03-10 20:17:58,246:INFO:Epoch 3: Test Accuracy: 90.08%
+2024-03-10 20:17:59,854:INFO:Model saved with accuracy: 90.08%
+2024-03-10 20:18:33,063:INFO:Epoch 4: Test Accuracy: 90.52%
+2024-03-10 20:18:35,221:INFO:Model saved with accuracy: 90.52%
+2024-03-10 20:19:08,390:INFO:Epoch 5: Test Accuracy: 90.69%
+2024-03-10 20:19:10,403:INFO:Model saved with accuracy: 90.69%
+2024-03-10 20:19:43,261:INFO:Epoch 6: Test Accuracy: 91.49%
+2024-03-10 20:19:44,575:INFO:Model saved with accuracy: 91.49%
+2024-03-10 20:20:17,035:INFO:Epoch 7: Test Accuracy: 90.84%
+2024-03-10 20:20:49,967:INFO:Epoch 8: Test Accuracy: 91.51%
+2024-03-10 20:20:50,870:INFO:Model saved with accuracy: 91.51%
+2024-03-10 20:21:23,830:INFO:Epoch 9: Test Accuracy: 92.24%
+2024-03-10 20:21:25,702:INFO:Model saved with accuracy: 92.24%
+2024-03-10 20:21:58,351:INFO:Epoch 10: Test Accuracy: 92.78%
+2024-03-10 20:21:59,800:INFO:Model saved with accuracy: 92.78%

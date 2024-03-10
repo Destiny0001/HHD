@@ -71,7 +71,7 @@ def train_model(model, trainloader, testloader,label_hash_codes, epochs=epochs, 
             outputs = model(inputs).to(device)
             criterion = nn.BCELoss().to(device)
             
-            outputs,labels,is_noise = label_refurb(epoch, labels,outputs,is_noise,label_hash_codes,hash_bits,device, iter, True)
+            outputs,labels,is_noise = label_refurb(epoch, labels,outputs,is_noise,label_hash_codes,hash_bits,device, iter, False)
             
             label_hash_codes=label_hash_codes.to(device)
             outputs = outputs.to(device)
