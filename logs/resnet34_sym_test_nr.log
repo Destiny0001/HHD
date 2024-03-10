@@ -5378,3 +5378,7 @@
 2024-03-09 10:35:50,780:INFO:Epoch 7: Test Accuracy: 10.0%
 2024-03-09 10:36:25,568:INFO:Epoch 8: Test Accuracy: 13.55%
 2024-03-09 10:36:59,414:INFO:Epoch 9: Test Accuracy: 20.03%
+2024-03-10 09:58:00,344:INFO:Training Configuration: batch_size=128, epochs=100, lr=0.02, weight_decay=1e-05, lambda1=0.02, hash_bits=64, model_name=resnet34, device=cuda
+2024-03-10 09:58:02,291:INFO:Start Training with: sym-0.4
+2024-03-10 09:58:05,273:INFO:Epoch 0: Test Accuracy: 8.34%
+2024-03-10 09:58:07,366:INFO:Model saved with accuracy: 8.34%

@@ -2,12 +2,6 @@ import torch
 from utils.cac import get_predicted_cate
 import numpy as np
 
-def hdot(a,b): #返回相同位的个数
-    # 先进行元素级乘法
-    elementwise_product = torch.mul(a, b)
-    # 然后对每一行求和，以得到每一行的点积结果
-    return torch.sum(elementwise_product, dim=1)
-
 def label_refurb(epoch, labels, outputs,is_noise,  label_hash_codes, hashbits, device,iter,turn = True):
     
     K =1/2*hashbits
@@ -19,17 +13,27 @@ def label_refurb(epoch, labels, outputs,is_noise,  label_hash_codes, hashbits, d
     predis = torch.sum(simcodes!=precodes,dim=1).cuda()
     labeldis = torch.sum(simcodes!=labelcodes,dim=1).cuda()
     is_noise = is_noise.to(device)
-    #assert (is_noise == (labeldis >= predis)).all()
-    #assert ((not is_noise) == (labeldis <= predis)).all()
 
     if epoch<6:
         noise_samples_mask = (labeldis!=labeldis)
     elif epoch<30:
-        #noise_samples_mask = (labeldis-predis>0.5*K)&(labeldis>=K)
-        noise_samples_mask = (labeldis-predis>=0.5*K)
+        noise_samples_mask = (labeldis-predis>0.5*K)&(labeldis>=K)
+        #noise_samples_mask = (labeldis-predis>=0.5*K)
         
     elif epoch<100:
         noise_samples_mask = (labeldis-predis>0.6*K)& (labeldis>K) 
+
+    
+
+     # 新增代码：随机选择一半噪声样本
+    noise_indices = torch.where(noise_samples_mask)[0]  # 获取噪声样本的索引
+    random_perm = torch.randperm(noise_indices.size(0), device=device)  # 生成随机排列
+    select_half = noise_indices[random_perm[:noise_indices.size(0) // 2]]  # 选择一半
+    new_noise_samples_mask = torch.zeros_like(noise_samples_mask)
+    new_noise_samples_mask[select_half] = True  # 更新噪声样本掩码
+    noise_samples_mask = new_noise_samples_mask
+
+
     
     #noise_samples_mask = is_noise&noise_samples_mask
     clean_samples_mask = ~noise_samples_mask.cuda()
