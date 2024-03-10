@@ -53,7 +53,6 @@ def model_size(model, input_size=(1, 3, 224, 224), bits=32):
     print(f"模型总参数数: {params}, 大小大约为 {model_size} MB")
 
 def update_stats_matrix(epoch, outputs, labels, label_hash_codes, stats_matrix):
-    labels.cuda()
     predicted_hash_codes = torch.sign(outputs).cuda()
     _, predicted_labels = predicted_hash_codes.mm(label_hash_codes.t().cuda()).max(1)
 
@@ -65,7 +64,6 @@ def update_stats_matrix(epoch, outputs, labels, label_hash_codes, stats_matrix):
             stats_matrix[epoch, label] += diff
 
 def update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance_matrix, epoch):
-    labels.cuda()
     predicted_hash_codes = torch.sign(outputs).cuda()
     for i, label in enumerate(labels):
         distance = (predicted_hash_codes[i] != label_hash_codes.cuda()[label]).float().sum().item()
@@ -75,7 +73,6 @@ def update_distance_matrix(outputs, labels, is_noise, label_hash_codes, distance
             distance_matrix[epoch, int(distance), 0] += 1
 
 def update_noise_matrix(outputs, labels, is_noise, label_hash_codes, noise_matrix, epoch):
-    labels.cuda()
     simcodes = torch.sign(outputs).cuda()
     _, predicted_labels = simcodes.mm(label_hash_codes.t().cuda()).max(1)
     precodes = label_hash_codes.cuda()[predicted_labels.cuda()].cuda()
@@ -85,5 +82,5 @@ def update_noise_matrix(outputs, labels, is_noise, label_hash_codes, noise_matri
             pre_distance = (simcodes[i] != precodes[i]).float().sum().item() 
             noise_matrix[epoch, int(label_distance), 0] += 1
             noise_matrix[epoch, int(pre_distance), 1] += 1
-
-            noise_matrix[epoch,int(label_distance-pre_distance+64),2]+=1
+            noise_matrix[epoch,int(label_distance+pre_distance),2]+=1
+            noise_matrix[epoch,int(label_distance-pre_distance+64),3]+=1
