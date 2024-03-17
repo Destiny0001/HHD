@@ -1,0 +1,202 @@
+Start Training with: HHD 
+2024-03-17 09:59:08,226:INFO:Epoch:1 time:17.18
+2024-03-17 09:59:25,597:INFO:Epoch:2 time:17.37
+2024-03-17 09:59:44,304:INFO:Epoch:3 time:18.71
+2024-03-17 10:00:02,935:INFO:Epoch:4 time:18.63
+2024-03-17 10:00:19,998:INFO:Epoch:5 time:17.06
+2024-03-17 10:00:37,018:INFO:Epoch:6 time:17.02
+2024-03-17 10:00:54,300:INFO:Epoch:7 time:17.28
+2024-03-17 10:01:09,963:INFO:Epoch:8 time:15.66
+2024-03-17 10:01:25,251:INFO:Epoch:9 time:15.29
+2024-03-17 10:01:40,834:INFO:Epoch:10 time:15.58
+2024-03-17 10:01:55,985:INFO:Epoch:11 time:15.15
+2024-03-17 10:02:11,747:INFO:Epoch:12 time:15.76
+2024-03-17 10:02:27,385:INFO:Epoch:13 time:15.64
+2024-03-17 10:02:43,010:INFO:Epoch:14 time:15.63
+2024-03-17 10:02:58,202:INFO:Epoch:15 time:15.19
+2024-03-17 10:03:13,637:INFO:Epoch:16 time:15.44
+2024-03-17 10:03:29,089:INFO:Epoch:17 time:15.45
+2024-03-17 10:03:44,292:INFO:Epoch:18 time:15.20
+2024-03-17 10:03:59,624:INFO:Epoch:19 time:15.33
+2024-03-17 10:04:14,888:INFO:Epoch:20 time:15.26
+2024-03-17 10:04:31,942:INFO:Epoch:21 time:17.05
+2024-03-17 10:04:47,338:INFO:Epoch:22 time:15.40
+2024-03-17 10:05:04,967:INFO:Epoch:23 time:17.63
+2024-03-17 10:05:23,050:INFO:Epoch:24 time:18.08
+2024-03-17 10:05:38,169:INFO:Epoch:25 time:15.12
+2024-03-17 10:05:53,949:INFO:Epoch:26 time:15.78
+2024-03-17 10:06:09,302:INFO:Epoch:27 time:15.35
+2024-03-17 10:06:24,701:INFO:Epoch:28 time:15.40
+2024-03-17 10:06:39,793:INFO:Epoch:29 time:15.09
+2024-03-17 10:06:55,057:INFO:Epoch:30 time:15.26
+2024-03-17 10:07:11,049:INFO:Epoch:31 time:15.99
+2024-03-17 10:07:26,436:INFO:Epoch:32 time:15.39
+2024-03-17 10:07:42,198:INFO:Epoch:33 time:15.76
+2024-03-17 10:07:59,483:INFO:Epoch:34 time:17.28
+2024-03-17 10:08:16,342:INFO:Epoch:35 time:16.86
+2024-03-17 10:08:33,753:INFO:Epoch:36 time:17.41
+2024-03-17 10:08:50,940:INFO:Epoch:37 time:17.19
+2024-03-17 10:09:06,391:INFO:Epoch:38 time:15.45
+2024-03-17 10:09:24,125:INFO:Epoch:39 time:17.73
+2024-03-17 10:09:39,601:INFO:Epoch:40 time:15.48
+2024-03-17 10:09:56,616:INFO:Epoch:41 time:17.01
+2024-03-17 10:10:14,816:INFO:Epoch:42 time:18.20
+2024-03-17 10:10:30,294:INFO:Epoch:43 time:15.48
+2024-03-17 10:10:47,383:INFO:Epoch:44 time:17.09
+2024-03-17 10:11:02,947:INFO:Epoch:45 time:15.56
+2024-03-17 10:11:18,521:INFO:Epoch:46 time:15.57
+2024-03-17 10:11:33,814:INFO:Epoch:47 time:15.29
+2024-03-17 10:11:49,274:INFO:Epoch:48 time:15.46
+2024-03-17 10:12:04,909:INFO:Epoch:49 time:15.64
+2024-03-17 10:12:20,434:INFO:Epoch:50 time:15.53
+2024-03-17 10:12:36,049:INFO:Epoch:51 time:15.61
+2024-03-17 10:12:53,619:INFO:Epoch:52 time:17.57
+2024-03-17 10:13:11,045:INFO:Epoch:53 time:17.43
+2024-03-17 10:13:26,424:INFO:Epoch:54 time:15.38
+2024-03-17 10:13:43,818:INFO:Epoch:55 time:17.39
+2024-03-17 10:13:59,162:INFO:Epoch:56 time:15.34
+2024-03-17 10:14:14,242:INFO:Epoch:57 time:15.08
+2024-03-17 10:14:31,566:INFO:Epoch:58 time:17.32
+2024-03-17 10:14:47,224:INFO:Epoch:59 time:15.66
+2024-03-17 10:15:02,500:INFO:Epoch:60 time:15.28
+2024-03-17 10:15:18,298:INFO:Epoch:61 time:15.80
+2024-03-17 10:15:33,570:INFO:Epoch:62 time:15.27
+2024-03-17 10:15:50,673:INFO:Epoch:63 time:17.10
+2024-03-17 10:16:06,285:INFO:Epoch:64 time:15.61
+2024-03-17 10:16:21,632:INFO:Epoch:65 time:15.35
+2024-03-17 10:16:37,103:INFO:Epoch:66 time:15.47
+2024-03-17 10:16:54,194:INFO:Epoch:67 time:17.09
+2024-03-17 10:17:09,787:INFO:Epoch:68 time:15.59
+2024-03-17 10:17:24,939:INFO:Epoch:69 time:15.15
+2024-03-17 10:17:40,423:INFO:Epoch:70 time:15.48
+2024-03-17 10:17:55,857:INFO:Epoch:71 time:15.43
+2024-03-17 10:18:11,394:INFO:Epoch:72 time:15.54
+2024-03-17 10:18:27,148:INFO:Epoch:73 time:15.75
+2024-03-17 10:18:42,639:INFO:Epoch:74 time:15.49
+2024-03-17 10:18:58,281:INFO:Epoch:75 time:15.64
+2024-03-17 10:19:14,025:INFO:Epoch:76 time:15.74
+2024-03-17 10:19:29,549:INFO:Epoch:77 time:15.52
+2024-03-17 10:19:45,041:INFO:Epoch:78 time:15.49
+2024-03-17 10:20:00,371:INFO:Epoch:79 time:15.33
+2024-03-17 10:20:16,061:INFO:Epoch:80 time:15.69
+2024-03-17 10:20:31,496:INFO:Epoch:81 time:15.43
+2024-03-17 10:20:47,046:INFO:Epoch:82 time:15.55
+2024-03-17 10:21:03,023:INFO:Epoch:83 time:15.98
+2024-03-17 10:21:18,788:INFO:Epoch:84 time:15.76
+2024-03-17 10:21:33,790:INFO:Epoch:85 time:15.00
+2024-03-17 10:21:49,057:INFO:Epoch:86 time:15.27
+2024-03-17 10:22:04,452:INFO:Epoch:87 time:15.40
+2024-03-17 10:22:19,607:INFO:Epoch:88 time:15.16
+2024-03-17 10:22:34,880:INFO:Epoch:89 time:15.27
+2024-03-17 10:22:50,096:INFO:Epoch:90 time:15.22
+2024-03-17 10:23:07,161:INFO:Epoch:91 time:17.06
+2024-03-17 10:23:22,319:INFO:Epoch:92 time:15.16
+2024-03-17 10:23:37,888:INFO:Epoch:93 time:15.57
+2024-03-17 10:23:52,902:INFO:Epoch:94 time:15.01
+2024-03-17 10:24:08,298:INFO:Epoch:95 time:15.40
+2024-03-17 10:24:23,599:INFO:Epoch:96 time:15.30
+2024-03-17 10:24:38,774:INFO:Epoch:97 time:15.18
+2024-03-17 10:24:54,005:INFO:Epoch:98 time:15.23
+2024-03-17 10:25:09,267:INFO:Epoch:99 time:15.26
+Start Training with: DivideMix
+Epoch 0 - Ave Memory Usage: 0.18 GBEpoch 0 - Peak Memory Usage: 4.98 GBEpoch:1 time:15.50
+Epoch 1 - Ave Memory Usage: 0.27 GBEpoch 1 - Peak Memory Usage: 4.98 GBEpoch:2 time:14.77
+Epoch 2 - Ave Memory Usage: 0.27 GBEpoch 2 - Peak Memory Usage: 4.98 GBEpoch:3 time:14.76
+Epoch 3 - Ave Memory Usage: 0.27 GBEpoch 3 - Peak Memory Usage: 4.98 GBEpoch:4 time:15.15
+Epoch 4 - Ave Memory Usage: 0.27 GBEpoch 4 - Peak Memory Usage: 4.98 GBEpoch:5 time:15.17
+Epoch 5 - Ave Memory Usage: 0.27 GBEpoch 5 - Peak Memory Usage: 4.98 GBEpoch:6 time:15.64
+Epoch 6 - Ave Memory Usage: 0.27 GBEpoch 6 - Peak Memory Usage: 4.98 GBEpoch:7 time:15.03
+Epoch 7 - Ave Memory Usage: 0.27 GBEpoch 7 - Peak Memory Usage: 4.98 GBEpoch:8 time:15.47
+Epoch 8 - Ave Memory Usage: 0.27 GBEpoch 8 - Peak Memory Usage: 4.98 GBEpoch:9 time:15.86
+Epoch 9 - Ave Memory Usage: 0.27 GBEpoch 9 - Peak Memory Usage: 4.98 GBEpoch:10 time:15.69
+Epoch 10 - Ave Memory Usage: 0.27 GBEpoch 10 - Peak Memory Usage: 7.85 GBEpoch:11 time:33.21
+Epoch 11 - Ave Memory Usage: 0.27 GBEpoch 11 - Peak Memory Usage: 7.85 GBEpoch:12 time:44.86
+Epoch 12 - Ave Memory Usage: 0.27 GBEpoch 12 - Peak Memory Usage: 7.85 GBEpoch:13 time:51.96
+Epoch 13 - Ave Memory Usage: 0.27 GBEpoch 13 - Peak Memory Usage: 7.85 GBEpoch:14 time:58.33
+Epoch 14 - Ave Memory Usage: 0.27 GBEpoch 14 - Peak Memory Usage: 7.85 GBEpoch:15 time:59.91
+Epoch 15 - Ave Memory Usage: 0.27 GBEpoch 15 - Peak Memory Usage: 7.85 GBEpoch:16 time:61.80
+Epoch 16 - Ave Memory Usage: 0.27 GBEpoch 16 - Peak Memory Usage: 7.85 GBEpoch:17 time:64.89
+Epoch 17 - Ave Memory Usage: 0.27 GBEpoch 17 - Peak Memory Usage: 7.85 GBEpoch:18 time:61.10
+Epoch 18 - Ave Memory Usage: 0.27 GBEpoch 18 - Peak Memory Usage: 7.85 GBEpoch:19 time:61.41
+Epoch 19 - Ave Memory Usage: 0.27 GBEpoch 19 - Peak Memory Usage: 7.85 GBEpoch:20 time:61.98
+Epoch 20 - Ave Memory Usage: 0.27 GBEpoch 20 - Peak Memory Usage: 7.85 GBEpoch:21 time:57.86
+Epoch 21 - Ave Memory Usage: 0.27 GBEpoch 21 - Peak Memory Usage: 7.85 GBEpoch:22 time:57.86
+Epoch 22 - Ave Memory Usage: 0.27 GBEpoch 22 - Peak Memory Usage: 7.85 GBEpoch:23 time:61.15
+Epoch 23 - Ave Memory Usage: 0.27 GBEpoch 23 - Peak Memory Usage: 7.85 GBEpoch:24 time:54.37
+Epoch 24 - Ave Memory Usage: 0.27 GBEpoch 24 - Peak Memory Usage: 7.85 GBEpoch:25 time:49.70
+Epoch 25 - Ave Memory Usage: 0.27 GBEpoch 25 - Peak Memory Usage: 7.85 GBEpoch:26 time:47.37
+Epoch 26 - Ave Memory Usage: 0.27 GBEpoch 26 - Peak Memory Usage: 7.85 GBEpoch:27 time:44.44
+Epoch 27 - Ave Memory Usage: 0.27 GBEpoch 27 - Peak Memory Usage: 7.85 GBEpoch:28 time:45.26
+Epoch 28 - Ave Memory Usage: 0.27 GBEpoch 28 - Peak Memory Usage: 7.85 GBEpoch:29 time:43.81
+Epoch 29 - Ave Memory Usage: 0.27 GBEpoch 29 - Peak Memory Usage: 7.85 GBEpoch:30 time:44.25
+Epoch 30 - Ave Memory Usage: 0.27 GBEpoch 30 - Peak Memory Usage: 7.85 GBEpoch:31 time:44.52
+Epoch 31 - Ave Memory Usage: 0.27 GBEpoch 31 - Peak Memory Usage: 7.85 GBEpoch:32 time:44.11
+Epoch 32 - Ave Memory Usage: 0.27 GBEpoch 32 - Peak Memory Usage: 7.85 GBEpoch:33 time:43.01
+Epoch 33 - Ave Memory Usage: 0.27 GBEpoch 33 - Peak Memory Usage: 7.85 GBEpoch:34 time:42.90
+Epoch 34 - Ave Memory Usage: 0.27 GBEpoch 34 - Peak Memory Usage: 7.85 GBEpoch:35 time:42.50
+Epoch 35 - Ave Memory Usage: 0.27 GBEpoch 35 - Peak Memory Usage: 7.85 GBEpoch:36 time:42.41
+Epoch 36 - Ave Memory Usage: 0.27 GBEpoch 36 - Peak Memory Usage: 7.85 GBEpoch:37 time:41.25
+Epoch 37 - Ave Memory Usage: 0.27 GBEpoch 37 - Peak Memory Usage: 7.85 GBEpoch:38 time:42.01
+Epoch 38 - Ave Memory Usage: 0.27 GBEpoch 38 - Peak Memory Usage: 7.85 GBEpoch:39 time:41.59
+Epoch 39 - Ave Memory Usage: 0.27 GBEpoch 39 - Peak Memory Usage: 7.85 GBEpoch:40 time:42.02
+Epoch 40 - Ave Memory Usage: 0.27 GBEpoch 40 - Peak Memory Usage: 7.85 GBEpoch:41 time:42.85
+Epoch 41 - Ave Memory Usage: 0.27 GBEpoch 41 - Peak Memory Usage: 7.85 GBEpoch:42 time:42.62
+Epoch 42 - Ave Memory Usage: 0.27 GBEpoch 42 - Peak Memory Usage: 7.85 GBEpoch:43 time:40.83
+Epoch 43 - Ave Memory Usage: 0.27 GBEpoch 43 - Peak Memory Usage: 7.85 GBEpoch:44 time:40.29
+Epoch 44 - Ave Memory Usage: 0.27 GBEpoch 44 - Peak Memory Usage: 7.85 GBEpoch:45 time:42.64
+Epoch 45 - Ave Memory Usage: 0.27 GBEpoch 45 - Peak Memory Usage: 7.85 GBEpoch:46 time:40.98
+Epoch 46 - Ave Memory Usage: 0.27 GBEpoch 46 - Peak Memory Usage: 7.85 GBEpoch:47 time:41.47
+Epoch 47 - Ave Memory Usage: 0.27 GBEpoch 47 - Peak Memory Usage: 7.85 GBEpoch:48 time:41.74
+Epoch 48 - Ave Memory Usage: 0.27 GBEpoch 48 - Peak Memory Usage: 7.85 GBEpoch:49 time:42.60
+Epoch 49 - Ave Memory Usage: 0.27 GBEpoch 49 - Peak Memory Usage: 7.85 GBEpoch:50 time:41.89
+Epoch 50 - Ave Memory Usage: 0.27 GBEpoch 50 - Peak Memory Usage: 7.85 GBEpoch:51 time:41.78
+Epoch 51 - Ave Memory Usage: 0.27 GBEpoch 51 - Peak Memory Usage: 7.85 GBEpoch:52 time:41.52
+Epoch 52 - Ave Memory Usage: 0.27 GBEpoch 52 - Peak Memory Usage: 7.85 GBEpoch:53 time:42.21
+Epoch 53 - Ave Memory Usage: 0.27 GBEpoch 53 - Peak Memory Usage: 7.85 GBEpoch:54 time:41.52
+Epoch 54 - Ave Memory Usage: 0.27 GBEpoch 54 - Peak Memory Usage: 7.85 GBEpoch:55 time:40.98
+Epoch 55 - Ave Memory Usage: 0.27 GBEpoch 55 - Peak Memory Usage: 7.85 GBEpoch:56 time:41.81
+Epoch 56 - Ave Memory Usage: 0.27 GBEpoch 56 - Peak Memory Usage: 7.85 GBEpoch:57 time:40.64
+Epoch 57 - Ave Memory Usage: 0.27 GBEpoch 57 - Peak Memory Usage: 7.85 GBEpoch:58 time:40.91
+Epoch 58 - Ave Memory Usage: 0.27 GBEpoch 58 - Peak Memory Usage: 7.85 GBEpoch:59 time:40.92
+Epoch 59 - Ave Memory Usage: 0.27 GBEpoch 59 - Peak Memory Usage: 7.85 GBEpoch:60 time:38.95
+Epoch 60 - Ave Memory Usage: 0.27 GBEpoch 60 - Peak Memory Usage: 7.85 GBEpoch:61 time:37.96
+Epoch 61 - Ave Memory Usage: 0.27 GBEpoch 61 - Peak Memory Usage: 7.85 GBEpoch:62 time:37.55
+Epoch 62 - Ave Memory Usage: 0.27 GBEpoch 62 - Peak Memory Usage: 7.85 GBEpoch:63 time:36.61
+Epoch 63 - Ave Memory Usage: 0.27 GBEpoch 63 - Peak Memory Usage: 7.85 GBEpoch:64 time:37.49
+Epoch 64 - Ave Memory Usage: 0.27 GBEpoch 64 - Peak Memory Usage: 7.85 GBEpoch:65 time:42.40
+Epoch 65 - Ave Memory Usage: 0.27 GBEpoch 65 - Peak Memory Usage: 7.85 GBEpoch:66 time:43.74
+Epoch 66 - Ave Memory Usage: 0.27 GBEpoch 66 - Peak Memory Usage: 7.85 GBEpoch:67 time:42.47
+Epoch 67 - Ave Memory Usage: 0.27 GBEpoch 67 - Peak Memory Usage: 7.85 GBEpoch:68 time:43.26
+Epoch 68 - Ave Memory Usage: 0.27 GBEpoch 68 - Peak Memory Usage: 7.85 GBEpoch:69 time:42.12
+Epoch 69 - Ave Memory Usage: 0.27 GBEpoch 69 - Peak Memory Usage: 7.85 GBEpoch:70 time:41.81
+Epoch 70 - Ave Memory Usage: 0.27 GBEpoch 70 - Peak Memory Usage: 7.85 GBEpoch:71 time:41.73
+Epoch 71 - Ave Memory Usage: 0.27 GBEpoch 71 - Peak Memory Usage: 7.85 GBEpoch:72 time:42.07
+Epoch 72 - Ave Memory Usage: 0.27 GBEpoch 72 - Peak Memory Usage: 7.85 GBEpoch:73 time:43.06
+Epoch 73 - Ave Memory Usage: 0.27 GBEpoch 73 - Peak Memory Usage: 7.85 GBEpoch:74 time:41.79
+Epoch 74 - Ave Memory Usage: 0.27 GBEpoch 74 - Peak Memory Usage: 7.85 GBEpoch:75 time:41.71
+Epoch 75 - Ave Memory Usage: 0.27 GBEpoch 75 - Peak Memory Usage: 7.85 GBEpoch:76 time:41.43
+Epoch 76 - Ave Memory Usage: 0.27 GBEpoch 76 - Peak Memory Usage: 7.85 GBEpoch:77 time:42.57
+Epoch 77 - Ave Memory Usage: 0.27 GBEpoch 77 - Peak Memory Usage: 7.85 GBEpoch:78 time:42.97
+Epoch 78 - Ave Memory Usage: 0.27 GBEpoch 78 - Peak Memory Usage: 7.85 GBEpoch:79 time:34.59
+Epoch 79 - Ave Memory Usage: 0.27 GBEpoch 79 - Peak Memory Usage: 7.85 GBEpoch:80 time:35.48
+Epoch 80 - Ave Memory Usage: 0.27 GBEpoch 80 - Peak Memory Usage: 7.85 GBEpoch:81 time:35.46
+Epoch 81 - Ave Memory Usage: 0.27 GBEpoch 81 - Peak Memory Usage: 7.85 GBEpoch:82 time:35.50
+Epoch 82 - Ave Memory Usage: 0.27 GBEpoch 82 - Peak Memory Usage: 7.85 GBEpoch:83 time:35.89
+Epoch 83 - Ave Memory Usage: 0.27 GBEpoch 83 - Peak Memory Usage: 7.85 GBEpoch:84 time:40.33
+Epoch 84 - Ave Memory Usage: 0.27 GBEpoch 84 - Peak Memory Usage: 7.85 GBEpoch:85 time:43.14
+Epoch 85 - Ave Memory Usage: 0.27 GBEpoch 85 - Peak Memory Usage: 7.85 GBEpoch:86 time:44.18
+Epoch 86 - Ave Memory Usage: 0.27 GBEpoch 86 - Peak Memory Usage: 7.85 GBEpoch:87 time:42.13
+Epoch 87 - Ave Memory Usage: 0.27 GBEpoch 87 - Peak Memory Usage: 7.85 GBEpoch:88 time:43.50
+Epoch 88 - Ave Memory Usage: 0.27 GBEpoch 88 - Peak Memory Usage: 7.85 GBEpoch:89 time:43.00
+Epoch 89 - Ave Memory Usage: 0.27 GBEpoch 89 - Peak Memory Usage: 7.85 GBEpoch:90 time:42.90
+Epoch 90 - Ave Memory Usage: 0.27 GBEpoch 90 - Peak Memory Usage: 7.85 GBEpoch:91 time:43.56
+Epoch 91 - Ave Memory Usage: 0.27 GBEpoch 91 - Peak Memory Usage: 7.85 GBEpoch:92 time:43.51
+Epoch 92 - Ave Memory Usage: 0.27 GBEpoch 92 - Peak Memory Usage: 7.85 GBEpoch:93 time:43.15
+Epoch 93 - Ave Memory Usage: 0.27 GBEpoch 93 - Peak Memory Usage: 7.85 GBEpoch:94 time:43.13
+Epoch 94 - Ave Memory Usage: 0.27 GBEpoch 94 - Peak Memory Usage: 7.85 GBEpoch:95 time:42.91
+Epoch 95 - Ave Memory Usage: 0.27 GBEpoch 95 - Peak Memory Usage: 7.85 GBEpoch:96 time:42.94
+Epoch 96 - Ave Memory Usage: 0.27 GBEpoch 96 - Peak Memory Usage: 7.85 GBEpoch:97 time:42.58
+Epoch 97 - Ave Memory Usage: 0.27 GBEpoch 97 - Peak Memory Usage: 7.85 GBEpoch:98 time:43.11
+Epoch 98 - Ave Memory Usage: 0.27 GBEpoch 98 - Peak Memory Usage: 7.85 GBEpoch:99 time:42.36
+Epoch 99 - Ave Memory Usage: 0.27 GBEpoch 99 - Peak Memory Usage: 7.85 GBEpoch:100 time:43.07
+Epoch 100 - Ave Memory Usage: 0.27 GBEpoch 100 - Peak Memory Usage: 7.85 GBEpoch:101 time:44.28
